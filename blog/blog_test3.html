@@ -3,167 +3,167 @@
 
 <style>
 .quiz-container {
-font-family: Arial, sans-serif !important;
-max-width: 700px !important;
-margin: auto !important;
-background: #fdfdfd !important;
-padding: 25px !important;
-border-radius: 12px !important;
-box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+  font-family: Arial, sans-serif !important;
+  max-width: 700px !important;
+  margin: auto !important;
+  background: #fdfdfd !important;
+  padding: 25px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .quiz-header {
-display: flex !important;
-justify-content: space-between !important;
-margin-bottom: 10px !important;
-font-size: 18px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 10px !important;
+  font-size: 18px !important;
 }
 
 .quiz-timer {
-color: #e74c3c !important;
-font-weight: bold !important;
+  color: #e74c3c !important;
+  font-weight: bold !important;
 }
 
 .quiz-progress-bar {
-height: 10px !important;
-background: #ddd !important;
-border-radius: 5px !important;
-overflow: hidden !important;
-margin-bottom: 20px !important;
+  height: 10px !important;
+  background: #ddd !important;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+  margin-bottom: 20px !important;
 }
 
 .quiz-progress {
-height: 100% !important;
-background: #4caf50 !important;
-transition: width 0.3s !important;
+  height: 100% !important;
+  background: #4caf50 !important;
+  transition: width 0.3s !important;
 }
 
 .quiz-question {
-font-size: 22px !important;
-font-weight: 600 !important;
-margin-bottom: 20px !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
 }
 
 .quiz-options {
-display: grid !important;
-grid-template-columns: 1fr 1fr !important;
-gap: 15px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 15px !important;
 }
 
 .quiz-option-button {
-display: flex !important;
-align-items: center !important;
-gap: 10px !important;
-padding: 12px 14px !important;
-font-size: 16px !important;
-background: #f0f0f0 !important;
-border: 2px solid transparent !important;
-border-radius: 8px !important;
-cursor: pointer !important;
-transition: all 0.2s ease-in-out !important;
-text-align: left !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 14px !important;
+  font-size: 16px !important;
+  background: #f0f0f0 !important;
+  border: 2px solid transparent !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  text-align: left !important;
 }
 
 .quiz-option-button.correct {
-background: #c8f7c5 !important;
-border-color: #27ae60 !important;
-color: #2d7d33 !important;
-font-weight: bold !important;
+  background: #c8f7c5 !important;
+  border-color: #27ae60 !important;
+  color: #2d7d33 !important;
+  font-weight: bold !important;
 }
 
 .quiz-option-button.incorrect {
-background: #f8d7da !important;
-border-color: #c0392b !important;
-color: #c0392b !important;
-font-weight: bold !important;
+  background: #f8d7da !important;
+  border-color: #c0392b !important;
+  color: #c0392b !important;
+  font-weight: bold !important;
 }
 
 .quiz-option-label {
-width: 28px !important;
-height: 28px !important;
-border-radius: 50% !important;
-background: #3498db !important;
-color: white !important;
-font-weight: bold !important;
-display: flex !important;
-align-items: center !important;
-justify-content: center !important;
-flex-shrink: 0 !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 50% !important;
+  background: #3498db !important;
+  color: white !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
 }
 
 .quiz-controls {
-margin-top: 20px !important;
-text-align: center !important;
+  margin-top: 20px !important;
+  text-align: center !important;
 }
 
 .quiz-controls button {
-width: 100% !important;
-padding: 14px !important;
-font-size: 16px !important;
-background: #3498db !important;
-color: white !important;
-border: none !important;
-border-radius: 8px !important;
-cursor: pointer !important;
+  width: 100% !important;
+  padding: 14px !important;
+  font-size: 16px !important;
+  background: #3498db !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
 }
 
 .quiz-result-title {
-font-size: 26px !important;
-font-weight: bold !important;
-margin-bottom: 15px !important;
-text-align: center !important;
+  font-size: 26px !important;
+  font-weight: bold !important;
+  margin-bottom: 15px !important;
+  text-align: center !important;
 }
 
 .quiz-result-description {
-font-size: 17px !important;
-line-height: 1.6 !important;
-white-space: pre-line !important;
-text-align: center !important;
+  font-size: 17px !important;
+  line-height: 1.6 !important;
+  white-space: pre-line !important;
+  text-align: center !important;
 }
 
 .quiz-result-buttons {
-display: flex !important;
-flex-direction: column !important;
-gap: 10px !important;
-margin-top: 25px !important;
-text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin-top: 25px !important;
+  text-align: center !important;
 }
 
 .quiz-result-buttons button {
-padding: 12px !important;
-font-size: 16px !important;
-border: none !important;
-border-radius: 8px !important;
-cursor: pointer !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
 }
 
 .quiz-restart-btn {
-background-color: #2ecc71 !important;
-color: white !important;
+  background-color: #2ecc71 !important;
+  color: white !important;
 }
 
 .quiz-share-btn {
-background-color: #25D366 !important;
-color: white !important;
+  background-color: #25D366 !important;
+  color: white !important;
 }
 
 @media (max-width: 600px) {
-.quiz-options {
-grid-template-columns: 1fr !important;
-}
+  .quiz-options {
+    grid-template-columns: 1fr !important;
+  }
 }
 </style>
 
 <script>
 (function() {
 const quizData = [
-{ question: "🔍 ¿Cuánto tiempo dura un bono de descuento?", options: ["6 meses", "1 año", "2 años", "5 años"], answer: 1 },
-{ question: "📅 ¿Cuál es la duración típica de un bono de ahorro?", options: ["1 mes", "3 meses", "6 meses", "1 año"], answer: 2 },
-{ question: "🏦 ¿Cuál es la duración de un bono de inversión?", options: ["1 año", "3 años", "5 años", "10 años"], answer: 2 },
-{ question: "💸 ¿Qué bono tiene una duración de 3 meses?", options: ["Bono de ahorro", "Bono de inversión", "Bono de descuento", "Bono de fidelización"], answer: 0 },
-{ question: "🕒 ¿Cuál es la duración de un bono de fidelización?", options: ["1 mes", "3 meses", "6 meses", "1 año"], answer: 1 },
-{ question: "🏢 ¿Qué bono tiene una duración de 5 años?", options: ["Bono de ahorro", "Bono de inversión", "Bono de descuento", "Bono de fidelización"], answer: 1 },
-{ question: "📋 ¿Cuál es la duración de un bono de bienvenida?", options: ["6 meses", "1 año", "2 años", "3 años"], answer: 2 }
+{ question: "📉 ¿Qué es la rentabilidad de un bono corporativo?", options: ["La cantidad de dinero que se gana en la bolsa", "El porcentaje de interés que se paga al inversor", "El valor nominal del bono", "La duración del bono"], answer: 1 },
+{ question: "📉 ¿Cómo se calcula la rentabilidad de un bono?", options: ["Dividiendo el precio del bono por su valor nominal", "Multiplicando el interés anual por el precio del bono", "Dividiendo el interés anual por el precio del bono", "Multiplicando el valor nominal por el interés anual"], answer: 2 },
+{ question: "📉 ¿Qué es la rentabilidad de un bono en términos simples?", options: ["El porcentaje de dinero que se devuelve al final del período", "El costo del bono", "El precio del bono en el mercado", "El rendimiento anual que proporciona el bono"], answer: 3 },
+{ question: "📉 ¿Qué factores afectan la rentabilidad de un bono?", options: ["Solo el riesgo del emisor", "El rendimiento del mercado y el riesgo del emisor", "Solo el rendimiento del mercado", "El precio del oro"], answer: 1 },
+{ question: "📉 ¿Qué es un bono corporativo?", options: ["Un préstamo hecho por una empresa a un inversor", "Un préstamo hecho por un inversor a una empresa", "Un préstamo hecho por el gobierno a una empresa", "Un préstamo hecho por un banco a un inversor"], answer: 0 },
+{ question: "📉 ¿Qué significa que un bono tenga una rentabilidad alta?", options: ["Que es más seguro", "Que es más riesgoso", "Que tiene un plazo más corto", "Que su valor nominal es más bajo"], answer: 1 },
+{ question: "📉 ¿Qué es el rendimiento al vencimiento de un bono?", options: ["El interés que se paga al final del período", "El rendimiento total que se obtiene si se mantiene el bono hasta su vencimiento", "El costo del bono", "El valor nominal del bono"], answer: 1 }
 ];
 
 let current = 0;
@@ -248,12 +248,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if(score === 7) message = "¡Perfecto! Dominas 🔍 ¿Qué es la duración de un bono?";
-else if(score >= 5) message = "Buen resultado en 🔍 ¿Qué es la duración de un bono?";
-else if(score === 4) message = "Aceptable, puedes mejorar en 🔍 ¿Qué es la duración de un bono?";
-else message = "Es un buen momento para aprender más sobre 🔍 ¿Qué es la duración de un bono?";
+if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Qué es la rentabilidad de un bono corporativo?";
+else if (score >= 5) message = "Buen resultado en 📉 ¿Qué es la rentabilidad de un bono corporativo?";
+else if (score >= 4) message = "Puedes mejorar en 📉 ¿Qué es la rentabilidad de un bono corporativo?";
+else message = "Te recomendamos estudiar más sobre 📉 ¿Qué es la rentabilidad de un bono corporativo?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de un bono? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la rentabilidad de un bono corporativo en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -281,83 +281,75 @@ renderQuestion();
 </script>
 ```
 <br><br>
-<p>Los bonos son herramientas financieras esenciales que ofrecen diversas ventajas a los usuarios, y una de sus características más importantes es la duración. La duración de un bono puede variar significativamente dependiendo del tipo de bono y del propósito para el cual está diseñado. En este artículo, exploraremos en detalle qué es la duración de un bono, los diferentes tipos de bonos y sus duraciones típicas, y cómo estas duraciones afectan a los usuarios.</p>
+<p>La rentabilidad de un bono corporativo es un concepto fundamental en el ámbito de las finanzas y la inversión. Este artículo te proporcionará una comprensión profunda de qué es la rentabilidad de un bono corporativo, cómo se calcula y los factores que la afectan. Además, exploraremos qué es un bono corporativo y por qué su rentabilidad puede ser un indicador crucial para los inversores.</p>
 
-<h2>Tipos de bonos y sus duraciones</h2>
+<h2>¿Qué es la rentabilidad de un bono corporativo?</h2>
 
-<p>Existen varios tipos de bonos, cada uno con su propia duración específica. Conocer estas duraciones es crucial para tomar decisiones informadas sobre cuál bono es el más adecuado para tus necesidades.</p>
+<p>La rentabilidad de un bono corporativo se refiere al porcentaje de interés que se paga al inversor. Es una medida clave para evaluar el retorno que se puede esperar de la inversión en bonos. Conocer esta métrica es esencial para cualquier inversor que busque maximizar sus ganancias.</p>
 
-<h3>Bono de descuento</h3>
+<p>Para entender mejor este concepto, es útil realizar un <strong>test</strong> o <strong>quiz</strong> que te permita evaluar tus conocimientos. A continuación, desglosaremos los componentes esenciales de la rentabilidad de un bono corporativo.</p>
 
-<p>El bono de descuento es una herramienta popular entre los consumidores. Su duración típica es de 6 meses.</p>
+<h3>Componentes clave de la rentabilidad de un bono corporativo</h3>
 
-<h3>Bono de ahorro</h3>
-
-<p>Los bonos de ahorro son ideales para aquellos que desean acumular fondos durante un período más largo. La duración típica de un bono de ahorro es de 6 meses.</p>
-
-<h3>Bono de inversión</h3>
-
-<p>Los bonos de inversión están diseñados para quienes buscan rendimientos a largo plazo. La duración de un bono de inversión suele ser de 3 años.</p>
-
-<h3>Bono de fidelización</h3>
-
-<p>Los bonos de fidelización son ofrecidos por empresas para recompensar la lealtad de sus clientes. Su duración típica es de 3 meses.</p>
-
-<h3>Bono de bienvenida</h3>
-
-<p>Los bonos de bienvenida son una excelente manera de atraer nuevos clientes. La duración de un bono de bienvenida es generalmente de 2 años.</p>
-
-<h2>Importancia de la duración en los bonos</h2>
-
-<p>La duración del bono es un factor crucial que puede influir en la decisión de un usuario. Aquí hay algunas razones por las que la duración es importante:</p>
-
-<ul>
-  <li>**Planificación financiera**: Conocer la duración del bono te permite planificar tus finanzas a largo plazo.</li>
-  <li>**Beneficios máximos**: Algunos bonos ofrecen mayores beneficios si se utilizan dentro de un período específico.</li>
-  <li>**Comparación de opciones**: Comparar las duraciones de diferentes bonos te ayuda a elegir el que mejor se adapte a tus necesidades.</li>
-</ul>
-
-<h2>Cómo funciona un Test de duración de bonos</h2>
-
-<p>Los tests o quiz sobre la duración de los bonos son herramientas útiles para evaluar tus conocimientos sobre este tema. Estos tests suelen incluir preguntas sobre diferentes tipos de bonos y sus duraciones típicas. Participar en un quiz de este tipo puede ayudarte a entender mejor cómo funcionan los bonos y a tomar decisiones más informadas.</p>
-
-<p>Un quiz bien diseñado no solo te evalúa, sino que también te enseña. Al responder preguntas sobre la duración de los bonos, puedes aprender sobre las características específicas de cada tipo de bono y cómo se utilizan en la práctica.</p>
-
-<h3>Beneficios de realizar un Quiz sobre duración de bonos</h3>
+<p>La rentabilidad de un bono corporativo se compone de varios elementos que los inversores deben considerar:</p>
 
 <ol>
-  <li>**Conocimiento práctico**: Aprendes sobre las duraciones típicas de diferentes tipos de bonos.</li>
-  <li>**Mejora de decisiones**: Puedes tomar decisiones más informadas sobre cuál bono es el mejor para ti.</li>
-  <li>**Actualización**: Mantienes tus conocimientos actualizados sobre las tendencias y cambios en las duraciones de los bonos.</li>
+  <li>**Interés anual**: Es el pago periódico que el emisor del bono realiza al inversor.</li>
+  <li>**Precio del bono**: Es el valor que el inversor paga por el bono en el mercado.</li>
+  <li>**Valor nominal**: Es el valor facial del bono, que generalmente se paga al vencimiento.</li>
+  <li>**Duración del bono**: Es el tiempo que el inversor mantiene el bono antes de que venza.</li>
 </ol>
 
-<h4>Tabla comparativa de duraciones de bonos</h4>
+<h3>Cómo se calcula la rentabilidad de un bono</h3>
+
+<p>El cálculo de la rentabilidad de un bono se realiza dividiendo el interés anual por el precio del bono y multiplicando por 100 para obtener un porcentaje. Este cálculo proporciona una visión clara del rendimiento que se puede esperar.</p>
+
+<p>Para ilustrar mejor este proceso, consideremos un ejemplo práctico:</p>
 
 <table>
   <tr>
-    <th>Tipo de Bono</th>
-    <th>Duración Típica</th>
+    <th>Concepto</th>
+    <th>Valor</th>
   </tr>
   <tr>
-    <td>Bono de descuento</td>
-    <td>6 meses</td>
+    <td>Interés anual</td>
+    <td>$100</td>
   </tr>
   <tr>
-    <td>Bono de ahorro</td>
-    <td>6 meses</td>
+    <td>Precio del bono</td>
+    <td>$1,000</td>
   </tr>
   <tr>
-    <td>Bono de inversión</td>
-    <td>3 años</td>
-  </tr>
-  <tr>
-    <td>Bono de fidelización</td>
-    <td>3 meses</td>
-  </tr>
-  <tr>
-    <td>Bono de bienvenida</td>
-    <td>2 años</td>
+    <td>Rentabilidad</td>
+    <td>10%</td>
   </tr>
 </table>
 
-<p>En resumen, la duración de un bono es una característica fundamental que puede influir significativamente en tu experiencia y beneficios. Comprender las duraciones de los diferentes tipos de bonos te permitirá tomar decisiones más informadas y maximizar los beneficios que estos instrumentos financieros pueden ofrecerte.
+<p>En este ejemplo, la rentabilidad del bono es del 10%, lo que significa que el inversor recibe un 10% del valor del bono en intereses anualmente.</p>
+
+<h4>Factores que afectan la rentabilidad de un bono</h4>
+
+<p>Varios factores pueden influir en la rentabilidad de un bono corporativo. Entre los más importantes se encuentran:</p>
+
+<ul>
+  <li>El rendimiento del mercado.</li>
+  <li>El riesgo del emisor.</li>
+  <li>El plazo hasta el vencimiento.</li>
+  <li>Las condiciones económicas generales.</li>
+</ul>
+
+<p>Estos factores pueden hacer que la rentabilidad de un bono varíe significativamente a lo largo del tiempo, lo que subraya la importancia de realizar una investigación exhaustiva antes de invertir.</p>
+
+<h3>¿Qué es un bono corporativo?</h3>
+
+<p>Un bono corporativo es un préstamo hecho por una empresa a un inversor. A cambio del préstamo, la empresa se compromete a pagar un interés periódico y a devolver el valor nominal del bono al vencimiento. Los bonos corporativos son una forma popular de financiamiento para las empresas y una opción atractiva para los inversores que buscan ingresos estables.</p>
+
+<p>Comprender qué es un bono corporativo y cómo funciona puede ayudarte a tomar decisiones de inversión más informadas. Realizar un <strong>quiz</strong> sobre estos conceptos puede ser una herramienta útil para evaluar tus conocimientos y mejorar tu comprensión.</p>
+
+<h3>Rentabilidad alta vs. rentabilidad baja</h3>
+
+<p>La rentabilidad de un bono puede ser alta o baja, dependiendo de varios factores. Una rentabilidad alta generalmente indica que el bono es más riesgoso, mientras que una rentabilidad baja puede indicar un menor riesgo.</p>
+
+<p>Es crucial evaluar estos factores y realizar un análisis exhaustivo antes de tomar una decisión de inversión. Un <strong>test</strong> o <strong>quiz</strong> puede ser una herramienta valiosa para evaluar tus conocimientos y preparar mejor tus decisiones de inversión.</p>
+
+<p>En resumen, la rentabilidad de un bono corporativo es una métrica esencial para los inversores. Comprender cómo se calcula y los factores que la afectan puede ayudarte a tomar decisiones de inversión más informadas y estratégicas.</p>
