@@ -1,0 +1,360 @@
+<div id="quiz-container"></div>
+
+<style>
+.quiz-container {
+font-family: Arial, sans-serif !important;
+max-width: 700px !important;
+margin: auto !important;
+background: #fdfdfd !important;
+padding: 25px !important;
+border-radius: 12px !important;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.quiz-header {
+display: flex !important;
+justify-content: space-between !important;
+margin-bottom: 10px !important;
+font-size: 18px !important;
+}
+
+.quiz-timer {
+color: #e74c3c !important;
+font-weight: bold !important;
+}
+
+.quiz-progress-bar {
+height: 10px !important;
+background: #ddd !important;
+border-radius: 5px !important;
+overflow: hidden !important;
+margin-bottom: 20px !important;
+}
+
+.quiz-progress {
+height: 100% !important;
+background: #4caf50 !important;
+transition: width 0.3s !important;
+}
+
+.quiz-question {
+font-size: 22px !important;
+font-weight: 600 !important;
+margin-bottom: 20px !important;
+}
+
+.quiz-options {
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 15px !important;
+}
+
+.quiz-option-button {
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+padding: 12px 14px !important;
+font-size: 16px !important;
+background: #f0f0f0 !important;
+border: 2px solid transparent !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+transition: all 0.2s ease-in-out !important;
+text-align: left !important;
+}
+
+.quiz-option-button.correct {
+background: #c8f7c5 !important;
+border-color: #27ae60 !important;
+color: #2d7d33 !important;
+font-weight: bold !important;
+}
+
+.quiz-option-button.incorrect {
+background: #f8d7da !important;
+border-color: #c0392b !important;
+color: #c0392b !important;
+font-weight: bold !important;
+}
+
+.quiz-option-label {
+width: 28px !important;
+height: 28px !important;
+border-radius: 50% !important;
+background: #3498db !important;
+color: white !important;
+font-weight: bold !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex-shrink: 0 !important;
+}
+
+.quiz-controls {
+margin-top: 20px !important;
+text-align: center !important;
+}
+
+.quiz-controls button {
+width: 100% !important;
+padding: 14px !important;
+font-size: 16px !important;
+background: #3498db !important;
+color: white !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
+
+.quiz-result-title {
+font-size: 26px !important;
+font-weight: bold !important;
+margin-bottom: 15px !important;
+text-align: center !important;
+}
+
+.quiz-result-description {
+font-size: 17px !important;
+line-height: 1.6 !important;
+white-space: pre-line !important;
+text-align: center !important;
+}
+
+.quiz-result-buttons {
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
+margin-top: 25px !important;
+text-align: center !important;
+}
+
+.quiz-result-buttons button {
+padding: 12px !important;
+font-size: 16px !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
+
+.quiz-restart-btn {
+background-color: #2ecc71 !important;
+color: white !important;
+}
+
+.quiz-share-btn {
+background-color: #25D366 !important;
+color: white !important;
+}
+
+@media (max-width: 600px) {
+.quiz-options {
+grid-template-columns: 1fr !important;
+}
+}
+</style>
+
+<script>
+(function() {
+const quizData = [
+{ question: "💵 ¿Qué son los bonos convertibles de Tesla?", options: ["Bonos que pueden convertirse en acciones de Tesla", "Bonos que pagan intereses fijos", "Bonos que se compran con criptomonedas", "Bonos emitidos por Tesla para proyectos de energía"], answer: 0 },
+{ question: "🔍 ¿Qué es la tokenización de activos reales?", options: ["Convertir activos reales en tokens digitales", "Compra de acciones en bolsa", "Venta de bienes inmuebles", "Creación de criptomonedas"], answer: 0 },
+{ question: "📉 ¿Cómo funcionan los bonos verdes de Iberdrola?", options: ["Financian proyectos de energía renovable", "Financian proyectos de infraestructura", "Financian proyectos de tecnología", "Financian proyectos de salud"], answer: 0 },
+{ question: "🏢 ¿Qué mide la duración de un bono?", options: ["El tiempo hasta su vencimiento", "El rendimiento del bono", "La tasa de interés", "El valor nominal del bono"], answer: 0 },
+{ question: "🌳 ¿Qué es la tasa de cupón en un bono?", options: ["El interés que paga el bono", "El valor nominal del bono", "El precio de mercado del bono", "El riesgo del bono"], answer: 0 },
+{ question: "🏦 ¿Qué es un bono soberano?", options: ["Un bono emitido por un gobierno", "Un bono emitido por una empresa", "Un bono emitido por una ONG", "Un bono emitido por un banco"], answer: 0 },
+{ question: "🎯 ¿Qué es un bono high-yield?", options: ["Un bono con alta rentabilidad", "Un bono con baja rentabilidad", "Un bono con riesgo bajo", "Un bono con riesgo moderado"], answer: 0 },
+{ question: "📈 ¿Qué es la volatilidad en el mercado de bonos?", options: ["La variación en el precio del bono", "La tasa de interés del bono", "El plazo de vencimiento del bono", "El rendimiento del bono"], answer: 0 },
+{ question: "🌍 ¿Qué es el índice de referencia de un bono?", options: ["El índice al que se compara el bono", "El plazo de vencimiento del bono", "El valor nominal del bono", "La tasa de interés del bono"], answer: 0 },
+{ question: "📊 ¿Qué es la amortización de un bono?", options: ["El proceso de pago del principal del bono", "El proceso de compra del bono", "El proceso de venta del bono", "El proceso de emisión del bono"], answer: 0 }
+];
+
+let current = 0;
+let score = 0;
+let timer;
+let timeLeft = 15;
+
+function startTimer() {
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
+}
+
+function renderQuestion() {
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
+}
+
+window.selectAnswer = function(index) {
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
+};
+
+function disableOptions() {
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
+}
+
+function revealCorrect() {
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
+}
+
+window.nextQuestion = function() {
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
+};
+
+function showResults() {
+let message = "";
+if (score === quizData.length) {
+message = "¡Excelente! Has respondido todo correctamente. 🏆";
+} else if (score >= quizData.length * 0.7) {
+message = "Muy bien hecho, tienes un gran conocimiento sobre bonos. 💡";
+} else if (score >= quizData.length * 0.4) {
+message = "Nada mal, pero puedes mejorar. ¡Sigue aprendiendo! 📘";
+} else {
+message = "Es un buen momento para aprender más sobre bonos. ¡Sigue intentándolo! 🌱";
+}
+
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre bonos en un test! ¿Te atreves a superarme? responderapido.com`;
+
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
+}
+
+window.restartQuiz = function() {
+current = 0;
+score = 0;
+renderQuestion();
+};
+
+window.shareWhatsApp = function(text) {
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
+};
+
+renderQuestion();
+})();
+</script>
+<br><br>
+### ¿Qué son los bonos convertibles de Tesla?
+
+Los bonos convertibles son instrumentos financieros que combinan características de bonos y acciones. En el contexto de Tesla, estos bonos permiten a los inversores recibir pagos de intereses periódicos y, al mismo tiempo, tienen la opción de convertirlos en acciones de la empresa en un momento futuro. Este tipo de bono es atractivo para aquellos que buscan una combinación de ingresos fijos y la posibilidad de beneficiarse del crecimiento potencial del precio de las acciones de Tesla. En este artículo, exploraremos en detalle cómo funcionan estos bonos y por qué pueden ser una opción interesante para ciertos inversores.
+
+### ¿Qué es la tokenización de activos reales?
+
+La tokenización de activos reales se refiere al proceso de convertir derechos sobre activos tangibles en tokens digitales en una blockchain. Estos tokens pueden representar una variedad de activos, desde bienes raíces hasta obras de arte y metales preciosos. Este método permite fraccionar los activos en unidades más pequeñas y accesibles, facilitando la inversión y el comercio. En el contexto de un test o quiz financiero, es crucial entender cómo esta tecnología está revolucionando el mundo de las inversiones y la gestión de activos.
+
+#### Ventajas de la tokenización de activos reales
+
+- **Accesibilidad**: Permite a los inversores participar en activos que antes estaban fuera de su alcance.
+- **Liquidez**: Facilita la compra y venta de activos que tradicionalmente eran ilíquidos.
+- **Transparencia**: La tecnología blockchain ofrece trazabilidad y transparencia en la propiedad y transferencia de activos.
+- **División**: Permite fraccionar activos en unidades más pequeñas, atrayendo a una gama más amplia de inversores.
+
+### ¿Cómo funcionan los bonos verdes de Iberdrola?
+
+Los bonos verdes son instrumentos de deuda emitidos por empresas o gobiernos para financiar proyectos sostenibles y ecológicos. Iberdrola, una de las mayores empresas eléctricas del mundo, ha emitido bonos verdes para financiar iniciativas de energía renovable. Estos bonos no solo ofrecen rendimientos financieros, sino que también contribuyen al desarrollo sostenible. En un test o quiz sobre finanzas, es importante entender cómo funcionan estos bonos y su impacto en el mercado.
+
+#### Características de los bonos verdes de Iberdrola
+
+- **Objetivo**: Financiar proyectos de energía renovable y sostenibilidad.
+- **Rendimiento**: Ofrecen rendimientos competitivos comparables a otros tipos de bonos.
+- **Transparencia**: Iberdrola publica informes detallados sobre el uso de los fondos y el impacto de los proyectos financiados.
+- **Demanda**: Altamente demandados por inversores que buscan combinar rentabilidad con impacto ambiental positivo.
+
+### ¿Qué mide la duración de un bono?
+
+La duración de un bono es una medida de la sensibilidad del precio del bono a los cambios en las tasas de interés. En términos más simples, mide el tiempo promedio que tarda en recuperarse el dinero invertido en el bono. Esta métrica es crucial para los inversores que desean entender cómo su inversión se verá afectada por fluctuaciones en las tasas de interés. En un test o quiz financiero, la duración es un concepto clave que los participantes deben comprender.
+
+#### Factores que afectan la duración de un bono
+
+- **Vencimiento**: Bonos a largo plazo tienen una duración mayor.
+- **Tasa de cupón**: Bonos con cupones más altos tienden a tener una duración menor.
+- **Tipo de bono**: Bonos con características especiales, como bonos convertibles o bonos callables, pueden tener duraciones diferentes.
+
+### ¿Qué es la tasa de cupón en un bono?
+
+La tasa de cupón es la tasa de interés anual que un emisor de bonos promete pagar a los inversores. Esta tasa se expresa como un porcentaje del valor nominal del bono y se paga en cupones periódicos. Para aquellos que participan en un test o quiz sobre finanzas, entender la tasa de cupón es esencial para evaluar la rentabilidad de una inversión en bonos.
+
+#### Componentes de la tasa de cupón
+
+- **Valor nominal**: El valor original del bono.
+- **Frecuencia de pago**: Puede ser anual, semestral, trimestral, etc.
+- **Cupón**: El pago periódico al inversor.
+- **Rendimiento**: La relación entre el cupón y el precio del bono en el mercado.
+
+### ¿Qué es un bono soberano?
+
+Los bonos soberanos son instrumentos de deuda emitidos por gobiernos nacionales para financiar sus operaciones y proyectos. Estos bonos son considerados de bajo riesgo debido a la solvencia y la capacidad de impuestos del gobierno emisor. En un test o quiz sobre finanzas, es fundamental entender las características y ventajas de los bonos soberanos.
+
+#### Características de los bonos soberanos
+
+- **Emisor**: Gobiernos nacionales.
+- **Riesgo**: Generalmente considerados de bajo riesgo.
+- **Rendimiento**: Tienden a ofrecer rendimientos más bajos en comparación con bonos corporativos.
+- **Mercado secundario**: Altamente líquido y accesible para los inversores.
+
+### ¿Qué es un bono high-yield?
+
+Los bonos high-yield, también conocidos como bonos basura, son instrumentos de deuda emitidos por empresas con una calificación crediticia baja. Estos bonos ofrecen rendimientos más altos debido al mayor riesgo asociado con la insolvencia del emisor. En un test o quiz sobre finanzas, es importante diferenciar entre los riesgos y beneficios de los bonos high-yield.
+
+#### Ventajas y desventajas de los bonos high-yield
+
+| Ventaja | Desventaja |
+|---------|------------|
+| **Rendimiento alto** | **Riesgo de insolvencia** |
+| **Oportunidad de compra a precios bajos** | **Volatilidad en el precio** |
+| **Diversificación del portafolio** | **Sensibilidad a cambios en las tasas de interés** |
+
+Los bonos convertibles de Tesla, la tokenización de activos reales, los bonos verdes de Iberdrola, la duración de un bono, la tasa de cupón, los bonos soberanos y los bonos high-yield son conceptos financieros fundamentales que todo inversor debe conocer. Entender estas herramientas y sus características puede ayudar a tomar decisiones más informadas y estratégicas en el mundo de las inversiones.
