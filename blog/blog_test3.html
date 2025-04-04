@@ -3,167 +3,167 @@
 
 <style>
 .quiz-container {
-  font-family: Arial, sans-serif !important;
-  max-width: 700px !important;
-  margin: auto !important;
-  background: #fdfdfd !important;
-  padding: 25px !important;
-  border-radius: 12px !important;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+font-family: Arial, sans-serif !important;
+max-width: 700px !important;
+margin: auto !important;
+background: #fdfdfd !important;
+padding: 25px !important;
+border-radius: 12px !important;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .quiz-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  margin-bottom: 10px !important;
-  font-size: 18px !important;
+display: flex !important;
+justify-content: space-between !important;
+margin-bottom: 10px !important;
+font-size: 18px !important;
 }
 
 .quiz-timer {
-  color: #e74c3c !important;
-  font-weight: bold !important;
+color: #e74c3c !important;
+font-weight: bold !important;
 }
 
 .quiz-progress-bar {
-  height: 10px !important;
-  background: #ddd !important;
-  border-radius: 5px !important;
-  overflow: hidden !important;
-  margin-bottom: 20px !important;
+height: 10px !important;
+background: #ddd !important;
+border-radius: 5px !important;
+overflow: hidden !important;
+margin-bottom: 20px !important;
 }
 
 .quiz-progress {
-  height: 100% !important;
-  background: #4caf50 !important;
-  transition: width 0.3s !important;
+height: 100% !important;
+background: #4caf50 !important;
+transition: width 0.3s !important;
 }
 
 .quiz-question {
-  font-size: 22px !important;
-  font-weight: 600 !important;
-  margin-bottom: 20px !important;
+font-size: 22px !important;
+font-weight: 600 !important;
+margin-bottom: 20px !important;
 }
 
 .quiz-options {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 15px !important;
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 15px !important;
 }
 
 .quiz-option-button {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  padding: 12px 14px !important;
-  font-size: 16px !important;
-  background: #f0f0f0 !important;
-  border: 2px solid transparent !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease-in-out !important;
-  text-align: left !important;
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+padding: 12px 14px !important;
+font-size: 16px !important;
+background: #f0f0f0 !important;
+border: 2px solid transparent !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+transition: all 0.2s ease-in-out !important;
+text-align: left !important;
 }
 
 .quiz-option-button.correct {
-  background: #c8f7c5 !important;
-  border-color: #27ae60 !important;
-  color: #2d7d33 !important;
-  font-weight: bold !important;
+background: #c8f7c5 !important;
+border-color: #27ae60 !important;
+color: #2d7d33 !important;
+font-weight: bold !important;
 }
 
 .quiz-option-button.incorrect {
-  background: #f8d7da !important;
-  border-color: #c0392b !important;
-  color: #c0392b !important;
-  font-weight: bold !important;
+background: #f8d7da !important;
+border-color: #c0392b !important;
+color: #c0392b !important;
+font-weight: bold !important;
 }
 
 .quiz-option-label {
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 50% !important;
-  background: #3498db !important;
-  color: white !important;
-  font-weight: bold !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
+width: 28px !important;
+height: 28px !important;
+border-radius: 50% !important;
+background: #3498db !important;
+color: white !important;
+font-weight: bold !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex-shrink: 0 !important;
 }
 
 .quiz-controls {
-  margin-top: 20px !important;
-  text-align: center !important;
+margin-top: 20px !important;
+text-align: center !important;
 }
 
 .quiz-controls button {
-  width: 100% !important;
-  padding: 14px !important;
-  font-size: 16px !important;
-  background: #3498db !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+width: 100% !important;
+padding: 14px !important;
+font-size: 16px !important;
+background: #3498db !important;
+color: white !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
 }
 
 .quiz-result-title {
-  font-size: 26px !important;
-  font-weight: bold !important;
-  margin-bottom: 15px !important;
-  text-align: center !important;
+font-size: 26px !important;
+font-weight: bold !important;
+margin-bottom: 15px !important;
+text-align: center !important;
 }
 
 .quiz-result-description {
-  font-size: 17px !important;
-  line-height: 1.6 !important;
-  white-space: pre-line !important;
-  text-align: center !important;
+font-size: 17px !important;
+line-height: 1.6 !important;
+white-space: pre-line !important;
+text-align: center !important;
 }
 
 .quiz-result-buttons {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
-  margin-top: 25px !important;
-  text-align: center !important;
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
+margin-top: 25px !important;
+text-align: center !important;
 }
 
 .quiz-result-buttons button {
-  padding: 12px !important;
-  font-size: 16px !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+padding: 12px !important;
+font-size: 16px !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
 }
 
 .quiz-restart-btn {
-  background-color: #2ecc71 !important;
-  color: white !important;
+background-color: #2ecc71 !important;
+color: white !important;
 }
 
 .quiz-share-btn {
-  background-color: #25D366 !important;
-  color: white !important;
+background-color: #25D366 !important;
+color: white !important;
 }
 
 @media (max-width: 600px) {
-  .quiz-options {
-    grid-template-columns: 1fr !important;
-  }
+.quiz-options {
+grid-template-columns: 1fr !important;
+}
 }
 </style>
 
 <script>
 (function() {
 const quizData = [
-  { question: "1. ¿Qué es la duración de un bono?", options: ["A) Tiempo hasta el vencimiento", "B) Sensibilidad del precio a cambios en la tasa de interés", "C) Frecuencia de pagos de cupón", "D) Calificación crediticia"], answer: 1 },
-  { question: "2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta?", options: ["A) La duración aumenta con el aumento de la tasa de interés", "B) La duración disminuye con el aumento de la tasa de interés", "C) La duración es independiente de la tasa de interés", "D) La duración es siempre negativa"], answer: 0 },
-  { question: "3. ¿Qué mide la 'duración modificada' de un bono?", options: ["A) Tasa de rendimiento", "B) Cambio porcentual en el precio del bono", "C) Sensibilidad del precio a cambios en la tasa de interés", "D) Rentabilidad total"], answer: 2 },
-  { question: "4. ¿Cuál de los siguientes bonos tiene una mayor duración?", options: ["A) Bono a 3 años con pagos anuales", "B) Bono a 5 años con pagos semestrales", "C) Bono a 10 años con pagos anuales", "D) Bono a 7 años con pagos mensuales"], answer: 2 },
-  { question: "5. ¿Qué implica una alta sensibilidad en un bono?", options: ["A) Menor riesgo de interés", "B) Mayor volatilidad del precio", "C) Mayor garantía de pago", "D) Menor duración"], answer: 1 },
-  { question: "6. ¿Cómo se calcula la duración de Macaulay?", options: ["A) Sumando los pagos futuros ponderados por el tiempo", "B) Dividiendo el precio del bono por la tasa de mercado", "C) Ajustando la duración modificada", "D) Multiplicando el cupón por la tasa de interés"], answer: 0 },
-  { question: "7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono?", options: ["A) Aumenta la duración", "B) Disminuye la duración", "C) No afecta la duración", "D) La duración se vuelve negativa"], answer: 1 }
+{ question: "🔍 ¿Cuánto tiempo dura un bono de descuento?", options: ["6 meses", "1 año", "2 años", "5 años"], answer: 1 },
+{ question: "📅 ¿Cuál es la duración típica de un bono de ahorro?", options: ["1 mes", "3 meses", "6 meses", "1 año"], answer: 2 },
+{ question: "🏦 ¿Cuál es la duración de un bono de inversión?", options: ["1 año", "3 años", "5 años", "10 años"], answer: 2 },
+{ question: "💸 ¿Qué bono tiene una duración de 3 meses?", options: ["Bono de ahorro", "Bono de inversión", "Bono de descuento", "Bono de fidelización"], answer: 0 },
+{ question: "🕒 ¿Cuál es la duración de un bono de fidelización?", options: ["1 mes", "3 meses", "6 meses", "1 año"], answer: 1 },
+{ question: "🏢 ¿Qué bono tiene una duración de 5 años?", options: ["Bono de ahorro", "Bono de inversión", "Bono de descuento", "Bono de fidelización"], answer: 1 },
+{ question: "📋 ¿Cuál es la duración de un bono de bienvenida?", options: ["6 meses", "1 año", "2 años", "3 años"], answer: 2 }
 ];
 
 let current = 0;
@@ -172,145 +172,192 @@ let timer;
 let timeLeft = 15;
 
 function startTimer() {
-  timeLeft = 15;
-  document.getElementById("quiz-timer").innerText = timeLeft;
-  clearInterval(timer);
-  timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById("quiz-timer").innerText = timeLeft;
-    if (timeLeft === 0) {
-      clearInterval(timer);
-      disableOptions();
-      revealCorrect();
-    }
-  }, 1000);
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
 }
 
 function renderQuestion() {
-  const q = quizData[current];
-  const letters = ["A", "B", "C", "D"];
-  document.getElementById("quiz-container").className = "quiz-container";
-  document.getElementById("quiz-container").innerHTML = `
-  <div class="quiz-header">
-    <span>Pregunta ${current + 1} de ${quizData.length}</span>
-    <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-  </div>
-  <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-  <div class="quiz-question">${q.question}</div>
-  <div class="quiz-options">
-    ${q.options.map((opt, i) => `
-    <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-      <div class="quiz-option-label">${letters[i]}</div>
-      <span>${opt}</span>
-    </button>
-    `).join("")}
-  </div>
-  <div class="quiz-controls">
-    <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-  </div>
-  `;
-  startTimer();
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
 }
 
 window.selectAnswer = function(index) {
-  clearInterval(timer);
-  const correct = quizData[current].answer;
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === correct) btn.classList.add("correct");
-    if (i === index && index !== correct) btn.classList.add("incorrect");
-  });
-  if (index === correct) score++;
-  document.getElementById("next-btn").disabled = false;
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
 };
 
 function disableOptions() {
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons.forEach(btn => btn.disabled = true);
-  document.getElementById("next-btn").disabled = false;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
 }
 
 function revealCorrect() {
-  const correct = quizData[current].answer;
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons[correct].classList.add("correct");
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
 }
 
 window.nextQuestion = function() {
-  current++;
-  if (current < quizData.length) {
-    renderQuestion();
-  } else {
-    showResults();
-  }
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
 };
 
 function showResults() {
-  let message = "";
-  if (score === 7) message = "¡Perfecto! Dominas 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
-  else if (score >= 5) message = "Buen resultado en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
-  else if (score >= 4) message = "Nada mal, pero puedes mejorar en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
-  else message = "Es un buen momento para aprender más en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
+let message = "";
+if(score === 7) message = "¡Perfecto! Dominas 🔍 ¿Qué es la duración de un bono?";
+else if(score >= 5) message = "Buen resultado en 🔍 ¿Qué es la duración de un bono?";
+else if(score === 4) message = "Aceptable, puedes mejorar en 🔍 ¿Qué es la duración de un bono?";
+else message = "Es un buen momento para aprender más sobre 🔍 ¿Qué es la duración de un bono?";
 
-  const shareText = `¡He acertado ${score} de ${quizData.length} preguntas en un test sobre duración y sensibilidad en bonos! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de un bono? en un test! ¿Te atreves a superarme? responderapido.com`;
 
-  document.getElementById("quiz-container").innerHTML = `
-  <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-  <div class="quiz-result-description">${message}</div>
-  <div class="quiz-result-buttons">
-    <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-    <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-  </div>
-  `;
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
 }
 
 window.restartQuiz = function() {
-  current = 0;
-  score = 0;
-  renderQuestion();
+current = 0;
+score = 0;
+renderQuestion();
 };
 
 window.shareWhatsApp = function(text) {
-  const url = `https://api.whatsapp.com/send?text=${text}`;
-  window.open(url, '_blank');
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
 };
 
 renderQuestion();
-})</script>
+})();
+</script>
+```
 <br><br>
-## 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?
+<p>Los bonos son herramientas financieras esenciales que ofrecen diversas ventajas a los usuarios, y una de sus características más importantes es la duración. La duración de un bono puede variar significativamente dependiendo del tipo de bono y del propósito para el cual está diseñado. En este artículo, exploraremos en detalle qué es la duración de un bono, los diferentes tipos de bonos y sus duraciones típicas, y cómo estas duraciones afectan a los usuarios.</p>
 
-### Comprender la duración de un bono
+<h2>Tipos de bonos y sus duraciones</h2>
 
-La **duración de un bono** es una métrica fundamental en el mundo de las finanzas que mide la sensibilidad del precio del bono a los cambios en la tasa de interés. A diferencia del tiempo hasta el vencimiento, la duración se centra en cómo varía el precio del bono en respuesta a fluctuaciones en las tasas de interés. Este concepto es crucial para los inversores que buscan gestionar el riesgo de interés en sus carteras.
+<p>Existen varios tipos de bonos, cada uno con su propia duración específica. Conocer estas duraciones es crucial para tomar decisiones informadas sobre cuál bono es el más adecuado para tus necesidades.</p>
 
-### Duración y tasa de interés
+<h3>Bono de descuento</h3>
 
-La duración de un bono no es un valor fijo; varía con las condiciones del mercado. Una de las características más importantes de la duración es su relación inversa con la tasa de interés. Esto significa que cuando las tasas de interés aumentan, la duración del bono disminuye, y viceversa. Esta relación inversa es esencial para entender cómo los cambios en las tasas de interés afectan el valor de los bonos y, por ende, la rentabilidad de los inversores.
+<p>El bono de descuento es una herramienta popular entre los consumidores. Su duración típica es de 6 meses.</p>
 
-#### Factores que afectan la duración
+<h3>Bono de ahorro</h3>
 
-- **Plazo del bono**: Cuanto más largo sea el plazo del bono, mayor será su duración.
-- **Frecuencia de pagos de cupón**: Bonos con pagos más frecuentes tienden a tener una duración menor.
-- **Tasa de interés**: La duración disminuye con el aumento de las tasas de interés y aumenta con la disminución de las mismas.
+<p>Los bonos de ahorro son ideales para aquellos que desean acumular fondos durante un período más largo. La duración típica de un bono de ahorro es de 6 meses.</p>
 
-### La duración modificada
+<h3>Bono de inversión</h3>
 
-La **duración modificada** es una medida ajustada de la duración de Macaulay que proporciona una estimación más precisa de la sensibilidad del precio del bono a los cambios en la tasa de interés. Esta métrica es especialmente útil para inversores que buscan una evaluación más precisa del riesgo de interés. La duración modificada se calcula ajustando la duración de Macaulay para reflejar cambios en las tasas de interés, lo que permite una mejor gestión del riesgo.
+<p>Los bonos de inversión están diseñados para quienes buscan rendimientos a largo plazo. La duración de un bono de inversión suele ser de 3 años.</p>
 
-#### Diferencias clave entre duración de Macaulay y duración modificada
+<h3>Bono de fidelización</h3>
 
-| Característica             | Duración de Macaulay                           | Duración Modificada                          |
-|----------------------------|--------------------------------------------------|----------------------------------------------|
-| Fórmula                   | \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \) | Ajuste de la duración de Macaulay            |
-| Sensibilidad a cambios    | Mide la sensibilidad del precio del bono         | Mide la sensibilidad del precio del bono ajustada a cambios en tasas |
-| Uso principal             | Evaluación general de la sensibilidad            | Evaluación precisa del riesgo de interés     |
+<p>Los bonos de fidelización son ofrecidos por empresas para recompensar la lealtad de sus clientes. Su duración típica es de 3 meses.</p>
 
-### Sensibilidad y volatilidad del precio
+<h3>Bono de bienvenida</h3>
 
-La **sensibilidad** de un bono se refiere a la magnitud de la variación en el precio del bono en respuesta a cambios en la tasa de interés. Un bono con alta sensibilidad experimentará mayores fluctuaciones en su precio ante cambios en las tasas de interés, lo que implica un mayor riesgo de interés. Los inversores deben considerar esta sensibilidad al tomar decisiones de inversión, especialmente en un entorno de tasas de interés fluctuantes.
+<p>Los bonos de bienvenida son una excelente manera de atraer nuevos clientes. La duración de un bono de bienvenida es generalmente de 2 años.</p>
 
-### Conclusión
+<h2>Importancia de la duración en los bonos</h2>
 
-Entender la duración y la sensibilidad en los bonos es esencial para cualquier inversor que busque gestionar el riesgo de interés en su cartera. Estas métricas proporcionan una visión clara de cómo los cambios en las tasas de interés afectan el valor de los bonos, permitiendo a los inversores tomar decisiones más informadas y estratégicas.
+<p>La duración del bono es un factor crucial que puede influir en la decisión de un usuario. Aquí hay algunas razones por las que la duración es importante:</p>
+
+<ul>
+  <li>**Planificación financiera**: Conocer la duración del bono te permite planificar tus finanzas a largo plazo.</li>
+  <li>**Beneficios máximos**: Algunos bonos ofrecen mayores beneficios si se utilizan dentro de un período específico.</li>
+  <li>**Comparación de opciones**: Comparar las duraciones de diferentes bonos te ayuda a elegir el que mejor se adapte a tus necesidades.</li>
+</ul>
+
+<h2>Cómo funciona un Test de duración de bonos</h2>
+
+<p>Los tests o quiz sobre la duración de los bonos son herramientas útiles para evaluar tus conocimientos sobre este tema. Estos tests suelen incluir preguntas sobre diferentes tipos de bonos y sus duraciones típicas. Participar en un quiz de este tipo puede ayudarte a entender mejor cómo funcionan los bonos y a tomar decisiones más informadas.</p>
+
+<p>Un quiz bien diseñado no solo te evalúa, sino que también te enseña. Al responder preguntas sobre la duración de los bonos, puedes aprender sobre las características específicas de cada tipo de bono y cómo se utilizan en la práctica.</p>
+
+<h3>Beneficios de realizar un Quiz sobre duración de bonos</h3>
+
+<ol>
+  <li>**Conocimiento práctico**: Aprendes sobre las duraciones típicas de diferentes tipos de bonos.</li>
+  <li>**Mejora de decisiones**: Puedes tomar decisiones más informadas sobre cuál bono es el mejor para ti.</li>
+  <li>**Actualización**: Mantienes tus conocimientos actualizados sobre las tendencias y cambios en las duraciones de los bonos.</li>
+</ol>
+
+<h4>Tabla comparativa de duraciones de bonos</h4>
+
+<table>
+  <tr>
+    <th>Tipo de Bono</th>
+    <th>Duración Típica</th>
+  </tr>
+  <tr>
+    <td>Bono de descuento</td>
+    <td>6 meses</td>
+  </tr>
+  <tr>
+    <td>Bono de ahorro</td>
+    <td>6 meses</td>
+  </tr>
+  <tr>
+    <td>Bono de inversión</td>
+    <td>3 años</td>
+  </tr>
+  <tr>
+    <td>Bono de fidelización</td>
+    <td>3 meses</td>
+  </tr>
+  <tr>
+    <td>Bono de bienvenida</td>
+    <td>2 años</td>
+  </tr>
+</table>
+
+<p>En resumen, la duración de un bono es una característica fundamental que puede influir significativamente en tu experiencia y beneficios. Comprender las duraciones de los diferentes tipos de bonos te permitirá tomar decisiones más informadas y maximizar los beneficios que estos instrumentos financieros pueden ofrecerte.
