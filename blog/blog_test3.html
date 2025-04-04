@@ -1,5 +1,6 @@
 ```html
 <div id="quiz-container"></div>
+
 <style>
 .quiz-container {
   font-family: Arial, sans-serif !important;
@@ -156,13 +157,13 @@
 <script>
 (function() {
 const quizData = [
-  { question: "1. ¿Qué es un 'covenant' en el contexto de un bono?", options: ["Una garantía adicional", "Una cláusula contractual que restringe ciertas acciones del emisor", "Un instrumento derivado", "Un tipo de bono con menor riesgo"], answer: 1 },
-  { question: "2. ¿Cuál de las siguientes NO es una restricción común en los convenants de bonos?", options: ["Limitar la capacidad de emitir más deuda", "Restricciones en la distribución de dividendos", "Obligación de mantener ciertos niveles de liquidez", "Oferta de garantía real"], answer: 3 },
-  { question: "3. ¿Qué tipo de convenant protege a los tenedores de bonos de un aumento en la deuda del emisor?", options: ["Convenant de dividendos", "Convenant de liquidez", "Convenant de endeudamiento", "Convenant de garantía"], answer: 2 },
-  { question: "4. ¿Qué es un 'default' en relación con los convenants?", options: ["Cumplimiento de todas las restricciones", "Incumplimiento de una o más restricciones", "Pago anticipado del principal", "Reestructuración de deuda"], answer: 1 },
-  { question: "5. ¿Cuál de los siguientes es un ejemplo de un convenant positivo?", options: ["No distribuir dividendos", "Mantener ciertos niveles de liquidez", "No emitir más deuda", "No adquirir activos"], answer: 1 },
-  { question: "6. ¿Qué puede suceder si un emisor incumple un convenant?", options: ["Aumento en la tasa de interés del bono", "Pago inmediato del principal", "Pérdida de garantías", "Todas las anteriores"], answer: 3 },
-  { question: "7. ¿Qué tipo de convenant es más común en bonos con grado de inversión?", options: ["Convenant de liquidez", "Convenant de dividendos", "Convenant de endeudamiento", "Convenant de garantía"], answer: 0 }
+  { question: "1. ¿Qué es la duración de un bono?", options: ["A) Tiempo hasta el vencimiento", "B) Sensibilidad del precio a cambios en la tasa de interés", "C) Frecuencia de pagos de cupón", "D) Calificación crediticia"], answer: 1 },
+  { question: "2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta?", options: ["A) La duración aumenta con el aumento de la tasa de interés", "B) La duración disminuye con el aumento de la tasa de interés", "C) La duración es independiente de la tasa de interés", "D) La duración es siempre negativa"], answer: 0 },
+  { question: "3. ¿Qué mide la 'duración modificada' de un bono?", options: ["A) Tasa de rendimiento", "B) Cambio porcentual en el precio del bono", "C) Sensibilidad del precio a cambios en la tasa de interés", "D) Rentabilidad total"], answer: 2 },
+  { question: "4. ¿Cuál de los siguientes bonos tiene una mayor duración?", options: ["A) Bono a 3 años con pagos anuales", "B) Bono a 5 años con pagos semestrales", "C) Bono a 10 años con pagos anuales", "D) Bono a 7 años con pagos mensuales"], answer: 2 },
+  { question: "5. ¿Qué implica una alta sensibilidad en un bono?", options: ["A) Menor riesgo de interés", "B) Mayor volatilidad del precio", "C) Mayor garantía de pago", "D) Menor duración"], answer: 1 },
+  { question: "6. ¿Cómo se calcula la duración de Macaulay?", options: ["A) Sumando los pagos futuros ponderados por el tiempo", "B) Dividiendo el precio del bono por la tasa de mercado", "C) Ajustando la duración modificada", "D) Multiplicando el cupón por la tasa de interés"], answer: 0 },
+  { question: "7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono?", options: ["A) Aumenta la duración", "B) Disminuye la duración", "C) No afecta la duración", "D) La duración se vuelve negativa"], answer: 1 }
 ];
 
 let current = 0;
@@ -190,23 +191,23 @@ function renderQuestion() {
   const letters = ["A", "B", "C", "D"];
   document.getElementById("quiz-container").className = "quiz-container";
   document.getElementById("quiz-container").innerHTML = `
-    <div class="quiz-header">
-      <span>Pregunta ${current + 1} de ${quizData.length}</span>
-      <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-    </div>
-    <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-    <div class="quiz-question">${q.question}</div>
-    <div class="quiz-options">
-      ${q.options.map((opt, i) => `
-        <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-          <div class="quiz-option-label">${letters[i]}</div>
-          <span>${opt}</span>
-        </button>
-      `).join("")}
-    </div>
-    <div class="quiz-controls">
-      <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-    </div>
+  <div class="quiz-header">
+    <span>Pregunta ${current + 1} de ${quizData.length}</span>
+    <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+  <div class="quiz-question">${q.question}</div>
+  <div class="quiz-options">
+    ${q.options.map((opt, i) => `
+    <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+      <div class="quiz-option-label">${letters[i]}</div>
+      <span>${opt}</span>
+    </button>
+    `).join("")}
+  </div>
+  <div class="quiz-controls">
+    <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+  </div>
   `;
   startTimer();
 }
@@ -247,25 +248,20 @@ window.nextQuestion = function() {
 
 function showResults() {
   let message = "";
-  if (score === 7) {
-    message = "¡Excelente! Has respondido todo correctamente. Has demostrado un excelente conocimiento sobre convenants en bonos. 🏆";
-  } else if (score >= 5) {
-    message = "¡Buen trabajo! Has acertado la mayoría de las preguntas. Tienes un buen conocimiento sobre convenants en bonos. 👍";
-  } else if (score >= 4) {
-    message = "Has acertado algunas preguntas. Necesitas mejorar tus conocimientos sobre convenants en bonos. Inténtalo de nuevo. 📚";
-  } else {
-    message = "Parece que necesitas aprender más sobre convenants en bonos. ¡Sigue estudiando! 🌱";
-  }
+  if (score === 7) message = "¡Perfecto! Dominas 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
+  else if (score >= 5) message = "Buen resultado en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
+  else if (score >= 4) message = "Nada mal, pero puedes mejorar en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
+  else message = "Es un buen momento para aprender más en 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?\n\n1. ¿Qué es la duración de un bono? A) Tiempo hasta el vencimiento B) Sensibilidad del precio a cambios en la tasa de interés C) Frecuencia de pagos de cupón D) Calificación crediticia Correcta: B. Explicación: Mide la volatilidad del precio del bono. Dato: La duración modificada es una medida más precisa.\n\n2. ¿Cuál de las siguientes afirmaciones sobre la duración es correcta? A) La duración aumenta con el aumento de la tasa de interés B) La duración disminuye con el aumento de la tasa de interés C) La duración es independiente de la tasa de interés D) La duración es siempre negativa Correcta: A. Explicación: La duración se alarga con tasas más bajas. Dato: Relación inversa entre duración y tasa de interés.\n\n3. ¿Qué mide la 'duración modificada' de un bono? A) Tasa de rendimiento B) Cambio porcentual en el precio del bono C) Sensibilidad del precio a cambios en la tasa de interés D) Rentabilidad total Correcta: C. Explicación: Mide la sensibilidad del precio del bono. Dato: Ajusta la duración Macaulay para reflejar cambios en tasas.\n\n4. ¿Cuál de los siguientes bonos tiene una mayor duración? A) Bono a 3 años con pagos anuales B) Bono a 5 años con pagos semestrales C) Bono a 10 años con pagos anuales D) Bono a 7 años con pagos mensuales Correcta: C. Explicación: La duración aumenta con el plazo. Dato: Plazos más largos, mayor sensibilidad a tasas.\n\n5. ¿Qué implica una alta sensibilidad en un bono? A) Menor riesgo de interés B) Mayor volatilidad del precio C) Mayor garantía de pago D) Menor duración Correcta: B. Explicación: Mayor volatilidad del precio ante cambios en tasas. Dato: Bonos con alta sensibilidad, mayor impacto de tasas.\n\n6. ¿Cómo se calcula la duración de Macaulay? A) Sumando los pagos futuros ponderados por el tiempo B) Dividiendo el precio del bono por la tasa de mercado C) Ajustando la duración modificada D) Multiplicando el cupón por la tasa de interés Correcta: A. Explicación: Pondera los flujos de caja futuros. Dato: Fórmula: \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \)\n\n7. ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono? A) Aumenta la duración B) Disminuye la duración C) No afecta la duración D) La duración se vuelve negativa Correcta: B. Explicación: Tasa de interés más alta, duración menor. Dato: Relación inversa entre tasa de interés y duración";
 
-  const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre convenants en bonos! ¿Te atreves a superarme? responderapido.com`;
+  const shareText = `¡He acertado ${score} de ${quizData.length} preguntas en un test sobre duración y sensibilidad en bonos! ¿Te atreves a superarme? responderapido.com`;
 
   document.getElementById("quiz-container").innerHTML = `
-    <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-    <div class="quiz-result-description">${message}</div>
-    <div class="quiz-result-buttons">
-      <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-      <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-    </div>
+  <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+  <div class="quiz-result-description">${message}</div>
+  <div class="quiz-result-buttons">
+    <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+    <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+  </div>
   `;
 }
 
@@ -281,55 +277,40 @@ window.shareWhatsApp = function(text) {
 };
 
 renderQuestion();
-})();
-</script>
-```
+})</script>
 <br><br>
-<p>Los tests profesionales permiten evaluar competencias específicas de manera eficiente y precisa. En el ámbito financiero, uno de los temas más relevantes es el de los convenants en bonos. Estos convenants son cláusulas contractuales que regulan las acciones del emisor del bono, protegiendo así los intereses de los inversores. Este artículo explora en profundidad los diferentes tipos de convenants, sus restricciones y su importancia en la gestión de bonos.</p>
+## 📈 ¿Cuánto sabes sobre duración y sensibilidad en bonos?
 
-<h2>Componentes clave de este Quiz especializado</h2>
+### Comprender la duración de un bono
 
-<p>El quiz sobre convenants en bonos está diseñado para evaluar el conocimiento de los participantes sobre estos conceptos fundamentales. A través de preguntas específicas, los usuarios pueden verificar su comprensión sobre las restricciones y obligaciones que los convenants imponen a los emisores de bonos.</p>
+La **duración de un bono** es una métrica fundamental en el mundo de las finanzas que mide la sensibilidad del precio del bono a los cambios en la tasa de interés. A diferencia del tiempo hasta el vencimiento, la duración se centra en cómo varía el precio del bono en respuesta a fluctuaciones en las tasas de interés. Este concepto es crucial para los inversores que buscan gestionar el riesgo de interés en sus carteras.
 
-<h3>¿Qué es un convenant en el contexto de un bono?</h3>
+### Duración y tasa de interés
 
-<p>Un convenant es una cláusula contractual que establece restricciones y obligaciones para el emisor del bono. Estas cláusulas tienen como objetivo proteger a los inversores al limitar ciertas acciones del emisor, como la emisión de nueva deuda o la distribución de dividendos. Los convenants pueden ser positivos o negativos, dependiendo de si obligan o prohíben ciertas acciones.</p>
+La duración de un bono no es un valor fijo; varía con las condiciones del mercado. Una de las características más importantes de la duración es su relación inversa con la tasa de interés. Esto significa que cuando las tasas de interés aumentan, la duración del bono disminuye, y viceversa. Esta relación inversa es esencial para entender cómo los cambios en las tasas de interés afectan el valor de los bonos y, por ende, la rentabilidad de los inversores.
 
-<h3>Tipos de convenants</h3>
+#### Factores que afectan la duración
 
-<p>Existen varios tipos de convenants que pueden aparecer en un bono. A continuación, se presentan los más comunes:</p>
+- **Plazo del bono**: Cuanto más largo sea el plazo del bono, mayor será su duración.
+- **Frecuencia de pagos de cupón**: Bonos con pagos más frecuentes tienden a tener una duración menor.
+- **Tasa de interés**: La duración disminuye con el aumento de las tasas de interés y aumenta con la disminución de las mismas.
 
-<ul>
-  <li><strong>Convenants de endeudamiento:</strong> Limitan la capacidad del emisor para emitir más deuda.</li>
-  <li><strong>Convenants de dividendos:</strong> Restringen la distribución de dividendos a los accionistas.</li>
-  <li><strong>Convenants de liquidez:</strong> Obligan al emisor a mantener ciertos niveles de liquidez.</li>
-  <li><strong>Convenants de garantía:</strong> Exigen que el emisor ofrezca activos como garantía.</li>
-</ul>
+### La duración modificada
 
-<h3>Importancia de los convenants</h3>
+La **duración modificada** es una medida ajustada de la duración de Macaulay que proporciona una estimación más precisa de la sensibilidad del precio del bono a los cambios en la tasa de interés. Esta métrica es especialmente útil para inversores que buscan una evaluación más precisa del riesgo de interés. La duración modificada se calcula ajustando la duración de Macaulay para reflejar cambios en las tasas de interés, lo que permite una mejor gestión del riesgo.
 
-<p>Los convenants son cruciales para la gestión de los bonos, ya que ayudan a mitigar riesgos y proteger los intereses de los inversores. Al imponer restricciones y obligaciones, los convenants aseguran que el emisor mantenga una posición financiera sólida y evite comportamientos que podrían poner en peligro el pago de los bonos.</p>
+#### Diferencias clave entre duración de Macaulay y duración modificada
 
-<h4>Ejemplo de convenants positivos y negativos</h4>
+| Característica             | Duración de Macaulay                           | Duración Modificada                          |
+|----------------------------|--------------------------------------------------|----------------------------------------------|
+| Fórmula                   | \( \text{Duración de Macaulay} = \frac{\sum \left(\frac{P_i}{(1+r)^t}\right)}{P} \) | Ajuste de la duración de Macaulay            |
+| Sensibilidad a cambios    | Mide la sensibilidad del precio del bono         | Mide la sensibilidad del precio del bono ajustada a cambios en tasas |
+| Uso principal             | Evaluación general de la sensibilidad            | Evaluación precisa del riesgo de interés     |
 
-<p>Un convenant positivo puede ser la obligación de mantener ciertos niveles de liquidez. Por otro lado, un convenant negativo podría prohibir la emisión de nueva deuda sin el consentimiento de los tenedores de bonos. Estos ejemplos ilustran cómo los convenants pueden ser diseñados para proteger diferentes aspectos de la solvencia del emisor.</p>
+### Sensibilidad y volatilidad del precio
 
-<h3>Consecuencias del incumplimiento de un convenant</h3>
+La **sensibilidad** de un bono se refiere a la magnitud de la variación en el precio del bono en respuesta a cambios en la tasa de interés. Un bono con alta sensibilidad experimentará mayores fluctuaciones en su precio ante cambios en las tasas de interés, lo que implica un mayor riesgo de interés. Los inversores deben considerar esta sensibilidad al tomar decisiones de inversión, especialmente en un entorno de tasas de interés fluctuantes.
 
-<p>El incumplimiento de un convenant puede tener serias consecuencias para el emisor del bono. Entre las posibles acciones que los inversores pueden tomar se encuentran:</p>
+### Conclusión
 
-<ul>
-  <li>Aumento en la tasa de interés del bono.</li>
-  <li>Pago inmediato del principal.</li>
-  <li>Pérdida de garantías.</li>
-</ul>
-
-<p>Estas consecuencias subrayan la importancia de que los emisores cumplan con las restricciones impuestas por los convenants.</p>
-
-<h3>Convenants en bonos con grado de inversión</h3>
-
-<p>Los bonos con grado de inversión suelen tener restricciones más estrictas en términos de convenants. Estos bonos, que se consideran de menor riesgo, requieren que el emisor mantenga altos niveles de solvencia y liquidez. Los convenants de liquidez son particularmente comunes en estos bonos, ya que aseguran que el emisor tenga suficientes activos líquidos para cumplir con sus obligaciones.</p>
-
-<h3>Conclusión</h3>
-
-<p>Los convenants en bonos son herramientas esenciales para proteger los intereses de los inversores y mantener la solvencia del emisor. Este quiz especializado sobre convenants en bonos ofrece una oportunidad única para evaluar y mejorar el conocimiento en este área crítica de la inversión en bonos. Entender y respetar estos convenants es fundamental para cualquier inversor que desee participar en el mercado de bonos de manera segura y eficiente.</p>
+Entender la duración y la sensibilidad en los bonos es esencial para cualquier inversor que busque gestionar el riesgo de interés en su cartera. Estas métricas proporcionan una visión clara de cómo los cambios en las tasas de interés afectan el valor de los bonos, permitiendo a los inversores tomar decisiones más informadas y estratégicas.
