@@ -1,362 +1,342 @@
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Inteligencia sobre Bonos High-Yield vs. Investment Grade</title>
-    <style>
-        .quiz-container {
-            font-family: Arial, sans-serif !important;
-            max-width: 700px !important;
-            margin: auto !important;
-            background: #fdfdfd !important;
-            padding: 25px !important;
-            border-radius: 12px !important;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
-        }
+<div id="quiz-container"></div>
 
-        .quiz-header {
-            display: flex !important;
-            justify-content: space-between !important;
-            margin-bottom: 10px !important;
-            font-size: 18px !important;
-        }
+<style>
+.quiz-container {
+font-family: Arial, sans-serif !important;
+max-width: 700px !important;
+margin: auto !important;
+background: #fdfdfd !important;
+padding: 25px !important;
+border-radius: 12px !important;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+}
 
-        .quiz-timer {
-            color: #e74c3c !important;
-            font-weight: bold !important;
-        }
+.quiz-header {
+display: flex !important;
+justify-content: space-between !important;
+margin-bottom: 10px !important;
+font-size: 18px !important;
+}
 
-        .quiz-progress-bar {
-            height: 10px !important;
-            background: #ddd !important;
-            border-radius: 5px !important;
-            overflow: hidden !important;
-            margin-bottom: 20px !important;
-        }
+.quiz-timer {
+color: #e74c3c !important;
+font-weight: bold !important;
+}
 
-        .quiz-progress {
-            height: 100% !important;
-            background: #4caf50 !important;
-            transition: width 0.3s !important;
-        }
+.quiz-progress-bar {
+height: 10px !important;
+background: #ddd !important;
+border-radius: 5px !important;
+overflow: hidden !important;
+margin-bottom: 20px !important;
+}
 
-        .quiz-question {
-            font-size: 22px !important;
-            font-weight: 600 !important;
-            margin-bottom: 20px !important;
-        }
+.quiz-progress {
+height: 100% !important;
+background: #4caf50 !important;
+transition: width 0.3s !important;
+}
 
-        .quiz-options {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 15px !important;
-        }
+.quiz-question {
+font-size: 22px !important;
+font-weight: 600 !important;
+margin-bottom: 20px !important;
+}
 
-        .quiz-option-button {
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            padding: 12px 14px !important;
-            font-size: 16px !important;
-            background: #f0f0f0 !important;
-            border: 2px solid transparent !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease-in-out !important;
-            text-align: left !important;
-        }
+.quiz-options {
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 15px !important;
+}
 
-        .quiz-option-button.correct {
-            background: #c8f7c5 !important;
-            border-color: #27ae60 !important;
-            color: #2d7d33 !important;
-            font-weight: bold !important;
-        }
+.quiz-option-button {
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+padding: 12px 14px !important;
+font-size: 16px !important;
+background: #f0f0f0 !important;
+border: 2px solid transparent !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+transition: all 0.2s ease-in-out !important;
+text-align: left !important;
+}
 
-        .quiz-option-button.incorrect {
-            background: #f8d7da !important;
-            border-color: #c0392b !important;
-            color: #c0392b !important;
-            font-weight: bold !important;
-        }
+.quiz-option-button.correct {
+background: #c8f7c5 !important;
+border-color: #27ae60 !important;
+color: #2d7d33 !important;
+font-weight: bold !important;
+}
 
-        .quiz-option-label {
-            width: 28px !important;
-            height: 28px !important;
-            border-radius: 50% !important;
-            background: #3498db !important;
-            color: white !important;
-            font-weight: bold !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            flex-shrink: 0 !important;
-        }
+.quiz-option-button.incorrect {
+background: #f8d7da !important;
+border-color: #c0392b !important;
+color: #c0392b !important;
+font-weight: bold !important;
+}
 
-        .quiz-controls {
-            margin-top: 20px !important;
-            text-align: center !important;
-        }
+.quiz-option-label {
+width: 28px !important;
+height: 28px !important;
+border-radius: 50% !important;
+background: #3498db !important;
+color: white !important;
+font-weight: bold !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex-shrink: 0 !important;
+}
 
-        .quiz-controls button {
-            width: 100% !important;
-            padding: 14px !important;
-            font-size: 16px !important;
-            background: #3498db !important;
-            color: white !important;
-            border: none !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-        }
+.quiz-controls {
+margin-top: 20px !important;
+text-align: center !important;
+}
 
-        .quiz-result-title {
-            font-size: 26px !important;
-            font-weight: bold !important;
-            margin-bottom: 15px !important;
-            text-align: center !important;
-        }
+.quiz-controls button {
+width: 100% !important;
+padding: 14px !important;
+font-size: 16px !important;
+background: #3498db !important;
+color: white !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
 
-        .quiz-result-description {
-            font-size: 17px !important;
-            line-height: 1.6 !important;
-            white-space: pre-line !important;
-            text-align: center !important;
-        }
+.quiz-result-title {
+font-size: 26px !important;
+font-weight: bold !important;
+margin-bottom: 15px !important;
+text-align: center !important;
+}
 
-        .quiz-result-buttons {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 10px !important;
-            margin-top: 25px !important;
-            text-align: center !important;
-        }
+.quiz-result-description {
+font-size: 17px !important;
+line-height: 1.6 !important;
+white-space: pre-line !important;
+text-align: center !important;
+}
 
-        .quiz-result-buttons button {
-            padding: 12px !important;
-            font-size: 16px !important;
-            border: none !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-        }
+.quiz-result-buttons {
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
+margin-top: 25px !important;
+text-align: center !important;
+}
 
-        .quiz-restart-btn {
-            background-color: #2ecc71 !important;
-            color: white !important;
-        }
+.quiz-result-buttons button {
+padding: 12px !important;
+font-size: 16px !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
 
-        .quiz-share-btn {
-            background-color: #25D366 !important;
-            color: white !important;
-        }
+.quiz-restart-btn {
+background-color: #2ecc71 !important;
+color: white !important;
+}
 
-        @media (max-width: 600px) {
-            .quiz-options {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="quiz-container"></div>
+.quiz-share-btn {
+background-color: #25D366 !important;
+color: white !important;
+}
 
-    <script>
-        (function() {
-            const quizData = [
-                { question: "📈 ¿Qué significa 'high-yield' en el contexto de bonos?", options: ["Bajos rendimientos", "Alta rentabilidad", "Riesgo moderado", "Garantía gubernamental"], answer: 1 },
-                { question: "📉 ¿Qué significa 'investment grade' en el contexto de bonos?", options: ["Bajos rendimientos", "Alta rentabilidad", "Riesgo moderado", "Calidad inversora"], answer: 3 },
-                { question: "🔍 ¿Cuál es la principal diferencia entre bonos high-yield e investment grade?", options: ["El emisor", "El plazo", "La calificación crediticia", "El rendimiento"], answer: 2 },
-                { question: "💰 ¿Cuál de estos bonos generalmente ofrece mayores rendimientos?", options: ["Bonos del gobierno", "Bonos corporativos investment grade", "Bonos high-yield", "Bonos municipales"], answer: 2 },
-                { question: "🕵️‍♂️ ¿Qué tipo de empresa suele emitir bonos high-yield?", options: ["Empresas con alta calificación crediticia", "Empresas emergentes", "Empresas con buena calificación crediticia", "Empresas en quiebra"], answer: 1 },
-                { question: "📊 ¿Qué tipo de bonos se consideran más seguros?", options: ["Bonos high-yield", "Bonos investment grade", "Bonos basura", "Bonos de mercado emergente"], answer: 1 },
-                { question: "💭 ¿Qué factor es crucial para determinar si un bono es high-yield o investment grade?", options: ["El rendimiento", "La duración", "La calificación crediticia", "El sector de la empresa"], answer: 2 }
-            ];
+@media (max-width: 600px) {
+.quiz-options {
+grid-template-columns: 1fr !important;
+}
+}
+</style>
 
-            let current = 0;
-            let score = 0;
-            let timer;
-            let timeLeft = 15;
+<script>
+(function() {
+const quizData = [
+{ question: "📉 ¿Qué significa el término 'high-yield' en el contexto de bonos?", options: ["Bajos rendimientos", "Rendimientos moderados", "Altos rendimientos", "Rendimientos negativos"], answer: 2 },
+{ question: "🏦 ¿Cuál es la principal característica de los bonos high-yield?", options: ["Garantizados por el gobierno", "Riesgo crediticio bajo", "Riesgo crediticio alto", "Intereses fijos"], answer: 2 },
+{ question: "💸 ¿Qué tipo de inversores suelen preferir los bonos high-yield?", options: ["Inversores conservadores", "Inversores a largo plazo", "Inversores de alto riesgo", "Inversores individuales"], answer: 2 },
+{ question: "📊 ¿Cómo se comparan los bonos high-yield con los bonos investment grade en términos de rendimiento?", options: ["Menor rendimiento", "Rendimiento similar", "Mayor rendimiento", "Rendimiento variable"], answer: 2 },
+{ question: "📉 ¿Qué tipo de empresas emiten típicamente bonos high-yield?", options: ["Empresas con alta calificación crediticia", "Empresas en situación financiera sólida", "Empresas con baja calificación crediticia", "Empresas gubernamentales"], answer: 2 },
+{ question: "📈 ¿Qué significa 'investment grade' en el contexto de bonos?", options: ["Riesgo alto", "Riesgo moderado", "Riesgo bajo", "Riesgo nulo"], answer: 2 },
+{ question: "📉 ¿Por qué los bonos high-yield son considerados más riesgosos que los bonos investment grade?", options: ["Por su alta liquidez", "Por su alta calificación crediticia", "Por su menor riesgo de impago", "Por su mayor riesgo de impago"], answer: 3 }
+];
 
-            function startTimer() {
-                timeLeft = 15;
-                document.getElementById("quiz-timer").innerText = timeLeft;
-                clearInterval(timer);
-                timer = setInterval(() => {
-                    timeLeft--;
-                    document.getElementById("quiz-timer").innerText = timeLeft;
-                    if (timeLeft === 0) {
-                        clearInterval(timer);
-                        disableOptions();
-                        revealCorrect();
-                    }
-                }, 1000);
-            }
+let current = 0;
+let score = 0;
+let timer;
+let timeLeft = 15;
 
-            function renderQuestion() {
-                const q = quizData[current];
-                const letters = ["A", "B", "C", "D"];
-                document.getElementById("quiz-container").className = "quiz-container";
-                document.getElementById("quiz-container").innerHTML = `
-                    <div class="quiz-header">
-                        <span>Pregunta ${current + 1} de ${quizData.length}</span>
-                        <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-                    </div>
-                    <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-                    <div class="quiz-question">${q.question}</div>
-                    <div class="quiz-options">
-                        ${q.options.map((opt, i) => `
-                            <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-                                <div class="quiz-option-label">${letters[i]}</div>
-                                <span>${opt}</span>
-                            </button>
-                        `).join("")}
-                    </div>
-                    <div class="quiz-controls">
-                        <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-                    </div>
-                `;
-                startTimer();
-            }
+function startTimer() {
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
+}
 
-            window.selectAnswer = function(index) {
-                clearInterval(timer);
-                const correct = quizData[current].answer;
-                const buttons = document.querySelectorAll(".quiz-option-button");
-                buttons.forEach((btn, i) => {
-                    btn.disabled = true;
-                    if (i === correct) btn.classList.add("correct");
-                    if (i === index && index !== correct) btn.classList.add("incorrect");
-                });
-                if (index === correct) score++;
-                document.getElementById("next-btn").disabled = false;
-            };
+function renderQuestion() {
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
+}
 
-            function disableOptions() {
-                const buttons = document.querySelectorAll(".quiz-option-button");
-                buttons.forEach(btn => btn.disabled = true);
-                document.getElementById("next-btn").disabled = false;
-            }
+window.selectAnswer = function(index) {
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
+};
 
-            function revealCorrect() {
-                const correct = quizData[current].answer;
-                const buttons = document.querySelectorAll(".quiz-option-button");
-                buttons[correct].classList.add("correct");
-            }
+function disableOptions() {
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
+}
 
-            window.nextQuestion = function() {
-                current++;
-                if (current < quizData.length) {
-                    renderQuestion();
-                } else {
-                    showResults();
-                }
-            };
+function revealCorrect() {
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
+}
 
-            function showResults() {
-                let message = "";
-                if (score === quizData.length) {
-                    message = "¡Excelente! Has demostrado un profundo conocimiento sobre bonos high-yield e investment grade. 🏆";
-                } else if (score >= quizData.length * 0.7) {
-                    message = "Muy bien hecho, tienes un gran conocimiento sobre bonos. 💡";
-                } else if (score >= quizData.length * 0.4) {
-                    message = "Nada mal, pero puedes mejorar tu conocimiento sobre bonos. 📘";
-                } else {
-                    message = "Es un buen momento para aprender más sobre bonos. 🌱";
-                }
+window.nextQuestion = function() {
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
+};
 
-                const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre bonos en un test! ¿Te atreves a superarme? responderapido.com`;
+function showResults() {
+let message = "";
+if (score === 7) {
+message = "¡Excelente! Dominas 📈 ¿Cómo se clasifican los bonos high-yield en comparación con los investment grade?";
+} else if (score >= 5) {
+message = "¡Muy bien! Tienes un buen conocimiento sobre 📈 ¿Cómo se clasifican los bonos high-yield en comparación con los investment grade?";
+} else if (score >= 4) {
+message = "Eres competente, pero hay margen de mejora. ¡Sigue aprendiendo!";
+} else {
+message = "Es un buen momento para aprender más sobre 📈 ¿Cómo se clasifican los bonos high-yield en comparación con los investment grade?";
+}
 
-                document.getElementById("quiz-container").innerHTML = `
-                    <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-                    <div class="quiz-result-description">${message}</div>
-                    <div class="quiz-result-buttons">
-                        <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-                        <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-                    </div>
-                `;
-            }
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📈 ¿Cómo se clasifican los bonos high-yield en comparación con los investment grade? en un test! ¿Te atreves a superarme? responderapido.com`;
 
-            window.restartQuiz = function() {
-                current = 0;
-                score = 0;
-                renderQuestion();
-            };
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
+}
 
-            window.shareWhatsApp = function(text) {
-                const url = `https://api.whatsapp.com/send?text=${text}`;
-                window.open(url, '_blank');
-            };
+window.restartQuiz = function() {
+current = 0;
+score = 0;
+renderQuestion();
+};
 
-            renderQuestion();
-        })();
-    </script>
-</body>
-</html>
-```
+window.shareWhatsApp = function(text) {
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
+};
+
+renderQuestion();
+})();
+</script>
 <br><br>
-<p>Los tests y quizzes son herramientas esenciales en la educación financiera, permitiendo a los usuarios evaluar su conocimiento de manera interactiva y dinámica. En el contexto de los bonos, entender las diferencias entre los bonos "high-yield" e "investment grade" es crucial para tomar decisiones informadas. Este artículo profundiza en estos conceptos, basándose en las preguntas y respuestas del quiz proporcionado.</p>
+<p>Los bonos high-yield y los bonos investment grade son dos tipos de instrumentos financieros que se utilizan para obtener financiamiento, pero presentan características y riesgos distintivos. Este artículo explora estas diferencias y cómo se clasifican en comparación entre sí, proporcionando una comprensión clara para inversores y profesionales del sector.</p>
 
-<h2>Bonos High-Yield vs. Investment Grade: Un Resumen</h2>
-<p>Los bonos son instrumentos financieros que permiten a las empresas y gobiernos recaudar fondos prestando dinero a los inversores a cambio de pagos de intereses periódicos y el reembolso del principal al vencimiento. Sin embargo, no todos los bonos son iguales. Los bonos se pueden clasificar en dos categorías principales: "high-yield" y "investment grade".</p>
+<h2>Entendiendo los Bonos High-Yield</h2>
+<p>Los bonos high-yield, también conocidos como "bonos basura", son aquellos que ofrecen altos rendimientos pero con un mayor riesgo crediticio. Estos bonos son emitidos por empresas con una calificación crediticia baja, lo que implica una mayor probabilidad de impago.</p>
 
-<h3>Qué Significa High-Yield</h3>
-<p>Los bonos "high-yield", también conocidos como "bonos basura", son aquellos que ofrecen rendimientos elevados debido a su mayor riesgo. Estas emisiones suelen estar asociadas con empresas que tienen una calificación crediticia baja o incierta. La alta rentabilidad es una compensación por el riesgo adicional que asumen los inversores.</p>
+<p>En un contexto de quiz o test, los inversores suelen ser evaluados sobre su conocimiento de los riesgos asociados con estos bonos. Por ejemplo, una pregunta podría ser: "¿Qué tipo de empresas emiten típicamente bonos high-yield?"</p>
 
-<h3>Qué Significa Investment Grade</h3>
-<p>Por otro lado, los bonos "investment grade" son considerados de alta calidad y tienen un riesgo crediticio menor. Estos bonos son emitidos por empresas o gobiernos con una sólida situación financiera y una calificación crediticia alta. La rentabilidad de estos bonos es generalmente menor en comparación con los "high-yield", pero ofrecen una mayor seguridad.</p>
+<h3>Características Principales de los Bonos High-Yield</h3>
+<ul>
+  <li>Altos rendimientos</li>
+  <li>Riesgo crediticio alto</li>
+  <li>Emitidos por empresas con baja calificación crediticia</li>
+  <li>Preferidos por inversores de alto riesgo</li>
+</ul>
 
-<h2>Diferencias Clave entre High-Yield e Investment Grade</h2>
-<p>La principal diferencia entre estos dos tipos de bonos radica en su calificación crediticia. Mientras que los bonos "high-yield" tienen una calificación crediticia baja, los bonos "investment grade" cuentan con una calificación alta. Esta diferencia se refleja en los rendimientos y en el nivel de riesgo que los inversores están dispuestos a asumir.</p>
+<h2>Conoce los Bonos Investment Grade</h2>
+<p>Los bonos investment grade, por otro lado, son aquellos que tienen una alta calificación crediticia y, por ende, un menor riesgo de impago. Estos bonos son considerados más seguros y son emitidos por empresas con una situación financiera sólida.</p>
 
-<h3>Comparación de Rendimientos y Riesgos</h3>
-<p>Para entender mejor las diferencias, veamos una comparación en una tabla:</p>
+<p>En un test financiero, los inversores deben comprender las diferencias clave entre estos dos tipos de bonos. Por ejemplo, una pregunta podría ser: "¿Qué significa 'investment grade' en el contexto de bonos?"</p>
+
+<h3>Características Principales de los Bonos Investment Grade</h3>
+<ul>
+  <li>Riesgo crediticio bajo</li>
+  <li>Emitidos por empresas con alta calificación crediticia</li>
+  <li>Rendimientos moderados pero estable</li>
+  <li>Preferidos por inversores conservadores</li>
+</ul>
+
+<h3>Comparación de Rendimientos</h3>
+<p>Una de las principales diferencias entre los bonos high-yield y los investment grade es el rendimiento. Los bonos high-yield ofrecen mayores rendimientos debido a su mayor riesgo, mientras que los bonos investment grade ofrecen rendimientos más moderados pero con mayor seguridad.</p>
 
 <table>
-    <thead>
-        <tr>
-            <th>Característica</th>
-            <th>Bono High-Yield</th>
-            <th>Bono Investment Grade</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Rendimiento</td>
-            <td>Alto</td>
-            <td>Moderado</td>
-        </tr>
-        <tr>
-            <td>Riesgo</td>
-            <td>Alto</td>
-            <td>Bajo</td>
-        </tr>
-        <tr>
-            <td>Calificación Crediticia</td>
-            <td>Baja</td>
-            <td>Alta</td>
-        </tr>
-        <tr>
-            <td>Emisor</td>
-            <td>Empresas emergentes o con problemas financieros</td>
-            <td>Empresas sólidas o gobiernos</td>
-        </tr>
-    </tbody>
+  <tr>
+    <th>Tipo de Bono</th>
+    <th>Rendimiento</th>
+    <th>Riesgo Crediticio</th>
+    <th>Emitido por</th>
+  </tr>
+  <tr>
+    <td>High-Yield</td>
+    <td>Alto</td>
+    <td>Alto</td>
+    <td>Empresas con baja calificación crediticia</td>
+  </tr>
+  <tr>
+    <td>Investment Grade</td>
+    <td>Moderado</td>
+    <td>Bajo</td>
+    <td>Empresas con alta calificación crediticia</td>
+  </tr>
 </table>
 
-<h4>Factores a Considerar en el Quiz</h4>
-<p>Al realizar un <strong>test</strong> o <strong>quiz</strong> sobre estos temas, es importante considerar varios factores clave:</p>
-<ol>
-    <li>El rendimiento esperado</li>
-    <li>El nivel de riesgo que estás dispuesto a asumir</li>
-    <li>La calificación crediticia del emisor</li>
-    <li>El plazo del bono</li>
-    <li>El sector de la empresa emisora</li>
-</ol>
+<h4>Ejemplo de Pregunta en un Quiz</h4>
+<p>Para evaluar su conocimiento, considere la siguiente pregunta de un quiz financiero: "¿Por qué los bonos high-yield son considerados más riesgosos que los bonos investment grade?"</p>
 
-<p>Estos factores te ayudarán a tomar decisiones más informadas y a entender mejor las implicaciones de invertir en bonos "high-yield" o "investment grade".</p>
-
-<h2>Conclusión</h2>
-<p>En resumen, los bonos "high-yield" e "investment grade" ofrecen diferentes perfiles de riesgo y rendimiento, adaptándose a distintos tipos de inversores. Comprender estas diferencias es esencial para cualquier persona interesada en el mercado de bonos. Realizar tests y quizzes puede ser una excelente manera de evaluar y mejorar tu conocimiento en este campo.</p>
-
-<p>La educación continua y la evaluación periódica a través de tests son fundamentales para cualquier inversor que busque maximizar su cartera y minimizar riesgos. La información y la preparación son las claves para tomar decisiones financieras acertadas.</p>
+<p>En resumen, tanto los bonos high-yield como los bonos investment grade tienen sus propias ventajas y desventajas. La elección entre uno u otro dependerá del perfil de riesgo del inversor y sus objetivos financieros. Comprender estas diferencias es crucial para tomar decisiones informadas y exitosas en el mundo de las inversiones.</p>
