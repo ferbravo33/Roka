@@ -1,0 +1,348 @@
+```html
+<div id="quiz-container"></div>
+
+<style>
+.quiz-container {
+font-family: Arial, sans-serif !important;
+max-width: 700px !important;
+margin: auto !important;
+background: #fdfdfd !important;
+padding: 25px !important;
+border-radius: 12px !important;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.quiz-header {
+display: flex !important;
+justify-content: space-between !important;
+margin-bottom: 10px !important;
+font-size: 18px !important;
+}
+
+.quiz-timer {
+color: #e74c3c !important;
+font-weight: bold !important;
+}
+
+.quiz-progress-bar {
+height: 10px !important;
+background: #ddd !important;
+border-radius: 5px !important;
+overflow: hidden !important;
+margin-bottom: 20px !important;
+}
+
+.quiz-progress {
+height: 100% !important;
+background: #4caf50 !important;
+transition: width 0.3s !important;
+}
+
+.quiz-question {
+font-size: 22px !important;
+font-weight: 600 !important;
+margin-bottom: 20px !important;
+}
+
+.quiz-options {
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 15px !important;
+}
+
+.quiz-option-button {
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+padding: 12px 14px !important;
+font-size: 16px !important;
+background: #f0f0f0 !important;
+border: 2px solid transparent !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+transition: all 0.2s ease-in-out !important;
+text-align: left !important;
+}
+
+.quiz-option-button.correct {
+background: #c8f7c5 !important;
+border-color: #27ae60 !important;
+color: #2d7d33 !important;
+font-weight: bold !important;
+}
+
+.quiz-option-button.incorrect {
+background: #f8d7da !important;
+border-color: #c0392b !important;
+color: #c0392b !important;
+font-weight: bold !important;
+}
+
+.quiz-option-label {
+width: 28px !important;
+height: 28px !important;
+border-radius: 50% !important;
+background: #3498db !important;
+color: white !important;
+font-weight: bold !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex-shrink: 0 !important;
+}
+
+.quiz-controls {
+margin-top: 20px !important;
+text-align: center !important;
+}
+
+.quiz-controls button {
+width: 100% !important;
+padding: 14px !important;
+font-size: 16px !important;
+background: #3498db !important;
+color: white !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
+
+.quiz-result-title {
+font-size: 26px !important;
+font-weight: bold !important;
+margin-bottom: 15px !important;
+text-align: center !important;
+}
+
+.quiz-result-description {
+font-size: 17px !important;
+line-height: 1.6 !important;
+white-space: pre-line !important;
+text-align: center !important;
+}
+
+.quiz-result-buttons {
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
+margin-top: 25px !important;
+text-align: center !important;
+}
+
+.quiz-result-buttons button {
+padding: 12px !important;
+font-size: 16px !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+}
+
+.quiz-restart-btn {
+background-color: #2ecc71 !important;
+color: white !important;
+}
+
+.quiz-share-btn {
+background-color: #25D366 !important;
+color: white !important;
+}
+
+@media (max-width: 600px) {
+.quiz-options {
+grid-template-columns: 1fr !important;
+}
+}
+</style>
+
+<script>
+(function() {
+const quizData = [
+{ question: "🔍 ¿Qué son los 'covenants' en bonos corporativos?", options: ["Acciones preferentes", "Obligaciones financieras", "Condiciones contractuales", "Gastos operativos"], answer: 2 },
+{ question: "📜 ¿Por qué son importantes los 'covenants' en bonos corporativos?", options: ["Para reducir el riesgo de impago", "Para aumentar los dividendos", "Para facilitar la auditoría interna", "Para mejorar la liquidez"], answer: 0 },
+{ question: "🏢 ¿Qué tipos de 'covenants' suelen incluirse en los bonos corporativos?", options: ["Restricciones de dividendos", "Límites de endeudamiento", "Ambas", "Ninguna"], answer: 2 },
+{ question: "💡 ¿Qué hacen los 'covenants' en relación con la estructura de capital?", options: ["Aumentan el riesgo", "Reducen el riesgo", "No tienen ningún efecto", "Incremente la rentabilidad"], answer: 1 },
+{ question: "🔒 ¿Qué sucede si una empresa incumple un 'covenant'?", options: ["Puede ser declarada en quiebra", "Debe emitir más bonos", "Debe pagar una penalización", "Debe vender activos"], answer: 2 },
+{ question: "📊 ¿Cuál es el objetivo principal de los 'covenants'?", options: ["Aumentar la rentabilidad", "Proteger a los inversores", "Reducir costos operativos", "Facilitar la expansión"], answer: 1 },
+{ question: "📝 ¿Quiénes suelen imponer los 'covenants' en los bonos?", options: ["Los inversores", "Los empleados", "Los clientes", "El gobierno"], answer: 0 },
+{ question: "⏰ ¿Cuándo se suelen revisar los 'covenants'?", options: ["Al inicio del contrato", "Cada año", "Cada cinco años", "Nunca"], answer: 1 },
+{ question: "📋 ¿Qué tipo de 'covenant' limita la capacidad de una empresa para emitir más deuda?", options: "Restricciones de endeudamiento", "Límites de dividendos", "Restricciones de inversiones", "Covenants de liquidez", answer: 0 },
+{ question: "📉 ¿Qué impacto tienen los 'covenants' en la calificación crediticia de una empresa?", options: ["Aumentan la calificación", "Reducen la calificación", "No tienen impacto", "La aumentan o la reducen dependiendo de la situación"], answer: 3 }
+];
+
+let current = 0;
+let score = 0;
+let timer;
+let timeLeft = 15;
+
+function startTimer() {
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
+}
+
+function renderQuestion() {
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
+}
+
+window.selectAnswer = function(index) {
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
+};
+
+function disableOptions() {
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
+}
+
+function revealCorrect() {
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
+}
+
+window.nextQuestion = function() {
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
+};
+
+function showResults() {
+let message = "";
+if (score === quizData.length) {
+message = "¡Excelente! Has demostrado un conocimiento profundo sobre los 'covenants' en bonos corporativos. 🏆";
+} else if (score >= quizData.length * 0.7) {
+message = "Muy bien hecho, tienes un gran conocimiento sobre los 'covenants'. 💡";
+} else if (score >= quizData.length * 0.4) {
+message = "Nada mal, pero puedes aprender más sobre los 'covenants'. 📘";
+} else {
+message = "Es un buen momento para aprender más sobre los 'covenants'. 🌱";
+}
+
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre los 'covenants' en bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
+
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
+}
+
+window.restartQuiz = function() {
+current = 0;
+score = 0;
+renderQuestion();
+};
+
+window.shareWhatsApp = function(text) {
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
+};
+
+renderQuestion();
+})();
+</script>
+```
+<br><br>
+¿Qué son los "covenants" en bonos corporativos y por qué son importantes?
+
+Para entender mejor los "covenants" en bonos corporativos, es útil primero aclarar qué son los bonos corporativos. Los bonos corporativos son instrumentos de deuda emitidos por empresas para recaudar fondos. En este contexto, los "covenants" son condiciones contractuales que las empresas deben cumplir para mantener la integridad del bono y proteger los intereses de los inversores.
+
+### Importancia de los "covenants" en bonos corporativos
+
+Los "covenants" son cruciales porque reducen el riesgo de impago. Estos acuerdos establecen restricciones y obligaciones que las empresas deben seguir, lo que proporciona una capa adicional de seguridad para los inversores. Por ejemplo, pueden incluir límites sobre la cantidad de deuda adicional que una empresa puede asumir o restricciones sobre el pago de dividendos.
+
+### Tipos de "covenants" en bonos corporativos
+
+Existen varios tipos de "covenants" que pueden incluirse en los bonos corporativos. A continuación, se detallan algunos de los más comunes:
+
+#### Restricciones de dividendos
+
+Estas restricciones limitan la cantidad de dividendos que una empresa puede pagar a sus accionistas. Esto asegura que la empresa mantenga suficiente liquidez para cumplir con sus obligaciones de deuda.
+
+#### Límites de endeudamiento
+
+Estos "covenants" establecen un techo sobre la cantidad de deuda adicional que una empresa puede emitir. Esto ayuda a evitar que la empresa se endeude en exceso, lo que podría poner en riesgo su capacidad de pagar sus deudas.
+
+#### Restricciones de inversiones
+
+Estas condiciones limitan las inversiones que una empresa puede realizar, asegurando que las inversiones no pongan en peligro la capacidad de la empresa para cumplir con sus obligaciones de deuda.
+
+#### Covenants de liquidez
+
+Estos "covenants" obligan a la empresa a mantener ciertos niveles de liquidez para asegurar que puedan hacer frente a sus obligaciones financieras a corto plazo.
+
+### Impacto de los "covenants" en la estructura de capital
+
+Los "covenants" juegan un papel importante en la estructura de capital de una empresa. Al imponer restricciones financieras, los "covenants" ayudan a reducir el riesgo, lo que a su vez puede mejorar la calificación crediticia de la empresa. Una mejor calificación crediticia puede resultar en menores costos de endeudamiento para la empresa en el futuro.
+
+### Consecuencias de incumplir un "covenant"
+
+Si una empresa incumple un "covenant", puede enfrentar varias consecuencias. Entre ellas, la más grave es la posibilidad de que se declare en quiebra. Otros posibles resultados incluyen la necesidad de pagar penalizaciones o la obligación de vender activos para cumplir con sus obligaciones financieras.
+
+### Objetivo principal de los "covenants"
+
+El objetivo principal de los "covenants" es proteger a los inversores. Al imponer condiciones contractuales, se asegura que la empresa mantenga una posición financiera sólida, lo que reduce el riesgo de impago y protege los intereses de quienes han invertido en el bono.
+
+### Quiénes imponen los "covenants"
+
+Los "covenants" suelen ser impuestos por los inversores. Estos son los que tienen el interés en asegurar que la empresa cumpla con sus obligaciones financieras y mantenga una posición financiera sólida.
+
+### Revisión de los "covenants"
+
+Los "covenants" se suelen revisar anualmente. Esto asegura que las condiciones sigan siendo relevantes y efectivas a medida que cambia la situación financiera de la empresa.
+
+### Covenants de endeudamiento
+
+Los "covenants" de endeudamiento son específicos y limitan la capacidad de una empresa para emitir más deuda. Estos son cruciales para evitar que una empresa se endeude en exceso, lo que podría poner en riesgo su capacidad de pagar sus deudas.
+
+### Impacto en la calificación crediticia
+
+Los "covenants" pueden tener un impacto significativo en la calificación crediticia de una empresa. Dependiendo de la situación, pueden aumentarla o disminuirla. Una buena gestión de los "covenants" puede mejorar la calificación crediticia, lo que a su vez puede reducir los costos de endeudamiento.
+
+Para profundizar en tu conocimiento sobre los "covenants" en bonos corporativos, te invitamos a realizar nuestro **quiz** interactivo. Este **test** te permitirá evaluar tus conocimientos y aprender más sobre este importante tema financiero. ¡Ponte a prueba y descubre cuánto sabes sobre los "covenants"!
