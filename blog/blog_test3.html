@@ -156,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📉 ¿Cómo afecta la volatilidad de las tasas de interés a los precios de los bonos?", options: ["Aumenta los precios de los bonos", "Disminuye los precios de los bonos", "No tiene efecto en los precios de los bonos", "Aumenta la demanda de bonos"], answer: 1 },
-{ question: "📉 ¿Qué sucede con el precio de un bono cuando las tasas de interés suben?", options: ["El precio del bono aumenta", "El precio del bono disminuye", "El precio del bono se mantiene igual", "El precio del bono se duplica"], answer: 1 },
-{ question: "📉 ¿Qué tipo de bonos son más sensibles a la volatilidad de las tasas de interés?", options: ["Bonos a corto plazo", "Bonos a largo plazo", "Bonos corporativos", "Bonos gubernamentales"], answer: 1 },
-{ question: "📉 ¿Cómo se mide la duración de un bono?", options: ["Por el tiempo hasta la madurez", "Por la tasa de interés", "Por el rendimiento", "Por la calificación crediticia"], answer: 0 },
-{ question: "📉 ¿Qué es la convexidad en el contexto de los bonos?", options: ["La medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "La medida de la duración de un bono", "La medida de la calificación crediticia de un bono", "La medida de la liquidez de un bono"], answer: 0 },
-{ question: "📉 ¿Qué es el riesgo de reinversión en bonos?", options: ["El riesgo de que los ingresos futuros del bono no puedan reinvertirse a la misma tasa de interés", "El riesgo de que el emisor del bono no pueda pagar los intereses", "El riesgo de que el precio del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
-{ question: "📉 ¿Cómo afecta la inflación a los bonos?", options: ["Aumenta el valor real de los pagos de intereses", "Disminuye el valor real de los pagos de intereses", "No tiene efecto en los pagos de intereses", "Aumenta la demanda de bonos"], answer: 1 }
+{ question: "📈 ¿Qué es la duración de Macaulay?", options: ["El tiempo de vencimiento del bono", "El promedio ponderado de los flujos de caja", "El tiempo hasta la primera amortización", "El tiempo hasta el vencimiento promedio"], answer: 1 },
+{ question: "📈 ¿Cómo se calcula la duración de Macaulay?", options: ["Sumando los flujos de caja", "Dividiendo los flujos de caja por el precio del bono", "Multiplicando los flujos de caja por el tiempo y dividiendo por el precio del bono", "Restando los flujos de caja"], answer: 2 },
+{ question: "📈 ¿Qué mide la duración de Macaulay?", options: ["La sensibilidad del precio del bono a cambios en la tasa de interés", "La tasa de interés del bono", "El rendimiento del bono", "El riesgo del bono"], answer: 0 },
+{ question: "📈 ¿Qué es la duración modificada?", options: ["La duración de Macaulay ajustada por la tasa de interés", "La duración de Macaulay multiplicada por el precio del bono", "La duración de Macaulay dividida por (1 + tasa de interés)", "La duración de Macaulay sumada a la tasa de interés"], answer: 2 },
+{ question: "📈 ¿Qué relación tiene la duración de Macaulay con la duración modificada?", options: ["Son iguales", "La duración modificada es mayor que la duración de Macaulay", "La duración de Macaulay es mayor que la duración modificada", "La duración modificada es menor que la duración de Macaulay"], answer: 1 },
+{ question: "📈 ¿Qué tipo de bonos se utilizan para calcular la duración de Macaulay?", options: ["Bonos con cupones fijos", "Bonos con cupones variables", "Bonos sin cupones", "Bonos con cupones negativos"], answer: 0 },
+{ question: "📈 ¿Qué impacto tiene una mayor duración de Macaulay en el precio del bono?", options: ["Menor sensibilidad a cambios en la tasa de interés", "Mayor sensibilidad a cambios en la tasa de interés", "No hay impacto en la sensibilidad", "Impacto negativo en la sensibilidad"], answer: 1 }
 ];
 
 let current = 0;
@@ -247,12 +247,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
-else if (score >= 5) message = "Buen resultado en 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
-else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
-else message = "Es un buen momento para aprender más sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
+if(score === 7) message = "¡Perfecto! Dominas 📈 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else if(score >= 5) message = "Buen resultado en 📈 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else if(score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento en 📈 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else message = "Es un buen momento para aprender más sobre 📈 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📈 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos? en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -279,52 +279,37 @@ renderQuestion();
 })();
 </script>
 <br><br>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?</title>
-</head>
-<body>
+<p>Los tests de inversión permiten evaluar conocimientos técnicos sobre mercados financieros. Este análisis profundiza en los conceptos clave del quiz sobre bonos corporativos.</p>
 
-<h1>¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?</h1>
+<h2>¿Qué revela este test sobre bonos?</h2>
+<p>Al resolver las 7 preguntas del cuestionario, destacan tres elementos fundamentales:</p>
 
-<h2>Introducción a la Volatilidad de las Tasas de Interés y los Bonos Corporativos</h2>
-<p>La volatilidad de las tasas de interés es un factor crucial que puede influir significativamente en el precio y la demanda de los bonos corporativos. Este artículo explora cómo las fluctuaciones en las tasas de interés afectan estos instrumentos financieros, proporcionando una comprensión profunda de los conceptos clave.</p>
+<ol>
+  <li>La duración de Macaulay</li>
+  <li>El cálculo de la duración de Macaulay</li>
+  <li>La duración modificada</li>
+</ol>
 
-<h2>Impacto de la Volatilidad de las Tasas de Interés en los Bonos</h2>
-
-<h3>Relación Inversa entre Tasas de Interés y Precios de Bonos</h3>
-<p>Una de las relaciones más fundamentales en el mercado de bonos es la relación inversa entre las tasas de interés y los precios de los bonos. Cuando las tasas de interés suben, los precios de los bonos existentes tienden a disminuir. Esto se debe a que los nuevos bonos emitidos a tasas más altas se vuelven más atractivos para los inversores, reduciendo la demanda de los bonos existentes.</p>
-
-<h3>Duración y Sensibilidad de los Bonos</h3>
-<p>La duración de un bono es una medida de su sensibilidad a los cambios en las tasas de interés. Los bonos a largo plazo son generalmente más sensibles a la volatilidad de las tasas de interés que los bonos a corto plazo. La duración se mide en años y refleja el tiempo promedio en el que se recupera el capital invertido en el bono.</p>
-
-<h4>Ejemplo de Duración de Bonos</h4>
-<p>Para ilustrar, consideremos un bono con una duración de 5 años. Si las tasas de interés suben, el precio de este bono disminuirá más que el de un bono con una duración de 2 años. Este concepto es esencial para entender cómo la volatilidad de las tasas de interés afecta diferentes tipos de bonos.</p>
-
-<h3>Convexidad y Riesgo de Reinversión</h3>
-<p>La convexidad es una medida de la curvatura de la relación entre el precio de un bono y las tasas de interés. Los bonos con mayor convexidad experimentan cambios menos pronunciados en su precio ante fluctuaciones en las tasas de interés. Además, el riesgo de reinversión se refiere a la posibilidad de que los ingresos futuros del bono no puedan reinvertirse a la misma tasa de interés, afectando el rendimiento total del bono.</p>
-
-<h3>Inflación y Bonos</h3>
-<p>La inflación también juega un papel importante en el rendimiento de los bonos. Un aumento en la inflación reduce el valor real de los pagos de intereses, lo que puede disminuir la demanda de bonos. Los inversores buscan bonos indexados a la inflación para mitigar este riesgo.</p>
-
-<h2>Test y Quiz sobre Volatilidad de Tasas de Interés y Bonos</h2>
-<p>Para evaluar tu comprensión sobre cómo afecta la volatilidad de las tasas de interés a los bonos corporativos, puedes realizar un test o quiz interactivo. Estos recursos te ayudarán a consolidar tus conocimientos y a identificar áreas donde necesitas mejorar.</p>
-
-<h3>Ejemplo de Pregunta del Quiz</h3>
-<p>Una pregunta típica en un quiz sobre este tema podría ser: "¿Qué sucede con el precio de un bono cuando las tasas de interés suben?" Las opciones podrían incluir "El precio del bono aumenta", "El precio del bono disminuye", "El precio del bono se mantiene igual" y "El precio del bono se duplica".</p>
-
-<h3>Beneficios de Realizar un Test</h3>
+<h3>Datos técnicos que todo inversionista debe conocer</h3>
 <ul>
-    <li>Evaluación rápida de conocimientos</li>
-    <li>Identificación de áreas de mejora</li>
-    <li>Refuerzo de conceptos clave</li>
+  <li>Duración de Macaulay: Promedio ponderado de los flujos de caja</li>
+  <li>Duración modificada: Ajuste de la duración de Macaulay por la tasa de interés</li>
+  <li>Sensibilidad del precio del bono: Mayor duración implica mayor sensibilidad</li>
 </ul>
 
-<h2>Conclusión</h2>
-<p>La volatilidad de las tasas de interés tiene un impacto significativo en los bonos corporativos, afectando su precio, duración, convexidad y riesgo de reinversión. Comprender estos conceptos es esencial para cualquier inversor que desee gestionar eficazmente su cartera de bonos. Realizar tests y quizzes puede ser una herramienta valiosa para consolidar este conocimiento y mejorar la toma de decisiones financieras.</p>
+<h4>Comparativo de características</h4>
+<table>
+  <tr>
+    <th>Duración de Macaulay</th>
+    <th>Duración Modificada</th>
+  </tr>
+  <tr>
+    <td>Promedio ponderado de los flujos de caja</td>
+    <td>Duración de Macaulay ajustada por la tasa de interés</td>
+  </tr>
+</table>
 
-</body>
-</html>
+<h2>¿Cómo mejorar tu score en este quiz?</h2>
+<p>Los participantes que superan el 80% en este test demuestran dominio de:</p>
+
+<p>Revisar conceptos como la duración de Macaulay y la duración modificada puede aumentar tu puntaje. ¿Has probado otros quizzes de renta fija?</p>
