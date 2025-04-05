@@ -1,3 +1,6 @@
+Aquí tienes el código HTML/JavaScript completo para el test con las especificaciones proporcionadas:
+
+```html
 <div id="quiz-container"></div>
 
 <style>
@@ -156,13 +159,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "💡 ¿Entiendes cómo afecta la duración a la sensibilidad de los bonos?", options: ["Sí, completamente", "Parcialmente", "No estoy seguro", "No"], answer: 0 },
-{ question: "🕒 ¿Cómo se mide la duración de un bono?", options: ["En horas", "En días", "En semanas", "En meses"], answer: 2 },
-{ question: "📊 ¿Qué impacto tiene la duración en el rendimiento de los bonos?", options: ["Aumenta la volatilidad", "Disminuye la volatilidad", "No tiene impacto", "Depende de otros factores"], answer: 1 },
-{ question: "📈 ¿Cuál es la relación entre duración y riesgos?", options: ["Directa", "Inversa", "No tienen relación", "Depende del mercado"], answer: 0 },
-{ question: "📉 ¿Cómo afecta la duración a la sensibilidad de los precios de los bonos?", options: ["Aumenta la sensibilidad", "Disminuye la sensibilidad", "No afecta la sensibilidad", "Depende del tipo de bono"], answer: 0 },
-{ question: "📣 ¿Qué herramienta se utiliza para calcular la duración de un bono?", options: ["Calculadora de duración", "Software financiero", "Hoja de cálculo", "Todas las anteriores"], answer: 3 },
-{ question: "📚 ¿Qué libro es fundamental para entender la duración de los bonos?", options: ["El pequeño cerdo capitalista", "El hombre que confunde a Wall Street", "Análisis de valores de renta fija", "El inversor inteligente"], answer: 2 }
+  { question: "📈 ¿Qué es un bono corporativo?", options: ["Acciones de una empresa", "Préstamo que una empresa hace a otra", "Deuda emitida por una empresa", "Depósito a plazo fijo"], answer: 2 },
+  { question: "📊 ¿Qué mide el rating de un bono?", options: ["El precio del bono", "El rendimiento del bono", "La capacidad de pago del emisor", "La tasa de interés"], answer: 2 },
+  { question: "📜 ¿Qué es un bono de alto rendimiento?", options: ["Bono con alta rentabilidad y bajo riesgo", "Bono con alta rentabilidad y alto riesgo", "Bono con baja rentabilidad y bajo riesgo", "Bono con baja rentabilidad y alto riesgo"], answer: 1 },
+  { question: "🕒 ¿Qué indica la duración de un bono?", options: ["El plazo de vencimiento del bono", "La sensibilidad del precio a cambios en la tasa de interés", "La tasa de cupón del bono", "El rendimiento total del bono"], answer: 1 },
+  { question: "💸 ¿Qué implica la tokenización de activos reales?", options: ["Convertir bonos en acciones", "Fraccionar activos en tokens digitales", "Hacer que los bonos sean más líquidos", "Invertir en criptomonedas"], answer: 1 },
+  { question: "🏢 ¿Qué es un mercado secundario de bonos?", options: ["El mercado donde se emiten los bonos por primera vez", "El mercado donde se compran y venden bonos existentes", "El mercado donde se negocian acciones", "El mercado donde se invierten en criptomonedas"], answer: 1 },
+  { question: "🏦 ¿Qué es un bono convertible?", options: ["Un bono que se puede cambiar por acciones de la misma empresa", "Un bono que se puede cambiar por dinero en efectivo", "Un bono que se puede cambiar por otro bono", "Un bono que se puede cambiar por acciones de otra empresa"], answer: 0 }
 ];
 
 let current = 0;
@@ -171,187 +174,173 @@ let timer;
 let timeLeft = 15;
 
 function startTimer() {
-timeLeft = 15;
-document.getElementById("quiz-timer").innerText = timeLeft;
-clearInterval(timer);
-timer = setInterval(() => {
-timeLeft--;
-document.getElementById("quiz-timer").innerText = timeLeft;
-if (timeLeft === 0) {
-clearInterval(timer);
-disableOptions();
-revealCorrect();
-}
-}, 1000);
+  timeLeft = 15;
+  document.getElementById("quiz-timer").innerText = timeLeft;
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("quiz-timer").innerText = timeLeft;
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      disableOptions();
+      revealCorrect();
+    }
+  }, 1000);
 }
 
 function renderQuestion() {
-const q = quizData[current];
-const letters = ["A", "B", "C", "D"];
-document.getElementById("quiz-container").className = "quiz-container";
-document.getElementById("quiz-container").innerHTML = `
-<div class="quiz-header">
-<span>Pregunta ${current + 1} de ${quizData.length}</span>
-<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-</div>
-<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-<div class="quiz-question">${q.question}</div>
-<div class="quiz-options">
-${q.options.map((opt, i) => `
-<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-<div class="quiz-option-label">${letters[i]}</div>
-<span>${opt}</span>
-</button>
-`).join("")}
-</div>
-<div class="quiz-controls">
-<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-</div>
-`;
-startTimer();
+  const q = quizData[current];
+  const letters = ["A", "B", "C", "D"];
+  document.getElementById("quiz-container").className = "quiz-container";
+  document.getElementById("quiz-container").innerHTML = `
+  <div class="quiz-header">
+    <span>Pregunta ${current + 1} de ${quizData.length}</span>
+    <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+  <div class="quiz-question">${q.question}</div>
+  <div class="quiz-options">
+    ${q.options.map((opt, i) => `
+      <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+        <div class="quiz-option-label">${letters[i]}</div>
+        <span>${opt}</span>
+      </button>
+    `).join("")}
+  </div>
+  <div class="quiz-controls">
+    <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+  </div>
+  `;
+  startTimer();
 }
 
 window.selectAnswer = function(index) {
-clearInterval(timer);
-const correct = quizData[current].answer;
-const buttons = document.querySelectorAll(".quiz-option-button");
-buttons.forEach((btn, i) => {
-btn.disabled = true;
-if (i === correct) btn.classList.add("correct");
-if (i === index && index !== correct) btn.classList.add("incorrect");
-});
-if (index === correct) score++;
-document.getElementById("next-btn").disabled = false;
+  clearInterval(timer);
+  const correct = quizData[current].answer;
+  const buttons = document.querySelectorAll(".quiz-option-button");
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correct) btn.classList.add("correct");
+    if (i === index && index !== correct) btn.classList.add("incorrect");
+  });
+  if (index === correct) score++;
+  document.getElementById("next-btn").disabled = false;
 };
 
 function disableOptions() {
-const buttons = document.querySelectorAll(".quiz-option-button");
-buttons.forEach(btn => btn.disabled = true);
-document.getElementById("next-btn").disabled = false;
+  const buttons = document.querySelectorAll(".quiz-option-button");
+  buttons.forEach(btn => btn.disabled = true);
+  document.getElementById("next-btn").disabled = false;
 }
 
 function revealCorrect() {
-const correct = quizData[current].answer;
-const buttons = document.querySelectorAll(".quiz-option-button");
-buttons[correct].classList.add("correct");
+  const correct = quizData[current].answer;
+  const buttons = document.querySelectorAll(".quiz-option-button");
+  buttons[correct].classList.add("correct");
 }
 
 window.nextQuestion = function() {
-current++;
-if (current < quizData.length) {
-renderQuestion();
-} else {
-showResults();
-}
+  current++;
+  if (current < quizData.length) {
+    renderQuestion();
+  } else {
+    showResults();
+  }
 };
 
 function showResults() {
-let message = "";
-if (score === 7) message = "¡Perfecto! Dominas el tema de la duración de los bonos.";
-  else if (score >= 5) message = "Buen resultado. Tienes un buen conocimiento sobre la duración de los bonos.";
-  else if (score === 4) message = "Bien hecho. Puedes mejorar tu comprensión sobre la duración de los bonos.";
-  else message = "Es un buen momento para aprender más sobre la duración de los bonos.";
+  let message = "";
+  if (score === 7) {
+    message = "¡Perfecto! Dominas los bonos corporativos. ¡Tus conocimientos son de otro nivel!";
+  } else if (score >= 5) {
+    message = "Buen resultado, pero siempre hay margen para aprender más sobre bonos corporativos.";
+  } else if (score >= 4) {
+    message = "Nada mal, pero podrías mejorar con un poco más de estudio sobre bonos corporativos.";
+  } else {
+    message = "Es un buen momento para aprender más sobre bonos corporativos. ¡Sigue así!";
+  }
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la duración de los bonos en un test! ¿Te atreves a superarme? responderapido.com`;
+  const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
 
-document.getElementById("quiz-container").innerHTML = `
-<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-<div class="quiz-result-description">${message}</div>
-<div class="quiz-result-buttons">
-<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-</div>
-`;
+  document.getElementById("quiz-container").innerHTML = `
+  <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+  <div class="quiz-result-description">${message}</div>
+  <div class="quiz-result-buttons">
+    <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+    <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+  </div>
+  `;
 }
 
 window.restartQuiz = function() {
-current = 0;
-score = 0;
-renderQuestion();
+  current = 0;
+  score = 0;
+  renderQuestion();
 };
 
 window.shareWhatsApp = function(text) {
-const url = `https://api.whatsapp.com/send?text=${text}`;
-window.open(url, '_blank');
+  const url = `https://api.whatsapp.com/send?text=${text}`;
+  window.open(url, '_blank');
 };
 
 renderQuestion();
 })();
 </script>
+```
 <br><br>
-### Componentes clave de este Quiz especializado
+📉 ¿Qué es un bono corporativo?
 
-Un Quiz especializado sobre la duración de los bonos puede ser una herramienta invaluable para evaluar y mejorar la comprensión de conceptos financieros cruciales. Este tipo de test no solo ayuda a identificar áreas de conocimiento, sino que también fomenta el aprendizaje continuo en el ámbito de la inversiones y la gestión de riesgos.
+Un **bono corporativo** es un instrumento de deuda emitido por una empresa para financiar sus operaciones. A diferencia de las acciones, los bonos corporativos representan préstamos que los inversores hacen a la empresa emisora, con la promesa de recibir pagos de intereses periódicos y la devolución del capital al vencimiento. Este tipo de bonos es una herramienta fundamental en el ámbito de la renta fija, ofreciendo a los inversores una fuente de ingresos estable.
 
-### Entendiendo la duración de los bonos
+## Componentes Clave de este Quiz Especializado
 
-#### ¿Qué es la duración de un bono?
+### ¿Qué mide el rating de un bono?
 
-La duración de un bono es una medida de la sensibilidad del precio del bono a los cambios en las tasas de interés. Cuanto más larga sea la duración, mayor será la volatilidad del precio del bono ante cambios en las tasas de interés. Este concepto es fundamental para cualquier inversor que busque entender cómo fluctuará el valor de sus inversiones en bonos.
+El rating de un bono es una evaluación realizada por agencias de calificación crediticia como Moody’s, S&P y Fitch. Este rating indica la capacidad del emisor para cumplir con sus obligaciones de deuda. Un rating alto implica menor riesgo y, por ende, tasas de interés más bajas, mientras que un rating bajo indica un mayor riesgo y, por lo tanto, tasas de interés más altas.
 
-#### Cómo se mide la duración de un bono
+### ¿Qué es un bono de alto rendimiento?
 
-La duración de un bono se puede medir utilizando diversas herramientas y métodos. Algunos de los más comunes incluyen:
+Los bonos de alto rendimiento, también conocidos como "junk bonds", son bonos que ofrecen un rendimiento elevado pero que tienen una mayor probabilidad de impago. Estos bonos son emitidos por empresas con una calificación crediticia baja, lo que refleja su mayor riesgo pero también su potencial de mayores retornos para los inversores dispuestos a asumir ese riesgo.
 
-- **Calculadora de duración**: Herramientas específicas diseñadas para calcular la duración de un bono.
-- **Software financiero**: Programas avanzados que ofrecen análisis detallados de bonos.
-- **Hoja de cálculo**: Excel o Google Sheets pueden ser utilizados con fórmulas específicas.
-- **Análisis manual**: Métodos matemáticos para calcular la duración de manera manual.
+### ¿Qué implica la tokenización de activos reales?
 
-### Impacto de la duración en el rendimiento de los bonos
+La tokenización de activos reales implica la conversión de activos físicos en tokens digitales en una blockchain. Este proceso permite fraccionar activos como bienes raíces, arte o bienes materiales en unidades más pequeñas y líquidas, facilitando así la inversión y el comercio. La tokenización no solo aumenta la liquidez de los activos, sino que también puede democratizar el acceso a inversiones que antes eran inalcanzables para pequeños inversores.
 
-La relación entre duración y rendimiento de los bonos es inversa. Esto significa que cuanto mayor sea la duración de un bono, más sensible será su precio a las variaciones en las tasas de interés. Esta sensibilidad puede afectar significativamente el rendimiento de la inversión en bonos. A continuación, se presenta una tabla que ilustra cómo la duración puede influir en el precio de un bono en diferentes escenarios de tasas de interés:
+## Entendiendo los Mercados Secundarios de Bonos
 
-<table>
-  <thead>
-    <tr>
-      <th>Duración del Bono</th>
-      <th>Cambio en Tasas de Interés</th>
-      <th>Impacto en el Precio del Bono</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1 año</td>
-      <td>+1%</td>
-      <td>-0.5%</td>
-    </tr>
-    <tr>
-      <td>5 años</td>
-      <td>+1%</td>
-      <td>-2.5%</td>
-    </tr>
-    <tr>
-      <td>10 años</td>
-      <td>+1%</td>
-      <td>-5%</td>
-    </tr>
-    <tr>
-      <td>20 años</td>
-      <td>+1%</td>
-      <td>-10%</td>
-    </tr>
-  </tbody>
-</table>
+### ¿Qué es un mercado secundario de bonos?
 
-### Relación entre duración y riesgos
+El mercado secundario de bonos es donde se compran y venden bonos emitidos previamente. A diferencia del mercado primario, donde los bonos se emiten por primera vez, el mercado secundario proporciona liquidez a los inversores que desean vender bonos antes de su vencimiento. Este mercado es crucial para la eficiencia del sistema financiero, ya que permite a los inversores ajustar sus carteras y gestionar el riesgo de manera más efectiva.
 
-La duración de un bono está directamente relacionada con el riesgo de la inversión. Los bonos con mayor duración suelen ofrecer mayores rendimientos potenciales, pero también están sujetos a una mayor volatilidad. Es crucial que los inversores comprendan esta relación para tomar decisiones informadas. Un test bien diseñado puede ayudar a evaluar la comprensión de estos conceptos y a identificar áreas de mejora.
+### Beneficios del mercado secundario
 
-### Herramientas y recursos para mejorar tu comprensión sobre la duración de los bonos
+- **Liquidez**: Permite a los inversores vender bonos antes de su vencimiento.
+- **Diversificación**: Facilita la reasignación de activos dentro de una cartera.
+- **Eficiencia**: Mejora la eficiencia del mercado al permitir la negociación de bonos.
 
-Para aquellos que desean profundizar en su conocimiento sobre la duración de los bonos, existen diversas herramientas y recursos disponibles. Libros, software especializado y cursos en línea pueden ser de gran ayuda. Algunos de los recursos más recomendados incluyen:
+| Tipo de Mercado | Descripción |
+|----------------|-------------|
+| Primario       | Emisión de bonos nuevos. |
+| Secundario     | Compra y venta de bonos existentes. |
 
-- **Libros**:
-  - "Análisis de valores de renta fija"
-  - "El inversor inteligente"
+## Fiscalidad de Bonos y Tokenizados
 
-- **Software financiero**:
-  - Programas como Bloomberg Terminal, que ofrecen análisis detallados de bonos.
+La fiscalidad de los bonos y los activos tokenizados presenta diferencias significativas. Los bonos tradicionales están sujetos a impuestos sobre los intereses recibidos, mientras que los activos tokenizados pueden estar sujetos a impuestos sobre las ganancias de capital. Además, la legislación varía según el país, lo que puede afectar la eficiencia fiscal de las inversiones en estos instrumentos.
 
-- **Cursos en línea**:
-  - Plataformas como Coursera y edX ofrecen cursos especializados en finanzas y bonos.
+### Impuestos en Bonos Tradicionales
 
-### Conclusión
+- **Intereses**: Impuestos sobre los pagos de intereses anuales.
+- **Ganancias de Capital**: Impuestos sobre la diferencia entre el precio de compra y el precio de venta.
 
-La duración de los bonos es un concepto fundamental que todo inversor debe entender para gestionar adecuadamente sus inversiones. Participar en un quiz sobre este tema puede ser una excelente manera de evaluar y mejorar tu conocimiento. Al comprender cómo afecta la duración a la sensibilidad de los bonos, puedes tomar decisiones más informadas y estratégicas en tus inversiones.
+### Impuestos en Activos Tokenizados
+
+- **Ganancias de Capital**: Impuestos sobre las ganancias obtenidas al vender tokens.
+- **Transparencia**: Mayor transparencia fiscal debido a la naturaleza digital y rastreable de los tokens.
+
+### Macroeconomía y Tasas de Interés
+
+El entorno macroeconómico y las tasas de interés tienen un impacto directo en los precios de los bonos. Un aumento en las tasas de interés generalmente reduce el precio de los bonos existentes, ya que los nuevos bonos emitidos ofrecen tasas más altas. Por otro lado, una baja en las tasas de interés tiende a incrementar el valor de los bonos existentes. Los inversores deben estar al tanto de estos factores para tomar decisiones informadas.
+
+## Conclusión
+
+Los bonos corporativos y los activos tokenizados representan oportunidades de inversión que, aunque tienen sus riesgos, pueden ofrecer retornos significativos. Comprender los conceptos clave, como el rating, la tokenización y la fiscalidad, es crucial para cualquier inversor que busque maximizar su cartera de renta fija. La diversificación y la gestión adecuada del riesgo son esenciales para navegar en este dinámico entorno de inversión.
