@@ -157,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "🔍 ¿Qué es el rating de bonos?", options: ["Un indicador de calidad de bonos", "Un tipo de interés", "Una estrategia de inversión", "Un tipo de cuenta bancaria"], answer: 0 },
-{ question: "📊 ¿Qué agencias suelen otorgar estos ratings?", options: ["Bancos", "Gobiernos", "Agencias de calificación", "Empresas privadas"], answer: 2 },
-{ question: "📈 ¿Cómo se mide el riesgo crediticio?", options: ["Con la tasa de inflación", "Con el rating de bonos", "Con el índice de desempleo", "Con la tasa de crecimiento económico"], answer: 1 },
-{ question: "🔍 ¿Qué significa un rating AAA?", options: ["Muy alto riesgo", "Riesgo moderado", "Muy bajo riesgo", "Riesgo inexistente"], answer: 2 },
-{ question: "💡 ¿Qué influye en el rating de bonos?", options: ["La economía global", "La situación financiera de la empresa", "El clima", "La moda"], answer: 1 },
-{ question: "📉 ¿Qué significa un rating BB?", options: ["Buen riesgo", "Riesgo especulativo", "Riesgo medio", "Riesgo bajo"], answer: 1 },
-{ question: "🔍 ¿Qué es el rating de bonos y cómo influye en su riesgo?", options: ["Un indicador de calidad de bonos", "Un tipo de interés", "Una estrategia de inversión", "Un tipo de cuenta bancaria"], answer: 0 }
+  { question: "📊 ¿Qué es la duración modificada de un bono?", options: ["El tiempo total del bono", "El tiempo restante del bono", "El tiempo transcurrido del bono", "El tiempo de vencimiento del bono"], answer: 2 },
+  { question: "🕒 ¿Cómo se mide la duración modificada de un bono?", options: ["En días", "En horas", "En años", "En meses"], answer: 0 },
+  { question: "📋 ¿Qué afecta la duración modificada de un bono?", options: ["La tasa de interés", "El valor nominal", "El tiempo hasta el vencimiento", "El flujo de caja"], answer: 2 },
+  { question: "💡 ¿Por qué es importante la duración modificada?", options: ["Para calcular el valor presente", "Para determinar el riesgo de tasa de interés", "Para ajustar la tasa de descuento", "Para calcular el rendimiento esperado"], answer: 1 },
+  { question: "📉 ¿Qué mide la duración modificada?", options: ["La sensibilidad del precio del bono a cambios en la tasa de interés", "La sensibilidad del rendimiento del bono a cambios en el precio", "La sensibilidad del flujo de caja del bono a cambios en la tasa de interés", "La sensibilidad del valor nominal del bono a cambios en el precio"], answer: 0 },
+  { question: "📊 ¿Qué es la fórmula para calcular la duración modificada?", options: ["Duración modificada = (Precio del bono / Valor nominal) * (1 + tasa de interés)", "Duración modificada = (Precio del bono / Valor nominal) * (1 / (1 + tasa de interés))", "Duración modificada = (Precio del bono / Valor nominal) * (1 - tasa de interés)", "Duración modificada = (Precio del bono / Valor nominal) * (1 / (1 - tasa de interés))"], answer: 1 },
+  { question: "📈 ¿Qué tipo de bono tiene una duración modificada más alta?", options: ["Bonos a corto plazo", "Bonos a largo plazo", "Bonos con cupones altos", "Bonos con cupones bajos"], answer: 1 }
 ];
 
 let current = 0;
@@ -248,17 +248,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) {
-message = "¡Perfecto! Dominas el rating de bonos y cómo influye en su riesgo. 🏆";
-} else if (score >= 5) {
-message = "Buen resultado, tienes una buena comprensión del rating de bonos. 💡";
-} else if (score >= 4) {
-message = "Nada mal, pero puedes mejorar tu conocimiento sobre el rating de bonos. 📘";
-} else {
-message = "Es un buen momento para aprender más sobre el rating de bonos. 🌱";
-}
+if (score === 7) message = "¡Perfecto! Dominas 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
+else if (score >= 5) message = "Buen resultado en 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
+else if (score >= 4) message = "Nada mal, pero puedes mejorar 📘";
+else message = "Es un buen momento para aprender más 🌱";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre el rating de bonos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la duración modificada de un bono en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -286,68 +281,45 @@ renderQuestion();
 </script>
 ```
 <br><br>
-```html
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Qué es el rating de bonos y cómo influye en su riesgo?</title>
-    <style>
-        /* Estilos aquí */
-    </style>
-</head>
-<body>
+### 📊 ¿Qué es la duración modificada de un bono y cómo se mide?
 
-<h1>¿Qué es el rating de bonos y cómo influye en su riesgo?</h1>
+La duración modificada de un bono es una métrica crucial en el análisis de bonos, ya que mide la sensibilidad del precio del bono a los cambios en las tasas de interés. Este concepto es fundamental para inversores y analistas financieros, ya que permite predecir cómo se comportará el precio de un bono ante variaciones en las tasas de interés. En este artículo, exploraremos en profundidad qué es la duración modificada, cómo se calcula y por qué es importante en la gestión de carteras de bonos.
 
-<h2>Entendiendo el Rating de Bonos</h2>
-<p>El rating de bonos es un indicador de la calidad crediticia de los bonos emitidos por una entidad. Este rating, asignado por agencias especializadas, refleja la capacidad de la entidad para cumplir con sus obligaciones financieras. Las agencias de calificación, como Moody's, Standard & Poor's y Fitch, son las encargadas de evaluar y otorgar estos ratings.</p>
+#### ¿Qué es la duración modificada de un bono?
 
-<h3>Importancia del Rating de Bonos</h3>
-<p>El rating de bonos es crucial para los inversores, ya que proporciona una evaluación objetiva del riesgo asociado con un bono en particular. Un bono con un rating alto indica que la entidad emitedora tiene una alta capacidad de pago, mientras que un rating bajo puede señalar un mayor riesgo de impago.</p>
+La duración modificada de un bono se refiere al tiempo promedio ajustado que se espera para recuperar el dinero invertido en el bono, considerando los flujos de caja futuros y las tasas de interés actuales. Es una medida más precisa que la duración simple, ya que tiene en cuenta el efecto de las tasas de interés reinvertidas. La duración modificada es esencial para evaluar el riesgo de interés de un bono.
 
-<h3>Cómo se Mide el Rating de Bonos</h3>
-<p>El rating de bonos se basa en varios factores, incluyendo la situación financiera de la entidad, su historial de pagos, y las condiciones económicas generales. Las agencias de calificación utilizan modelos y análisis detallados para asignar un rating que refleje la probabilidad de incumplimiento.</p>
+#### Cómo se mide la duración modificada de un bono
 
-<h2>Tipos de Rating de Bonos</h2>
-<p>Los ratings de bonos se dividen en varias categorías, desde AAA (máxima calidad) hasta C (muy alto riesgo). Comprender estas categorías es esencial para cualquier inversor que desee evaluar el riesgo de su cartera de bonos.</p>
+La duración modificada se mide normalmente en años y se calcula utilizando la fórmula:
 
-<h3>Rating AAA: Muy Bajo Riesgo</h3>
-<p>Un rating AAA indica que el bono tiene una calidad excepcional y un riesgo extremadamente bajo de impago. Estas emisiones son generalmente de muy alta calidad y se consideran inversiones seguras.</p>
+\[ \text{Duración Modificada} = \left( \frac{\text{Precio del bono}}{\text{Valor nominal}} \right) \times \left( \frac{1}{1 + \text{tasa de interés}} \right) \]
 
-<h3>Rating BB: Riesgo Especulativo</h3>
-<p>Un rating BB indica que el bono tiene un riesgo especulativo. Esto significa que hay una probabilidad significativa de que la entidad emitedora no cumpla con sus obligaciones de pago. Estos bonos suelen ofrecer rendimientos más altos debido al mayor riesgo.</p>
+Este cálculo permite a los inversores entender cómo cambiará el precio del bono ante una variación en la tasa de interés. Por ejemplo, si la duración modificada de un bono es de 5 años, se espera que el precio del bono cambie en aproximadamente un 5% por cada cambio del 1% en la tasa de interés.
 
-<h2>Influencia del Rating en el Riesgo</h2>
-<p>El rating de bonos tiene una influencia directa en el riesgo crediticio. Un rating alto reduce el riesgo de impago, mientras que un rating bajo aumenta la probabilidad de que la entidad no cumpla con sus obligaciones. Los inversores deben considerar estos ratings al tomar decisiones de inversión.</p>
+#### Factores que afectan la duración modificada
 
-<h4>Factores que Influyen en el Rating de Bonos</h4>
-<p>Varios factores pueden influir en el rating de bonos, incluyendo la situación financiera de la empresa, las condiciones económicas generales y la percepción del mercado. Un análisis detallado de estos factores es esencial para una evaluación precisa del riesgo.</p>
+Varios factores influyen en la duración modificada de un bono. Entre ellos se incluyen:
 
-<h2>Test y Quiz sobre Rating de Bonos</h2>
-<p>Para evaluar su comprensión sobre el rating de bonos, puede realizar un test o quiz interactivo. Estos recursos ofrecen una manera práctica de aprender y verificar sus conocimientos sobre este tema crucial en el mundo de las inversiones.</p>
+- **Tiempo hasta el vencimiento**: Bonos con vencimientos más largos suelen tener duraciones modificadas más altas.
+- **Tasa de cupón**: Bonos con cupones más bajos tienden a tener duraciones modificadas más altas que aquellos con cupones más altos.
+- **Tasas de interés actuales**: Cambios en las tasas de interés actuales pueden afectar la duración modificada.
 
-<h3>Ejemplo de Pregunta en el Quiz</h3>
-<p>¿Qué significa un rating AAA?</p>
-<ul>
-    <li>Muy alto riesgo</li>
-    <li>Riesgo moderado</li>
-    <li>Muy bajo riesgo</li>
-    <li>Riesgo inexistente</li>
-</ul>
+#### Importancia de la duración modificada en la gestión de carteras
 
-<p>Este tipo de preguntas en un quiz ayuda a consolidar los conceptos clave y a identificar áreas de mejora en el conocimiento sobre el rating de bonos.</p>
+La duración modificada es una herramienta esencial para la gestión de carteras de bonos. Permite a los gestores de carteras ajustar la duración de la cartera para gestionar el riesgo de tasa de interés. Por ejemplo, en un entorno de tasas de interés en alza, los gestores pueden reducir la duración de la cartera para minimizar las pérdidas de capital. Por otro lado, en un entorno de tasas de interés en descenso, aumentar la duración puede maximizar las ganancias.
 
-<h2>Conclusión</h2>
-<p>El rating de bonos es una herramienta esencial para evaluar el riesgo crediticio de las inversiones en bonos. Comprender los diferentes tipos de ratings y los factores que los influyen es crucial para tomar decisiones informadas en el mercado de bonos. Realizar tests y quizzes puede ser una excelente manera de afianzar este conocimiento y mejorar la toma de decisiones financieras.</p>
+#### Comparación de duración modificada entre diferentes tipos de bonos
 
-<div id="quiz-container"></div>
+A continuación, se presenta una tabla comparativa de la duración modificada de diferentes tipos de bonos:
 
-<script>
-    /* JavaScript aquí */
-</script>
+| Tipo de Bono | Duración Modificada (Años) |
+|--------------|---------------------------|
+| Bono a corto plazo | 1-3 |
+| Bono a largo plazo | 10-30 |
+| Bono con cupón alto | 5-10 |
+| Bono con cupón bajo | 10-20 |
 
-</body>
-</html>
-```
+#### Conclusión
+
+La duración modificada de un bono es una métrica vital para cualquier inversor en bonos. Comprender cómo se mide y qué factores la afectan puede ayudar a los inversores a tomar decisiones más informadas y a gestionar mejor el riesgo de tasa de interés. Este conocimiento es esencial no solo para inversores individuales, sino también para gestores de carteras que buscan maximizar el rendimiento y minimizar las pérdidas en un entorno de tasas de interés fluctuantes.
