@@ -157,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📉 ¿Qué es la sensibilidad de un bono?", options: ["La capacidad de un bono para cambiar de precio", "El riesgo de impago", "La tasa de interés", "El plazo de vencimiento"], answer: 0 },
-{ question: "📊 ¿Cómo se calcula la sensibilidad de un bono?", options: ["Dividiendo la variación del precio entre la variación de la tasa de interés", "Multiplicando el precio del bono por la tasa de interés", "Sumando la tasa de interés al precio del bono", "Restando la tasa de interés del precio del bono"], answer: 0 },
-{ question: "📈 ¿Qué significa una sensibilidad alta en un bono?", options: ["El precio del bono es muy estable", "El precio del bono es muy volátil", "El bono tiene una tasa de interés alta", "El bono tiene un plazo de vencimiento corto"], answer: 1 },
-{ question: "📉 ¿Cómo afecta una subida de tipos de interés a un bono con alta sensibilidad?", options: ["Aumenta su precio", "Disminuye su precio", "No afecta su precio", "Aumenta su tasa de interés"], answer: 1 },
-{ question: "📉 ¿Qué tipo de bono tiene mayor sensibilidad?", options: ["Bonos a corto plazo", "Bonos a largo plazo", "Bonos corporativos", "Bonos del gobierno"], answer: 1 },
-{ question: "📉 ¿Qué es la duración de un bono?", options: ["El tiempo que dura el bono", "Una medida de la sensibilidad del bono", "La tasa de interés del bono", "El plazo de vencimiento del bono"], answer: 1 },
-{ question: "📉 ¿Cómo se puede reducir la sensibilidad de un bono?", options: ["Aumentando la tasa de interés", "Disminuyendo el plazo de vencimiento", "Aumentando el plazo de vencimiento", "Aumentando el riesgo de impago"], answer: 1 }
+{ question: "📈 ¿Qué es la duración de un bono?", options: ["El tiempo hasta que el bono expira", "El valor de mercado del bono", "La tasa de interés del bono", "La cantidad de cupones pagados"], answer: 0 },
+{ question: "🕒 ¿Cómo se calcula la duración de un bono?", options: ["Usando la fórmula de la duración de Macaulay", "Dividiendo el precio del bono por su valor nominal", "Sumando todos los vencimientos de los cupones", "Calculando la tasa de rendimiento"], answer: 0 },
+{ question: "📊 ¿Qué mide la duración modificada?", options: ["La sensibilidad del precio del bono a cambios en la tasa de interés", "La tasa de rendimiento del bono", "La duración del bono", "El valor actual del bono"], answer: 0 },
+{ question: "📉 ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono?", options: ["Aumenta la duración", "Reduce la duración", "No afecta la duración", "Duplica la duración"], answer: 1 },
+{ question: "📈 ¿Qué es la duración de un bono a largo plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de más de 10 años", "La duración de un bono con un plazo de más de 5 años", "La duración de un bono con un plazo de más de 3 años"], answer: 2 },
+{ question: "📈 ¿Qué es la duración de un bono a corto plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de menos de 1 año", "La duración de un bono con un plazo de menos de 2 años", "La duración de un bono con un plazo de menos de 3 años"], answer: 2 },
+{ question: "📈 ¿Qué es la duración de un bono a mediano plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de más de 1 año y menos de 7 años", "La duración de un bono con un plazo de más de 2 años y menos de 5 años", "La duración de un bono con un plazo de más de 3 años y menos de 7 años"], answer: 3 }
 ];
 
 let current = 0;
@@ -248,12 +248,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
-else if (score >= 5) message = "Buen resultado en 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
-else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
-else message = "Es un buen momento para aprender más sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
+if(score === 7) message = "¡Perfecto! Dominas 📈 ¿Qué es la duración de un bono y cómo se calcula?";
+else if(score >= 5) message = "Buen resultado en 📈 ¿Qué es la duración de un bono y cómo se calcula?";
+else if(score >= 4) message = "Nada mal, pero puedes mejorar en 📈 ¿Qué es la duración de un bono y cómo se calcula?";
+else message = "Es un buen momento para aprender más sobre 📈 ¿Qué es la duración de un bono y cómo se calcula?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de un bono y cómo se calcula? en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -281,44 +281,52 @@ renderQuestion();
 </script>
 ```
 <br><br>
-<p>Los tests y quizzes son herramientas esenciales para evaluar conocimientos y habilidades en diversas áreas, incluyendo finanzas y economía. En este artículo, exploraremos en profundidad la sensibilidad de los bonos y cómo afecta a su precio, un tema crucial para cualquier inversor o analista financiero.</p>
+```html
+<h1>📈 ¿Qué es la duración de un bono y cómo se calcula?</h1>
 
-<h2>¿Qué es la sensibilidad de un bono?</h2>
-<p>La sensibilidad de un bono es una medida de la variación en el precio del bono en respuesta a cambios en las tasas de interés. En términos simples, es la capacidad de un bono para cambiar de precio ante fluctuaciones en las tasas de interés. Este concepto es fundamental para entender cómo los bonos reaccionan en diferentes escenarios económicos.</p>
+<h2>Introducción a la duración de un bono</h2>
+<p>La duración de un bono es un concepto crucial en el ámbito financiero y de inversiones. Se refiere al tiempo hasta que el bono expira. Este término es fundamental para entender cómo se calcula la sensibilidad del precio del bono a los cambios en la tasa de interés.</p>
 
-<h3>Importancia de la sensibilidad en la inversión</h3>
-<p>Comprender la sensibilidad de un bono es crucial para los inversores, ya que les permite predecir cómo se comportará el precio del bono en diferentes condiciones del mercado. Esto es especialmente relevante para aquellos que buscan minimizar riesgos y maximizar rendimientos.</p>
+<h2>¿Qué es la duración de un bono?</h2>
+<p>La duración de un bono es una medida que indica cuánto tiempo tomará que un inversor recupere el dinero invertido en un bono, en términos de flujos de caja descontados. Este concepto es esencial para evaluar el riesgo de un bono y su comportamiento ante cambios en las tasas de interés.</p>
 
-<h3>Cómo se calcula la sensibilidad de un bono</h3>
-<p>La sensibilidad de un bono se calcula dividiendo la variación del precio del bono entre la variación de la tasa de interés. Este cálculo proporciona una medida clara de cuánto cambiará el precio del bono por cada punto porcentual de cambio en la tasa de interés. Por ejemplo, si un bono tiene una sensibilidad de 5, su precio cambiará en un 5% por cada cambio de 1% en la tasa de interés.</p>
+<h3>Tipos de duración de un bono</h3>
+<p>La duración de un bono se puede clasificar en tres categorías principales:</p>
+<ol>
+  <li>Duración a corto plazo: Bonos con un vencimiento de menos de 3 años.</li>
+  <li>Duración a mediano plazo: Bonos con un vencimiento de más de 3 años y menos de 7 años.</li>
+  <li>Duración a largo plazo: Bonos con un vencimiento de más de 7 años.</li>
+</ol>
 
-<h4>Ejemplo de cálculo de sensibilidad</h4>
-<p>Supongamos que un bono tiene un precio de $1,000 y una sensibilidad de 5. Si la tasa de interés aumenta en 1%, el precio del bono disminuirá en $50, llevándolo a $950. Este ejemplo ilustra cómo la sensibilidad afecta directamente el valor del bono.</p>
+<h3>Cómo se calcula la duración de un bono</h3>
+<p>La duración de un bono se calcula utilizando la fórmula de la duración de Macaulay, que toma en cuenta los flujos de caja futuros y los descuenta a su valor presente. Esta fórmula es fundamental para entender la sensibilidad del precio del bono a cambios en la tasa de interés.</p>
 
-<h2>Factores que afectan la sensibilidad de un bono</h2>
-<p>Varios factores influyen en la sensibilidad de un bono, incluyendo el plazo de vencimiento y la tasa de cupón. Los bonos a largo plazo tienden a tener una mayor sensibilidad debido a su mayor exposición a cambios en las tasas de interés a lo largo del tiempo.</p>
+<h4>Fórmula de la duración de Macaulay</h4>
+<p>La fórmula de la duración de Macaulay se expresa como:</p>
+<table>
+  <tr>
+    <th>Duración de Macaulay (D)</th>
+    <th>Definición</th>
+  </tr>
+  <tr>
+    <td>D = (1/y) * ∑ [(CFt * t) / (1+y)^t]</td>
+    <td>donde CFt es el flujo de caja en el periodo t, y es la tasa de descuento, y t es el número de periodos.</td>
+  </tr>
+</table>
 
-<h3>Plazo de vencimiento</h3>
-<p>El plazo de vencimiento es uno de los factores más importantes que determinan la sensibilidad de un bono. Los bonos a largo plazo son más sensibles a los cambios en las tasas de interés porque tienen más tiempo para acumular intereses y, por lo tanto, su precio puede fluctuar más significativamente.</p>
+<h3>Duración modificada</h3>
+<p>La duración modificada es otra medida importante que se utiliza para calcular la sensibilidad del precio del bono a cambios en la tasa de interés. Se calcula ajustando la duración de Macaulay para tener en cuenta el efecto de la tasa de descuento.</p>
 
-<h3>Tasa de cupón</h3>
-<p>La tasa de cupón también juega un papel crucial. Los bonos con tasas de cupón más altas tienden a ser menos sensibles a los cambios en las tasas de interés, ya que los pagos de intereses más altos proporcionan un flujo de ingresos más estable.</p>
+<h2>Quiz: ¿Qué es la duración de un bono y cómo se calcula?</h2>
+<p>Para profundizar en tu comprensión sobre la duración de un bono, te invitamos a realizar nuestro quiz interactivo. Este quiz te permitirá poner a prueba tus conocimientos y aprender de manera dinámica.</p>
 
-<h2>Test: Evaluando tu conocimiento sobre la sensibilidad de los bonos</h2>
-<p>Para evaluar tu comprensión sobre la sensibilidad de los bonos, te invitamos a realizar nuestro quiz especializado. Este test te permitirá poner a prueba tus conocimientos y aprender más sobre cómo la sensibilidad afecta el precio de los bonos.</p>
-
-<h3>Preguntas clave del quiz</h3>
-<p>El quiz incluye preguntas sobre la definición de sensibilidad, cómo se calcula, y cómo diferentes factores afectan la sensibilidad de un bono. Algunas de las preguntas clave son:</p>
+<h3>Beneficios de realizar el quiz</h3>
 <ul>
-  <li>¿Qué es la sensibilidad de un bono?</li>
-  <li>¿Cómo se calcula la sensibilidad de un bono?</li>
-  <li>¿Qué significa una sensibilidad alta en un bono?</li>
-  <li>¿Cómo afecta una subida de tipos de interés a un bono con alta sensibilidad?</li>
-  <li>¿Qué tipo de bono tiene mayor sensibilidad?</li>
+  <li>Comprender mejor los conceptos clave de la duración de un bono.</li>
+  <li>Aplicar la fórmula de la duración de Macaulay en situaciones prácticas.</li>
+  <li>Evaluar tu conocimiento sobre la sensibilidad del precio del bono.</li>
 </ul>
 
-<h3>Resultados y análisis</h3>
-<p>Al finalizar el quiz, recibirás una puntuación y un análisis detallado de tus respuestas. Esto te ayudará a identificar áreas en las que necesitas mejorar y a profundizar en tu conocimiento sobre la sensibilidad de los bonos.</p>
-
 <h2>Conclusión</h2>
-<p>La sensibilidad de un bono es un concepto fundamental para cualquier persona interesada en inversiones y finanzas. Comprender cómo se calcula y qué factores la afectan puede ayudarte a tomar decisiones más informadas y estratégicas. Realizar tests y quizzes sobre este tema no solo evalúa tus conocimientos, sino que también te proporciona una comprensión más profunda y práctica de la sensibilidad de los bonos.
+<p>La duración de un bono es una herramienta esencial para los inversores y analistas financieros. Entender cómo se calcula y qué factores la afectan es crucial para tomar decisiones informadas en el mercado de bonos. Si deseas profundizar más en este tema, te invitamos a explorar nuestros recursos educativos y realizar nuestros quizzes interactivos para poner a prueba tus conocimientos.</p>
+```
