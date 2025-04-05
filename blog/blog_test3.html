@@ -1,6 +1,3 @@
-Aquí tienes el código HTML/JavaScript completo para el test con las especificaciones proporcionadas:
-
-```html
 <div id="quiz-container"></div>
 
 <style>
@@ -159,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-  { question: "📈 ¿Qué es un bono corporativo?", options: ["Acciones de una empresa", "Préstamo que una empresa hace a otra", "Deuda emitida por una empresa", "Depósito a plazo fijo"], answer: 2 },
-  { question: "📊 ¿Qué mide el rating de un bono?", options: ["El precio del bono", "El rendimiento del bono", "La capacidad de pago del emisor", "La tasa de interés"], answer: 2 },
-  { question: "📜 ¿Qué es un bono de alto rendimiento?", options: ["Bono con alta rentabilidad y bajo riesgo", "Bono con alta rentabilidad y alto riesgo", "Bono con baja rentabilidad y bajo riesgo", "Bono con baja rentabilidad y alto riesgo"], answer: 1 },
-  { question: "🕒 ¿Qué indica la duración de un bono?", options: ["El plazo de vencimiento del bono", "La sensibilidad del precio a cambios en la tasa de interés", "La tasa de cupón del bono", "El rendimiento total del bono"], answer: 1 },
-  { question: "💸 ¿Qué implica la tokenización de activos reales?", options: ["Convertir bonos en acciones", "Fraccionar activos en tokens digitales", "Hacer que los bonos sean más líquidos", "Invertir en criptomonedas"], answer: 1 },
-  { question: "🏢 ¿Qué es un mercado secundario de bonos?", options: ["El mercado donde se emiten los bonos por primera vez", "El mercado donde se compran y venden bonos existentes", "El mercado donde se negocian acciones", "El mercado donde se invierten en criptomonedas"], answer: 1 },
-  { question: "🏦 ¿Qué es un bono convertible?", options: ["Un bono que se puede cambiar por acciones de la misma empresa", "Un bono que se puede cambiar por dinero en efectivo", "Un bono que se puede cambiar por otro bono", "Un bono que se puede cambiar por acciones de otra empresa"], answer: 0 }
+{ question: "🔍 ¿Qué son los Bonos High-Yield?", options: ["Títulos de deuda de empresas con alta calificación crediticia", "Títulos de deuda de empresas con baja calificación crediticia", "Títulos de deuda del gobierno", "Títulos de deuda de instituciones financieras"], answer: 1 },
+{ question: "💰 ¿Cuál es la principal diferencia entre Bonos High-Yield y Bonos Investment Grade?", options: ["La duración del bono", "El nivel de riesgo crediticio", "El tipo de emisor", "La tasa de interés"], answer: 1 },
+{ question: "💡 ¿Qué tipo de inversores suelen preferir los Bonos High-Yield?", options: ["Inversores conservadores", "Inversores que buscan estabilidad", "Inversores que buscan alto rendimiento", "Inversores institucionales"], answer: 2 },
+{ question: "📉 ¿Qué sucede si un Bono High-Yield deja de pagar?", options: ["El inversor recibe una compensación", "El inversor pierde parte del capital", "El inversor recibe el capital completo", "El inversor recibe intereses adicionales"], answer: 1 },
+{ question: "🏦 ¿Qué tipo de emisores suelen emitir Bonos High-Yield?", options: ["Gobiernos estables", "Empresas con buena calificación crediticia", "Empresas en dificultades financieras", "Instituciones financieras"], answer: 2 },
+{ question: "📊 ¿Qué mide la calificación crediticia de un bono?", options: ["La rentabilidad del bono", "El riesgo de impago del emisor", "La duración del bono", "La liquidez del bono"], answer: 1 },
+{ question: "📉 ¿Qué es un Bonos Investment Grade?", options: ["Bonos con alta calificación crediticia", "Bonos con baja calificación crediticia", "Bonos con alta tasa de interés", "Bonos con baja liquidez"], answer: 0 }
 ];
 
 let current = 0;
@@ -174,173 +171,174 @@ let timer;
 let timeLeft = 15;
 
 function startTimer() {
-  timeLeft = 15;
-  document.getElementById("quiz-timer").innerText = timeLeft;
-  clearInterval(timer);
-  timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById("quiz-timer").innerText = timeLeft;
-    if (timeLeft === 0) {
-      clearInterval(timer);
-      disableOptions();
-      revealCorrect();
-    }
-  }, 1000);
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
 }
 
 function renderQuestion() {
-  const q = quizData[current];
-  const letters = ["A", "B", "C", "D"];
-  document.getElementById("quiz-container").className = "quiz-container";
-  document.getElementById("quiz-container").innerHTML = `
-  <div class="quiz-header">
-    <span>Pregunta ${current + 1} de ${quizData.length}</span>
-    <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-  </div>
-  <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-  <div class="quiz-question">${q.question}</div>
-  <div class="quiz-options">
-    ${q.options.map((opt, i) => `
-      <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-        <div class="quiz-option-label">${letters[i]}</div>
-        <span>${opt}</span>
-      </button>
-    `).join("")}
-  </div>
-  <div class="quiz-controls">
-    <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-  </div>
-  `;
-  startTimer();
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
 }
 
 window.selectAnswer = function(index) {
-  clearInterval(timer);
-  const correct = quizData[current].answer;
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons.forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === correct) btn.classList.add("correct");
-    if (i === index && index !== correct) btn.classList.add("incorrect");
-  });
-  if (index === correct) score++;
-  document.getElementById("next-btn").disabled = false;
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
 };
 
 function disableOptions() {
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons.forEach(btn => btn.disabled = true);
-  document.getElementById("next-btn").disabled = false;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
 }
 
 function revealCorrect() {
-  const correct = quizData[current].answer;
-  const buttons = document.querySelectorAll(".quiz-option-button");
-  buttons[correct].classList.add("correct");
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
 }
 
 window.nextQuestion = function() {
-  current++;
-  if (current < quizData.length) {
-    renderQuestion();
-  } else {
-    showResults();
-  }
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
 };
 
 function showResults() {
-  let message = "";
-  if (score === 7) {
-    message = "¡Perfecto! Dominas los bonos corporativos. ¡Tus conocimientos son de otro nivel!";
-  } else if (score >= 5) {
-    message = "Buen resultado, pero siempre hay margen para aprender más sobre bonos corporativos.";
-  } else if (score >= 4) {
-    message = "Nada mal, pero podrías mejorar con un poco más de estudio sobre bonos corporativos.";
-  } else {
-    message = "Es un buen momento para aprender más sobre bonos corporativos. ¡Sigue así!";
-  }
+let message = "";
+if (score === 7) message = "¡Perfecto! Dominas 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
+else if (score >= 5) message = "Buen resultado en 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
+else if (score >= 4) message = "Puedes mejorar. Sigue aprendiendo sobre 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
+else message = "Es un buen momento para aprender más sobre 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
 
-  const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas en el test sobre ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade? ¿Te atreves a superarme? responderapido.com`;
 
-  document.getElementById("quiz-container").innerHTML = `
-  <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-  <div class="quiz-result-description">${message}</div>
-  <div class="quiz-result-buttons">
-    <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-    <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-  </div>
-  `;
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
 }
 
 window.restartQuiz = function() {
-  current = 0;
-  score = 0;
-  renderQuestion();
+current = 0;
+score = 0;
+renderQuestion();
 };
 
 window.shareWhatsApp = function(text) {
-  const url = `https://api.whatsapp.com/send?text=${text}`;
-  window.open(url, '_blank');
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
 };
 
 renderQuestion();
 })();
 </script>
-```
 <br><br>
-📉 ¿Qué es un bono corporativo?
+```html
+<h2>Comprendiendo los Bonos High-Yield y su Diferencia con los Bonos Investment Grade</h2>
 
-Un **bono corporativo** es un instrumento de deuda emitido por una empresa para financiar sus operaciones. A diferencia de las acciones, los bonos corporativos representan préstamos que los inversores hacen a la empresa emisora, con la promesa de recibir pagos de intereses periódicos y la devolución del capital al vencimiento. Este tipo de bonos es una herramienta fundamental en el ámbito de la renta fija, ofreciendo a los inversores una fuente de ingresos estable.
+<p>Los bonos son instrumentos financieros esenciales en el mundo de las inversiones, pero no todos los bonos son iguales. En este artículo, exploraremos en profundidad qué son los bonos High-Yield y cómo se diferencian de los bonos Investment Grade. Utilizaremos un enfoque claro y accesible, ideal para inversores que buscan mejorar sus conocimientos financieros.</p>
 
-## Componentes Clave de este Quiz Especializado
+<h3>¿Qué son los Bonos High-Yield?</h3>
 
-### ¿Qué mide el rating de un bono?
+<p>Los Bonos High-Yield, también conocidos como "bonos basura", son títulos de deuda emitidos por empresas con baja calificación crediticia. Estas empresas, a menudo en dificultades financieras, ofrecen rendimientos más altos para atraer inversores, compensando el mayor riesgo de impago.</p>
 
-El rating de un bono es una evaluación realizada por agencias de calificación crediticia como Moody’s, S&P y Fitch. Este rating indica la capacidad del emisor para cumplir con sus obligaciones de deuda. Un rating alto implica menor riesgo y, por ende, tasas de interés más bajas, mientras que un rating bajo indica un mayor riesgo y, por lo tanto, tasas de interés más altas.
+<h2>Diferencias Clave entre Bonos High-Yield e Investment Grade</h2>
 
-### ¿Qué es un bono de alto rendimiento?
+<h3>Nivel de Riesgo Crediticio</h3>
 
-Los bonos de alto rendimiento, también conocidos como "junk bonds", son bonos que ofrecen un rendimiento elevado pero que tienen una mayor probabilidad de impago. Estos bonos son emitidos por empresas con una calificación crediticia baja, lo que refleja su mayor riesgo pero también su potencial de mayores retornos para los inversores dispuestos a asumir ese riesgo.
+<p>La principal diferencia entre los Bonos High-Yield y los Bonos Investment Grade radica en el nivel de riesgo crediticio. Los Bonos High-Yield se emiten por empresas con una calificación crediticia baja, lo que implica un mayor riesgo de impago. Por otro lado, los Bonos Investment Grade son emitidos por empresas con una calificación crediticia alta, lo que los hace más seguros y con menor rendimiento.</p>
 
-### ¿Qué implica la tokenización de activos reales?
+<h3>Tipo de Emisores</h3>
 
-La tokenización de activos reales implica la conversión de activos físicos en tokens digitales en una blockchain. Este proceso permite fraccionar activos como bienes raíces, arte o bienes materiales en unidades más pequeñas y líquidas, facilitando así la inversión y el comercio. La tokenización no solo aumenta la liquidez de los activos, sino que también puede democratizar el acceso a inversiones que antes eran inalcanzables para pequeños inversores.
+<p>Otra diferencia significativa es el tipo de emisores. Los Bonos High-Yield suelen ser emitidos por empresas en dificultades financieras, mientras que los Bonos Investment Grade son generalmente emitidos por empresas con buena calificación crediticia o incluso por gobiernos estables.</p>
 
-## Entendiendo los Mercados Secundarios de Bonos
+<h3>Inversores Preferidos</h3>
 
-### ¿Qué es un mercado secundario de bonos?
+<p>Los inversores que buscan alto rendimiento suelen preferir los Bonos High-Yield debido a sus mayores tasas de interés. En contraste, los inversores que buscan estabilidad y seguridad prefieren los Bonos Investment Grade.</p>
 
-El mercado secundario de bonos es donde se compran y venden bonos emitidos previamente. A diferencia del mercado primario, donde los bonos se emiten por primera vez, el mercado secundario proporciona liquidez a los inversores que desean vender bonos antes de su vencimiento. Este mercado es crucial para la eficiencia del sistema financiero, ya que permite a los inversores ajustar sus carteras y gestionar el riesgo de manera más efectiva.
+<h4>Tabla Comparativa de Bonos High-Yield e Investment Grade</h4>
 
-### Beneficios del mercado secundario
+<table>
+    <tr>
+        <th>Característica</th>
+        <th>Bono High-Yield</th>
+        <th>Bono Investment Grade</th>
+    </tr>
+    <tr>
+        <td>Calificación Crediticia</td>
+        <td>Baja</td>
+        <td>Alta</td>
+    </tr>
+    <tr>
+        <td>Riesgo de Impago</td>
+        <td>Alto</td>
+        <td>Bajo</td>
+    </tr>
+    <tr>
+        <td>Rendimiento</td>
+        <td>Alto</td>
+        <td>Moderado</td>
+    </tr>
+    <tr>
+        <td>Tipo de Emisor</td>
+        <td>Empresas en dificultades</td>
+        <td>Empresas con buena calificación</td>
+    </tr>
+</table>
 
-- **Liquidez**: Permite a los inversores vender bonos antes de su vencimiento.
-- **Diversificación**: Facilita la reasignación de activos dentro de una cartera.
-- **Eficiencia**: Mejora la eficiencia del mercado al permitir la negociación de bonos.
+<h3>Riesgos y Beneficios</h3>
 
-| Tipo de Mercado | Descripción |
-|----------------|-------------|
-| Primario       | Emisión de bonos nuevos. |
-| Secundario     | Compra y venta de bonos existentes. |
+<p>Invertir en Bonos High-Yield puede ser lucrativo si el bono no se incumple, pero también conlleva un riesgo significativo. Los inversores deben estar preparados para la posibilidad de perder parte o todo su capital en caso de impago. Por otro lado, los Bonos Investment Grade ofrecen una mayor seguridad, pero con rendimientos más bajos.</p>
 
-## Fiscalidad de Bonos y Tokenizados
+<h3>Calificación Crediticia y Riesgo de Impago</h3>
 
-La fiscalidad de los bonos y los activos tokenizados presenta diferencias significativas. Los bonos tradicionales están sujetos a impuestos sobre los intereses recibidos, mientras que los activos tokenizados pueden estar sujetos a impuestos sobre las ganancias de capital. Además, la legislación varía según el país, lo que puede afectar la eficiencia fiscal de las inversiones en estos instrumentos.
+<p>La calificación crediticia de un bono mide el riesgo de impago del emisor. Los Bonos High-Yield tienen una calificación crediticia baja, lo que indica un alto riesgo de impago. En un test o quiz sobre bonos, esta información es crucial para que los inversores tomen decisiones informadas.</p>
 
-### Impuestos en Bonos Tradicionales
-
-- **Intereses**: Impuestos sobre los pagos de intereses anuales.
-- **Ganancias de Capital**: Impuestos sobre la diferencia entre el precio de compra y el precio de venta.
-
-### Impuestos en Activos Tokenizados
-
-- **Ganancias de Capital**: Impuestos sobre las ganancias obtenidas al vender tokens.
-- **Transparencia**: Mayor transparencia fiscal debido a la naturaleza digital y rastreable de los tokens.
-
-### Macroeconomía y Tasas de Interés
-
-El entorno macroeconómico y las tasas de interés tienen un impacto directo en los precios de los bonos. Un aumento en las tasas de interés generalmente reduce el precio de los bonos existentes, ya que los nuevos bonos emitidos ofrecen tasas más altas. Por otro lado, una baja en las tasas de interés tiende a incrementar el valor de los bonos existentes. Los inversores deben estar al tanto de estos factores para tomar decisiones informadas.
-
-## Conclusión
-
-Los bonos corporativos y los activos tokenizados representan oportunidades de inversión que, aunque tienen sus riesgos, pueden ofrecer retornos significativos. Comprender los conceptos clave, como el rating, la tokenización y la fiscalidad, es crucial para cualquier inversor que busque maximizar su cartera de renta fija. La diversificación y la gestión adecuada del riesgo son esenciales para navegar en este dinámico entorno de inversión.
+<p>Entender la diferencia entre Bonos High-Yield e Investment Grade es esencial para cualquier inversor que busque diversificar su cartera. A través de este artículo y un quiz adecuado, los inversores pueden adquirir el conocimiento necesario para tomar decisiones financieras más informadas y estratégicas.</p>
+```
