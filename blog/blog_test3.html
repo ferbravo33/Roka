@@ -157,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📈 ¿Qué es la duración de un bono?", options: ["El tiempo hasta que el bono expira", "El valor de mercado del bono", "La tasa de interés del bono", "La cantidad de cupones pagados"], answer: 0 },
-{ question: "🕒 ¿Cómo se calcula la duración de un bono?", options: ["Usando la fórmula de la duración de Macaulay", "Dividiendo el precio del bono por su valor nominal", "Sumando todos los vencimientos de los cupones", "Calculando la tasa de rendimiento"], answer: 0 },
-{ question: "📊 ¿Qué mide la duración modificada?", options: ["La sensibilidad del precio del bono a cambios en la tasa de interés", "La tasa de rendimiento del bono", "La duración del bono", "El valor actual del bono"], answer: 0 },
-{ question: "📉 ¿Qué efecto tiene un aumento en la tasa de interés en la duración de un bono?", options: ["Aumenta la duración", "Reduce la duración", "No afecta la duración", "Duplica la duración"], answer: 1 },
-{ question: "📈 ¿Qué es la duración de un bono a largo plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de más de 10 años", "La duración de un bono con un plazo de más de 5 años", "La duración de un bono con un plazo de más de 3 años"], answer: 2 },
-{ question: "📈 ¿Qué es la duración de un bono a corto plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de menos de 1 año", "La duración de un bono con un plazo de menos de 2 años", "La duración de un bono con un plazo de menos de 3 años"], answer: 2 },
-{ question: "📈 ¿Qué es la duración de un bono a mediano plazo?", options: ["El tiempo hasta que el bono expira", "La duración de un bono con un vencimiento de más de 1 año y menos de 7 años", "La duración de un bono con un plazo de más de 2 años y menos de 5 años", "La duración de un bono con un plazo de más de 3 años y menos de 7 años"], answer: 3 }
+{ question: "🔍 ¿Qué es el rating de bonos?", options: ["Un indicador de calidad de bonos", "Un tipo de interés", "Una estrategia de inversión", "Un tipo de cuenta bancaria"], answer: 0 },
+{ question: "📊 ¿Qué agencias suelen otorgar estos ratings?", options: ["Bancos", "Gobiernos", "Agencias de calificación", "Empresas privadas"], answer: 2 },
+{ question: "📈 ¿Cómo se mide el riesgo crediticio?", options: ["Con la tasa de inflación", "Con el rating de bonos", "Con el índice de desempleo", "Con la tasa de crecimiento económico"], answer: 1 },
+{ question: "🔍 ¿Qué significa un rating AAA?", options: ["Muy alto riesgo", "Riesgo moderado", "Muy bajo riesgo", "Riesgo inexistente"], answer: 2 },
+{ question: "💡 ¿Qué influye en el rating de bonos?", options: ["La economía global", "La situación financiera de la empresa", "El clima", "La moda"], answer: 1 },
+{ question: "📉 ¿Qué significa un rating BB?", options: ["Buen riesgo", "Riesgo especulativo", "Riesgo medio", "Riesgo bajo"], answer: 1 },
+{ question: "🔍 ¿Qué es el rating de bonos y cómo influye en su riesgo?", options: ["Un indicador de calidad de bonos", "Un tipo de interés", "Una estrategia de inversión", "Un tipo de cuenta bancaria"], answer: 0 }
 ];
 
 let current = 0;
@@ -248,12 +248,17 @@ showResults();
 
 function showResults() {
 let message = "";
-if(score === 7) message = "¡Perfecto! Dominas 📈 ¿Qué es la duración de un bono y cómo se calcula?";
-else if(score >= 5) message = "Buen resultado en 📈 ¿Qué es la duración de un bono y cómo se calcula?";
-else if(score >= 4) message = "Nada mal, pero puedes mejorar en 📈 ¿Qué es la duración de un bono y cómo se calcula?";
-else message = "Es un buen momento para aprender más sobre 📈 ¿Qué es la duración de un bono y cómo se calcula?";
+if (score === 7) {
+message = "¡Perfecto! Dominas el rating de bonos y cómo influye en su riesgo. 🏆";
+} else if (score >= 5) {
+message = "Buen resultado, tienes una buena comprensión del rating de bonos. 💡";
+} else if (score >= 4) {
+message = "Nada mal, pero puedes mejorar tu conocimiento sobre el rating de bonos. 📘";
+} else {
+message = "Es un buen momento para aprender más sobre el rating de bonos. 🌱";
+}
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de un bono y cómo se calcula? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre el rating de bonos en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -282,51 +287,67 @@ renderQuestion();
 ```
 <br><br>
 ```html
-<h1>📈 ¿Qué es la duración de un bono y cómo se calcula?</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es el rating de bonos y cómo influye en su riesgo?</title>
+    <style>
+        /* Estilos aquí */
+    </style>
+</head>
+<body>
 
-<h2>Introducción a la duración de un bono</h2>
-<p>La duración de un bono es un concepto crucial en el ámbito financiero y de inversiones. Se refiere al tiempo hasta que el bono expira. Este término es fundamental para entender cómo se calcula la sensibilidad del precio del bono a los cambios en la tasa de interés.</p>
+<h1>¿Qué es el rating de bonos y cómo influye en su riesgo?</h1>
 
-<h2>¿Qué es la duración de un bono?</h2>
-<p>La duración de un bono es una medida que indica cuánto tiempo tomará que un inversor recupere el dinero invertido en un bono, en términos de flujos de caja descontados. Este concepto es esencial para evaluar el riesgo de un bono y su comportamiento ante cambios en las tasas de interés.</p>
+<h2>Entendiendo el Rating de Bonos</h2>
+<p>El rating de bonos es un indicador de la calidad crediticia de los bonos emitidos por una entidad. Este rating, asignado por agencias especializadas, refleja la capacidad de la entidad para cumplir con sus obligaciones financieras. Las agencias de calificación, como Moody's, Standard & Poor's y Fitch, son las encargadas de evaluar y otorgar estos ratings.</p>
 
-<h3>Tipos de duración de un bono</h3>
-<p>La duración de un bono se puede clasificar en tres categorías principales:</p>
-<ol>
-  <li>Duración a corto plazo: Bonos con un vencimiento de menos de 3 años.</li>
-  <li>Duración a mediano plazo: Bonos con un vencimiento de más de 3 años y menos de 7 años.</li>
-  <li>Duración a largo plazo: Bonos con un vencimiento de más de 7 años.</li>
-</ol>
+<h3>Importancia del Rating de Bonos</h3>
+<p>El rating de bonos es crucial para los inversores, ya que proporciona una evaluación objetiva del riesgo asociado con un bono en particular. Un bono con un rating alto indica que la entidad emitedora tiene una alta capacidad de pago, mientras que un rating bajo puede señalar un mayor riesgo de impago.</p>
 
-<h3>Cómo se calcula la duración de un bono</h3>
-<p>La duración de un bono se calcula utilizando la fórmula de la duración de Macaulay, que toma en cuenta los flujos de caja futuros y los descuenta a su valor presente. Esta fórmula es fundamental para entender la sensibilidad del precio del bono a cambios en la tasa de interés.</p>
+<h3>Cómo se Mide el Rating de Bonos</h3>
+<p>El rating de bonos se basa en varios factores, incluyendo la situación financiera de la entidad, su historial de pagos, y las condiciones económicas generales. Las agencias de calificación utilizan modelos y análisis detallados para asignar un rating que refleje la probabilidad de incumplimiento.</p>
 
-<h4>Fórmula de la duración de Macaulay</h4>
-<p>La fórmula de la duración de Macaulay se expresa como:</p>
-<table>
-  <tr>
-    <th>Duración de Macaulay (D)</th>
-    <th>Definición</th>
-  </tr>
-  <tr>
-    <td>D = (1/y) * ∑ [(CFt * t) / (1+y)^t]</td>
-    <td>donde CFt es el flujo de caja en el periodo t, y es la tasa de descuento, y t es el número de periodos.</td>
-  </tr>
-</table>
+<h2>Tipos de Rating de Bonos</h2>
+<p>Los ratings de bonos se dividen en varias categorías, desde AAA (máxima calidad) hasta C (muy alto riesgo). Comprender estas categorías es esencial para cualquier inversor que desee evaluar el riesgo de su cartera de bonos.</p>
 
-<h3>Duración modificada</h3>
-<p>La duración modificada es otra medida importante que se utiliza para calcular la sensibilidad del precio del bono a cambios en la tasa de interés. Se calcula ajustando la duración de Macaulay para tener en cuenta el efecto de la tasa de descuento.</p>
+<h3>Rating AAA: Muy Bajo Riesgo</h3>
+<p>Un rating AAA indica que el bono tiene una calidad excepcional y un riesgo extremadamente bajo de impago. Estas emisiones son generalmente de muy alta calidad y se consideran inversiones seguras.</p>
 
-<h2>Quiz: ¿Qué es la duración de un bono y cómo se calcula?</h2>
-<p>Para profundizar en tu comprensión sobre la duración de un bono, te invitamos a realizar nuestro quiz interactivo. Este quiz te permitirá poner a prueba tus conocimientos y aprender de manera dinámica.</p>
+<h3>Rating BB: Riesgo Especulativo</h3>
+<p>Un rating BB indica que el bono tiene un riesgo especulativo. Esto significa que hay una probabilidad significativa de que la entidad emitedora no cumpla con sus obligaciones de pago. Estos bonos suelen ofrecer rendimientos más altos debido al mayor riesgo.</p>
 
-<h3>Beneficios de realizar el quiz</h3>
+<h2>Influencia del Rating en el Riesgo</h2>
+<p>El rating de bonos tiene una influencia directa en el riesgo crediticio. Un rating alto reduce el riesgo de impago, mientras que un rating bajo aumenta la probabilidad de que la entidad no cumpla con sus obligaciones. Los inversores deben considerar estos ratings al tomar decisiones de inversión.</p>
+
+<h4>Factores que Influyen en el Rating de Bonos</h4>
+<p>Varios factores pueden influir en el rating de bonos, incluyendo la situación financiera de la empresa, las condiciones económicas generales y la percepción del mercado. Un análisis detallado de estos factores es esencial para una evaluación precisa del riesgo.</p>
+
+<h2>Test y Quiz sobre Rating de Bonos</h2>
+<p>Para evaluar su comprensión sobre el rating de bonos, puede realizar un test o quiz interactivo. Estos recursos ofrecen una manera práctica de aprender y verificar sus conocimientos sobre este tema crucial en el mundo de las inversiones.</p>
+
+<h3>Ejemplo de Pregunta en el Quiz</h3>
+<p>¿Qué significa un rating AAA?</p>
 <ul>
-  <li>Comprender mejor los conceptos clave de la duración de un bono.</li>
-  <li>Aplicar la fórmula de la duración de Macaulay en situaciones prácticas.</li>
-  <li>Evaluar tu conocimiento sobre la sensibilidad del precio del bono.</li>
+    <li>Muy alto riesgo</li>
+    <li>Riesgo moderado</li>
+    <li>Muy bajo riesgo</li>
+    <li>Riesgo inexistente</li>
 </ul>
 
+<p>Este tipo de preguntas en un quiz ayuda a consolidar los conceptos clave y a identificar áreas de mejora en el conocimiento sobre el rating de bonos.</p>
+
 <h2>Conclusión</h2>
-<p>La duración de un bono es una herramienta esencial para los inversores y analistas financieros. Entender cómo se calcula y qué factores la afectan es crucial para tomar decisiones informadas en el mercado de bonos. Si deseas profundizar más en este tema, te invitamos a explorar nuestros recursos educativos y realizar nuestros quizzes interactivos para poner a prueba tus conocimientos.</p>
+<p>El rating de bonos es una herramienta esencial para evaluar el riesgo crediticio de las inversiones en bonos. Comprender los diferentes tipos de ratings y los factores que los influyen es crucial para tomar decisiones informadas en el mercado de bonos. Realizar tests y quizzes puede ser una excelente manera de afianzar este conocimiento y mejorar la toma de decisiones financieras.</p>
+
+<div id="quiz-container"></div>
+
+<script>
+    /* JavaScript aquí */
+</script>
+
+</body>
+</html>
 ```
