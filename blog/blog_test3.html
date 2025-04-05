@@ -156,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "🔍 ¿Qué son los Bonos High-Yield?", options: ["Títulos de deuda de empresas con alta calificación crediticia", "Títulos de deuda de empresas con baja calificación crediticia", "Títulos de deuda del gobierno", "Títulos de deuda de instituciones financieras"], answer: 1 },
-{ question: "💰 ¿Cuál es la principal diferencia entre Bonos High-Yield y Bonos Investment Grade?", options: ["La duración del bono", "El nivel de riesgo crediticio", "El tipo de emisor", "La tasa de interés"], answer: 1 },
-{ question: "💡 ¿Qué tipo de inversores suelen preferir los Bonos High-Yield?", options: ["Inversores conservadores", "Inversores que buscan estabilidad", "Inversores que buscan alto rendimiento", "Inversores institucionales"], answer: 2 },
-{ question: "📉 ¿Qué sucede si un Bono High-Yield deja de pagar?", options: ["El inversor recibe una compensación", "El inversor pierde parte del capital", "El inversor recibe el capital completo", "El inversor recibe intereses adicionales"], answer: 1 },
-{ question: "🏦 ¿Qué tipo de emisores suelen emitir Bonos High-Yield?", options: ["Gobiernos estables", "Empresas con buena calificación crediticia", "Empresas en dificultades financieras", "Instituciones financieras"], answer: 2 },
-{ question: "📊 ¿Qué mide la calificación crediticia de un bono?", options: ["La rentabilidad del bono", "El riesgo de impago del emisor", "La duración del bono", "La liquidez del bono"], answer: 1 },
-{ question: "📉 ¿Qué es un Bonos Investment Grade?", options: ["Bonos con alta calificación crediticia", "Bonos con baja calificación crediticia", "Bonos con alta tasa de interés", "Bonos con baja liquidez"], answer: 0 }
+{ question: "🏦 ¿Qué es la duración de un bono?", options: ["El tiempo que dura una transacción bancaria", "El plazo hasta que el bono expira", "El período en el que se puede solicitar un préstamo", "El tiempo que tarda en procesarse un cheque"], answer: 1 },
+{ question: "📅 ¿Cómo se calcula la duración de un bono en Chile?", options: ["Se calcula en base a la fecha de emisión y la fecha de vencimiento", "Se calcula en base a la fecha de compra y la fecha de vencimiento", "Se calcula en base a la fecha de emisión y la fecha de pago", "Se calcula en base a la fecha de compra y la fecha de pago"], answer: 0 },
+{ question: "💰 ¿Qué factor influye más en la duración de un bono?", options: ["El tipo de interés", "La solvencia del emisor", "La fecha de emisión", "La tasa de inflación"], answer: 2 },
+{ question: "📆 ¿Cuál es la fórmula básica para calcular la duración de un bono?", options: ["Duración = (Precio del bono / Valor nominal) * Tiempo", "Duración = (Valor nominal / Precio del bono) * Tiempo", "Duración = (Tiempo / Precio del bono) * Valor nominal", "Duración = (Precio del bono * Valor nominal) / Tiempo"], answer: 1 },
+{ question: "📉 ¿Qué mide la duración modificada de un bono?", options: ["La variación en el precio del bono ante cambios en la tasa de interés", "La duración exacta del bono desde la emisión hasta el vencimiento", "La cantidad de años hasta que el bono vence", "El rendimiento del bono"], answer: 0 },
+{ question: "📊 ¿Qué es la duración de McCaulay?", options: ["Una medida de la sensibilidad del precio del bono a cambios en la tasa de interés", "Una fórmula para calcular el rendimiento del bono", "Una medida de la volatilidad del bono", "Una fórmula para calcular la duración modificada"], answer: 0 },
+{ question: "📝 ¿Qué es la duración de un bono en términos simples?", options: ["El tiempo que tarda en madurar", "El tiempo que tarda en ser pagado", "El tiempo que tarda en ser vendido", "El tiempo que tarda en ser comprado"], answer: 0 }
 ];
 
 let current = 0;
@@ -247,12 +247,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
-else if (score >= 5) message = "Buen resultado en 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
-else if (score >= 4) message = "Puedes mejorar. Sigue aprendiendo sobre 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
-else message = "Es un buen momento para aprender más sobre 🔍 ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade?";
+if(score === 7) message = "¡Perfecto! Dominas 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
+else if(score >= 5) message = "Buen resultado en 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
+else if(score >= 4) message = "Nada mal, sigue mejorando tus conocimientos.";
+else message = "Es un buen momento para aprender más sobre 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas en el test sobre ¿Qué son los Bonos High-Yield y cómo se diferencian de los Bonos Investment Grade? ¿Te atreves a superarme? responderapido.com`;
+const shareText = `He acertado ${score} de ${quizData.length} preguntas sobre 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile? en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -279,66 +279,68 @@ renderQuestion();
 })();
 </script>
 <br><br>
-```html
-<h2>Comprendiendo los Bonos High-Yield y su Diferencia con los Bonos Investment Grade</h2>
+<h2>Qué es la duración de un bono y cómo se calcula en Chile</h2>
 
-<p>Los bonos son instrumentos financieros esenciales en el mundo de las inversiones, pero no todos los bonos son iguales. En este artículo, exploraremos en profundidad qué son los bonos High-Yield y cómo se diferencian de los bonos Investment Grade. Utilizaremos un enfoque claro y accesible, ideal para inversores que buscan mejorar sus conocimientos financieros.</p>
+La duración de un bono es un concepto fundamental en el ámbito financiero, especialmente para aquellos interesados en inversiones y mercados de capitales. Este artículo explora en profundidad qué es la duración de un bono, cómo se calcula en Chile y los factores que influyen en su determinación. Además, se incluye un <strong>test</strong> práctico para evaluar tus conocimientos sobre este tema.
 
-<h3>¿Qué son los Bonos High-Yield?</h3>
+<h3>¿Qué es la duración de un bono?</h3>
 
-<p>Los Bonos High-Yield, también conocidos como "bonos basura", son títulos de deuda emitidos por empresas con baja calificación crediticia. Estas empresas, a menudo en dificultades financieras, ofrecen rendimientos más altos para atraer inversores, compensando el mayor riesgo de impago.</p>
+La duración de un bono se refiere al tiempo promedio que tarda en recuperarse la inversión inicial a través de los flujos de efectivo generados por el bono. En términos más simples, es una medida de la sensibilidad del precio del bono a los cambios en las tasas de interés. A mayor duración, mayor será la variación en el precio del bono ante fluctuaciones en las tasas de interés.
 
-<h2>Diferencias Clave entre Bonos High-Yield e Investment Grade</h2>
+<h3>Cómo se calcula la duración de un bono en Chile</h3>
 
-<h3>Nivel de Riesgo Crediticio</h3>
+En Chile, la duración de un bono se calcula principalmente en base a la fecha de emisión y la fecha de vencimiento. La fórmula básica para calcular la duración de un bono es:
 
-<p>La principal diferencia entre los Bonos High-Yield y los Bonos Investment Grade radica en el nivel de riesgo crediticio. Los Bonos High-Yield se emiten por empresas con una calificación crediticia baja, lo que implica un mayor riesgo de impago. Por otro lado, los Bonos Investment Grade son emitidos por empresas con una calificación crediticia alta, lo que los hace más seguros y con menor rendimiento.</p>
+<ol>
+  <li>Duración = (Valor nominal / Precio del bono) * Tiempo</li>
+</ol>
 
-<h3>Tipo de Emisores</h3>
+Esta fórmula proporciona una estimación de la sensibilidad del precio del bono a los cambios en las tasas de interés. Es importante notar que esta fórmula es una simplificación y existen otras métricas más precisas como la duración modificada y la duración de McCaulay.
 
-<p>Otra diferencia significativa es el tipo de emisores. Los Bonos High-Yield suelen ser emitidos por empresas en dificultades financieras, mientras que los Bonos Investment Grade son generalmente emitidos por empresas con buena calificación crediticia o incluso por gobiernos estables.</p>
+<h3>Factores que influyen en la duración de un bono</h3>
 
-<h3>Inversores Preferidos</h3>
+Varios factores pueden influir en la duración de un bono. Entre los más relevantes se encuentran:
 
-<p>Los inversores que buscan alto rendimiento suelen preferir los Bonos High-Yield debido a sus mayores tasas de interés. En contraste, los inversores que buscan estabilidad y seguridad prefieren los Bonos Investment Grade.</p>
+<ul>
+  <li>Tipo de interés: A mayor tipo de interés, menor será la duración del bono.</li>
+  <li>Solvencia del emisor: La percepción del riesgo del emisor puede afectar la duración.</li>
+  <li>Fecha de emisión: Los bonos emitidos en diferentes momentos pueden tener duraciones distintas.</li>
+  <li>Tasa de inflación: La inflación puede influir en la duración, especialmente en bonos indexados.</li>
+</ul>
 
-<h4>Tabla Comparativa de Bonos High-Yield e Investment Grade</h4>
+<h4>Duración modificada y duración de McCaulay</h4>
 
-<table>
-    <tr>
-        <th>Característica</th>
-        <th>Bono High-Yield</th>
-        <th>Bono Investment Grade</th>
-    </tr>
-    <tr>
-        <td>Calificación Crediticia</td>
-        <td>Baja</td>
-        <td>Alta</td>
-    </tr>
-    <tr>
-        <td>Riesgo de Impago</td>
-        <td>Alto</td>
-        <td>Bajo</td>
-    </tr>
-    <tr>
-        <td>Rendimiento</td>
-        <td>Alto</td>
-        <td>Moderado</td>
-    </tr>
-    <tr>
-        <td>Tipo de Emisor</td>
-        <td>Empresas en dificultades</td>
-        <td>Empresas con buena calificación</td>
-    </tr>
+La duración modificada y la duración de McCaulay son dos medidas más avanzadas que proporcionan una estimación más precisa de la sensibilidad del precio del bono a los cambios en las tasas de interés. La duración modificada se utiliza para calcular la variación en el precio del bono ante cambios en la tasa de interés, mientras que la duración de McCaulay es una medida de la sensibilidad del precio del bono a cambios en la tasa de interés.
+
+<h3>Tabla comparativa de duraciones</h3>
+
+A continuación, se presenta una tabla comparativa de las diferentes duraciones de bonos bajo diferentes condiciones de mercado:
+
+<table border="1">
+  <tr>
+    <th>Tipo de Duración</th>
+    <th>Descripción</th>
+    <th>Fórmula</th>
+  </tr>
+  <tr>
+    <td>Duración Simple</td>
+    <td>Tiempo promedio para recuperarse la inversión inicial</td>
+    <td>(Valor nominal / Precio del bono) * Tiempo</td>
+  </tr>
+  <tr>
+    <td>Duración Modificada</td>
+    <td>Variación en el precio del bono ante cambios en la tasa de interés</td>
+    <td>Duración Simple / (1 + tasa de interés)</td>
+  </tr>
+  <tr>
+    <td>Duración de McCaulay</td>
+    <td>Sensibilidad del precio del bono a cambios en la tasa de interés</td>
+    <td>Duración Simple * (1 + tasa de interés)</td>
+  </tr>
 </table>
 
-<h3>Riesgos y Beneficios</h3>
+<h2>Test: ¿Qué es la duración de un bono y cómo se calcula en Chile?</h2>
 
-<p>Invertir en Bonos High-Yield puede ser lucrativo si el bono no se incumple, pero también conlleva un riesgo significativo. Los inversores deben estar preparados para la posibilidad de perder parte o todo su capital en caso de impago. Por otro lado, los Bonos Investment Grade ofrecen una mayor seguridad, pero con rendimientos más bajos.</p>
+Para consolidar tus conocimientos sobre la duración de un bono, te invitamos a realizar nuestro <strong>Quiz</strong> especializado. Este <strong>test</strong> consta de varias preguntas que abarcan desde conceptos básicos hasta aspectos más avanzados de la duración de los bonos. ¡Pon a prueba tus habilidades y aprende al mismo tiempo!
 
-<h3>Calificación Crediticia y Riesgo de Impago</h3>
-
-<p>La calificación crediticia de un bono mide el riesgo de impago del emisor. Los Bonos High-Yield tienen una calificación crediticia baja, lo que indica un alto riesgo de impago. En un test o quiz sobre bonos, esta información es crucial para que los inversores tomen decisiones informadas.</p>
-
-<p>Entender la diferencia entre Bonos High-Yield e Investment Grade es esencial para cualquier inversor que busque diversificar su cartera. A través de este artículo y un quiz adecuado, los inversores pueden adquirir el conocimiento necesario para tomar decisiones financieras más informadas y estratégicas.</p>
-```
+<p>Entender la duración de un bono es crucial para cualquier inversor o profesional del sector financiero. Conocer cómo se calcula y qué factores la influyen puede ayudarte a tomar decisiones más informadas y estratégicas en el mercado de bonos. Este artículo ha abordado los conceptos clave y te ha proporcionado herramientas prácticas para evaluar tu comprensión del tema.</p>
