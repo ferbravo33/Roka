@@ -1,4 +1,3 @@
-```html
 <div id="quiz-container"></div>
 
 <style>
@@ -157,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "¿Qué es el mercado primario de bonos?", options: ["El mercado donde se compran y venden bonos existentes", "El mercado donde se compran bonos nuevos", "El mercado donde se negocian acciones", "El mercado donde se venden bienes raíces"], answer: 1 },
-{ question: "¿Quiénes emiten bonos en el mercado primario?", options: ["Inversionistas", "Empresas y gobiernos", "Bancos", "Intermediarios financieros"], answer: 1 },
-{ question: "¿Qué caracteriza al mercado secundario de bonos?", options: ["La emisión de nuevos bonos", "La compra y venta de bonos existentes", "La fijación de precios de acciones", "La regulación de tasas de interés"], answer: 1 },
-{ question: "¿Quiénes participan en el mercado secundario de bonos?", options: ["Inversionistas minoristas", "Empresas y gobiernos", "Inversionistas institucionales", "Intermediarios financieros"], answer: 3 },
-{ question: "¿Qué función tiene el mercado secundario en la liquidez de bonos?", options: ["Aumentar la demanda de nuevos bonos", "Facilitar la compra y venta de bonos existentes", "Determinar el precio de las acciones", "Regular las tasas de interés"], answer: 1 },
-{ question: "¿Cómo se determina el precio de los bonos en el mercado secundario?", options: ["Por la oferta y demanda", "Por la tasa de interés", "Por la regulación gubernamental", "Por la política monetaria"], answer: 0 },
-{ question: "¿Qué es un mercado secundario eficiente?", options: ["Uno donde los precios de los bonos son siempre altos", "Uno donde se emiten nuevos bonos frecuentemente", "Uno donde los precios de los bonos reflejan toda la información disponible", "Uno donde la regulación es mínima"], answer: 2 }
+{ question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el yield de un bono?", options: ["El rendimiento anual de una inversión en bonos", "La tasa de interés que paga un bono", "El precio de compra de un bono", "La duración total del bono"], answer: 1 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n📈 ¿Qué es la duración de un bono?", options: ["El tiempo que lleva cobrar un bono", "Una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "El período en el que se pagan intereses", "La fecha de vencimiento del bono"], answer: 1 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n📊 ¿Qué es el riesgo de crédito en los bonos?", options: ["El riesgo de que el emisor no pueda pagar los intereses o el principal", "El riesgo de que las tasas de interés suban", "El riesgo de que el valor del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n🔒 ¿Qué es un bono con garantía?", options: ["Un bono respaldado por activos específicos", "Un bono emitido por el gobierno", "Un bono con una calificación de riesgo alta", "Un bono con una tasa de interés variable"], answer: 0 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n📚 ¿Qué es una emisión de bonos?", options: ["La venta de bonos por parte de una empresa o gobierno", "La compra de bonos por parte de un inversor", "El pago de intereses de un bono", "La cancelación de un bono"], answer: 0 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el cupón de un bono?", options: ["El interés periódico que paga un bono", "El precio de compra de un bono", "La duración total del bono", "La fecha de vencimiento del bono"], answer: 0 },
+{ question: "Categoría: Bonos Corporativos Básicos\n\n🏦 ¿Qué es un bono corporativo?", options: ["Un bono emitido por una empresa", "Un bono emitido por el gobierno", "Un bono con una tasa de interés fija", "Un bono con una tasa de interés variable"], answer: 0 }
 ];
 
 let current = 0;
@@ -248,12 +247,17 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas Categoría: Mercados Secundarios de Bonos\nTema específico: Diferencias entre Mercado Primario y Secundario\n\n🏦 ¿Sabes cuál es la diferencia clave entre el mercado primario y el secundario en bonos?";
-else if (score >= 5) message = "Buen resultado en Categoría: Mercados Secundarios de Bonos\nTema específico: Diferencias entre Mercado Primario y Secundario\n\n🏦 ¿Sabes cuál es la diferencia clave entre el mercado primario y el secundario en bonos?";
-else if (score >= 4) message = "Nada mal, pero puedes mejorar. Hay mucho más para aprender sobre los mercados de bonos.";
-else message = "Es un buen momento para aprender más. ¡Sigue estudiando los mercados de bonos!";
+if (score === 7) {
+message = "¡Perfecto! Dominas los bonos corporativos. 🏆";
+} else if (score >= 5) {
+message = "Buen resultado en bonos corporativos. 💡";
+} else if (score >= 4) {
+message = "Nada mal, pero puedes mejorar. 📘";
+} else {
+message = "Es un buen momento para aprender más sobre bonos corporativos. 🌱";
+}
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre los mercados secundarios de bonos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre Bonos Corporativos Básicos en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -279,62 +283,352 @@ window.open(url, '_blank');
 renderQuestion();
 })();
 </script>
-```
 <br><br>
-<p>Los tests y quizzes son herramientas fundamentales para evaluar conocimientos y habilidades en diversos campos, incluyendo el ámbito financiero. En este artículo, exploraremos las diferencias entre el mercado primario y el mercado secundario de bonos, un tema crucial para cualquier persona interesada en las finanzas y la inversión.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonos Corporativos Básicos</title>
+    <style>
+        .quiz-container {
+            font-family: Arial, sans-serif !important;
+            max-width: 700px !important;
+            margin: auto !important;
+            background: #fdfdfd !important;
+            padding: 25px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+        }
 
-<h2>Introducción a los Mercados de Bonos</h2>
-<p>Los mercados de bonos son esenciales para la economía global, ya que permiten a las empresas y gobiernos obtener financiamiento a través de la emisión de deuda. Estos mercados se dividen en dos categorías principales: el mercado primario y el mercado secundario. Entender la diferencia entre ambos es crucial para cualquier inversor o profesional financiero.</p>
+        .quiz-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            margin-bottom: 10px !important;
+            font-size: 18px !important;
+        }
 
-<h3>El Mercado Primario de Bonos</h3>
-<p>El mercado primario de bonos es donde se emiten nuevos bonos por primera vez. En este mercado, las empresas y gobiernos venden bonos a los inversores. Este proceso de emisión de nuevos bonos es fundamental para la recaudación de capital. Los inversores que compran bonos en el mercado primario son aquellos que proporcionan el capital inicial necesario para financiar proyectos y operaciones.</p>
-<p>Un <strong>quiz</strong> sobre el mercado primario podría preguntar quiénes emiten bonos en este mercado. La respuesta correcta sería las empresas y gobiernos, ya que son los principales emisores de bonos nuevos.</p>
+        .quiz-timer {
+            color: #e74c3c !important;
+            font-weight: bold !important;
+        }
 
-<h3>El Mercado Secundario de Bonos</h3>
-<p>El mercado secundario de bonos, por otro lado, es donde se compran y venden bonos que ya han sido emitidos. Este mercado ofrece liquidez a los inversores, permitiéndoles comprar y vender bonos existentes. La participación en el mercado secundario incluye a inversores institucionales, fondos mutuos y otros intermediarios financieros.</p>
-<p>Un <strong>test</strong> sobre el mercado secundario podría evaluar la comprensión de su función en la liquidez de bonos. La respuesta correcta sería que facilita la compra y venta de bonos existentes, lo que es esencial para mantener la liquidez en el mercado.</p>
+        .quiz-progress-bar {
+            height: 10px !important;
+            background: #ddd !important;
+            border-radius: 5px !important;
+            overflow: hidden !important;
+            margin-bottom: 20px !important;
+        }
 
-<h4>Participantes en el Mercado Secundario</h4>
-<p>En el mercado secundario de bonos, los participantes incluyen a los inversores institucionales, fondos mutuos y otros intermediarios financieros. Estos actores compran y venden bonos para gestionar sus carteras y responder a las fluctuaciones del mercado.</p>
-<ul>
-  <li>Inversores institucionales: Fondos de pensiones, compañías de seguros, etc.</li>
-  <li>Fondos mutuos: Gestores de activos que invierten en bonos.</li>
-  <li>Intermediarios financieros: Bancos y corredores que facilitan las transacciones.</li>
-</ul>
+        .quiz-progress {
+            height: 100% !important;
+            background: #4caf50 !important;
+            transition: width 0.3s !important;
+        }
 
-<h3>Determinación del Precio en el Mercado Secundario</h3>
-<p>El precio de los bonos en el mercado secundario se determina principalmente por la oferta y la demanda. Otros factores que influyen en los precios incluyen las tasas de interés y la percepción del riesgo del emisor.</p>
-<p>Un <strong>quiz</strong> sobre este tema podría preguntar cómo se determina el precio de los bonos en el mercado secundario. La respuesta correcta sería por la oferta y demanda, ya que estos factores son los principales determinantes del precio.</p>
+        .quiz-question {
+            font-size: 22px !important;
+            font-weight: 600 !important;
+            margin-bottom: 20px !important;
+        }
 
-<h2>Comparación entre Mercado Primario y Secundario</h2>
-<p>Para entender mejor las diferencias entre el mercado primario y el secundario de bonos, consideremos la siguiente tabla:</p>
+        .quiz-options {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 15px !important;
+        }
+
+        .quiz-option-button {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            padding: 12px 14px !important;
+            font-size: 16px !important;
+            background: #f0f0f0 !important;
+            border: 2px solid transparent !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease-in-out !important;
+            text-align: left !important;
+        }
+
+        .quiz-option-button.correct {
+            background: #c8f7c5 !important;
+            border-color: #27ae60 !important;
+            color: #2d7d33 !important;
+            font-weight: bold !important;
+        }
+
+        .quiz-option-button.incorrect {
+            background: #f8d7da !important;
+            border-color: #c0392b !important;
+            color: #c0392b !important;
+            font-weight: bold !important;
+        }
+
+        .quiz-option-label {
+            width: 28px !important;
+            height: 28px !important;
+            border-radius: 50% !important;
+            background: #3498db !important;
+            color: white !important;
+            font-weight: bold !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+
+        .quiz-controls {
+            margin-top: 20px !important;
+            text-align: center !important;
+        }
+
+        .quiz-controls button {
+            width: 100% !important;
+            padding: 14px !important;
+            font-size: 16px !important;
+            background: #3498db !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+        }
+
+        .quiz-result-title {
+            font-size: 26px !important;
+            font-weight: bold !important;
+            margin-bottom: 15px !important;
+            text-align: center !important;
+        }
+
+        .quiz-result-description {
+            font-size: 17px !important;
+            line-height: 1.6 !important;
+            white-space: pre-line !important;
+            text-align: center !important;
+        }
+
+        .quiz-result-buttons {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            margin-top: 25px !important;
+            text-align: center !important;
+        }
+
+        .quiz-result-buttons button {
+            padding: 12px !important;
+            font-size: 16px !important;
+            border: none !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+        }
+
+        .quiz-restart-btn {
+            background-color: #2ecc71 !important;
+            color: white !important;
+        }
+
+        .quiz-share-btn {
+            background-color: #25D366 !important;
+            color: white !important;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-options {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container"></div>
+
+    <script>
+        const quizData = [
+            { question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el yield de un bono?", options: ["El rendimiento anual de una inversión en bonos", "La tasa de interés que paga un bono", "El precio de compra de un bono", "La duración total del bono"], answer: 1 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n📈 ¿Qué es la duración de un bono?", options: ["El tiempo que lleva cobrar un bono", "Una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "El período en el que se pagan intereses", "La fecha de vencimiento del bono"], answer: 1 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n📊 ¿Qué es el riesgo de crédito en los bonos?", options: ["El riesgo de que el emisor no pueda pagar los intereses o el principal", "El riesgo de que las tasas de interés suban", "El riesgo de que el valor del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n🔒 ¿Qué es un bono con garantía?", options: ["Un bono respaldado por activos específicos", "Un bono emitido por el gobierno", "Un bono con una calificación de riesgo alta", "Un bono con una tasa de interés variable"], answer: 0 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n📚 ¿Qué es una emisión de bonos?", options: ["La venta de bonos por parte de una empresa o gobierno", "La compra de bonos por parte de un inversor", "El pago de intereses de un bono", "La cancelación de un bono"], answer: 0 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el cupón de un bono?", options: ["El interés periódico que paga un bono", "El precio de compra de un bono", "La duración total del bono", "La fecha de vencimiento del bono"], answer: 0 },
+            { question: "Categoría: Bonos Corporativos Básicos\n\n🏦 ¿Qué es un bono corporativo?", options: ["Un bono emitido por una empresa", "Un bono emitido por el gobierno", "Un bono con una tasa de interés fija", "Un bono con una tasa de interés variable"], answer: 0 }
+        ];
+
+        let current = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 15;
+
+        function startTimer() {
+            timeLeft = 15;
+            document.getElementById("quiz-timer").innerText = timeLeft;
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("quiz-timer").innerText = timeLeft;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    disableOptions();
+                    revealCorrect();
+                }
+            }, 1000);
+        }
+
+        function renderQuestion() {
+            const q = quizData[current];
+            const letters = ["A", "B", "C", "D"];
+            document.getElementById("quiz-container").className = "quiz-container";
+            document.getElementById("quiz-container").innerHTML = `
+            <div class="quiz-header">
+                <span>Pregunta ${current + 1} de ${quizData.length}</span>
+                <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+            </div>
+            <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+            <div class="quiz-question">${q.question}</div>
+            <div class="quiz-options">
+                ${q.options.map((opt, i) => `
+                <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+                    <div class="quiz-option-label">${letters[i]}</div>
+                    <span>${opt}</span>
+                </button>
+                `).join("")}
+            </div>
+            <div class="quiz-controls">
+                <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+            </div>
+            `;
+            startTimer();
+        }
+
+        window.selectAnswer = function(index) {
+            clearInterval(timer);
+            const correct = quizData[current].answer;
+            const buttons = document.querySelectorAll(".quiz-option-button");
+            buttons.forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === correct) btn.classList.add("correct");
+                if (i === index && index !== correct) btn.classList.add("incorrect");
+            });
+            if (index === correct) score++;
+            document.getElementById("next-btn").disabled = false;
+        };
+
+        function disableOptions() {
+            const buttons = document.querySelectorAll(".quiz-option-button");
+            buttons.forEach(btn => btn.disabled = true);
+            document.getElementById("next-btn").disabled = false;
+        }
+
+        function revealCorrect() {
+            const correct = quizData[current].answer;
+            const buttons = document.querySelectorAll(".quiz-option-button");
+            buttons[correct].classList.add("correct");
+        }
+
+        window.nextQuestion = function() {
+            current++;
+            if (current < quizData.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        };
+
+        function showResults() {
+            let message = "";
+            if (score === 7) {
+                message = "¡Perfecto! Dominas los bonos corporativos. 🏆";
+            } else if (score >= 5) {
+                message = "Buen resultado en bonos corporativos. 💡";
+            } else if (score >= 4) {
+                message = "Nada mal, pero puedes mejorar. 📘";
+            } else {
+                message = "Es un buen momento para aprender más sobre bonos corporativos. 🌱";
+            }
+
+            const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre Bonos Corporativos Básicos en un test! ¿Te atreves a superarme? responderapido.com`;
+
+            document.getElementById("quiz-container").innerHTML = `
+            <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+            <div class="quiz-result-description">${message}</div>
+            <div class="quiz-result-buttons">
+                <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+                <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+            </div>
+            `;
+        }
+
+        window.restartQuiz = function() {
+            current = 0;
+            score = 0;
+            renderQuestion();
+        };
+
+        window.shareWhatsApp = function(text) {
+            const url = `https://api.whatsapp.com/send?text=${text}`;
+            window.open(url, '_blank');
+        };
+
+        renderQuestion();
+    </script>
+</body>
+</html>
+
+<h2>Componentes clave de un Quiz de Bonos Corporativos</h2>
+
+<p>Los bonos corporativos son una herramienta financiera esencial para empresas y gobiernos. Un Quiz de Bonos Corporativos permite evaluar conocimientos sobre estos instrumentos financieros. Abarca conceptos fundamentales como el yield, la duración, el riesgo de crédito, y más.</p>
+
+<p>El <strong>yield</strong> de un bono es un indicador crucial para los inversores. Representa el rendimiento anual de una inversión en bonos, considerando tanto el interés periódico como cualquier ganancia o pérdida de capital. Comprender el yield ayuda a los inversores a tomar decisiones informadas sobre dónde colocar su dinero.</p>
+
+<p>Otro concepto importante es la <strong>duración</strong> de un bono. La duración es una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés. Una duración mayor indica una mayor sensibilidad, lo que significa que el precio del bono se verá más afectado por las fluctuaciones en las tasas de interés.</p>
+
+<h3>Riesgo de Crédito y Garantías</h3>
+
+<p>El <strong>riesgo de crédito</strong> en los bonos es el riesgo de que el emisor no pueda pagar los intereses o el principal. Este riesgo es evaluado por agencias de crédito y se refleja en la calificación de riesgo del bono. Un bono con una calificación alta tiene un riesgo de crédito menor.</p>
+
+<p>Los bonos con <strong>garantía</strong> son aquellos respaldados por activos específicos del emisor. En caso de incumplimiento, los inversores pueden reclamar estos activos para cubrir sus pérdidas. Este tipo de bono ofrece una capa adicional de seguridad para los inversores, reduciendo el riesgo de crédito.</p>
+
+<h3>Emisiones de Bonos y Cupones</h3>
+
+<p>Una <strong>emisión de bonos</strong> es el proceso de venta de bonos por parte de una empresa o gobierno para recaudar fondos. Este proceso puede involucrar la emisión de bonos con diferentes características, como tasas de interés fijas o variables y plazos de vencimiento variados.</p>
+
+<p>El <strong>cupón</strong> de un bono es el interés periódico que paga el bono. Este pago se realiza generalmente en intervalos regulares, como anualmente o semestralmente. El cupón es una parte esencial del rendimiento total que un inversor puede esperar de un bono.</p>
+
+<h4>Ejemplo de Bonos Corporativos</h4>
+
+<p>Para ilustrar mejor estos conceptos, consideremos algunos ejemplos de bonos corporativos:</p>
 
 <table>
-  <tr>
-    <th>Aspecto</th>
-    <th>Mercado Primario</th>
-    <th>Mercado Secundario</th>
-  </tr>
-  <tr>
-    <td>Emisión de Bonos</td>
-    <td>Nuevos bonos</td>
-    <td>Bonos existentes</td>
-  </tr>
-  <tr>
-    <td>Participantes</td>
-    <td>Empresas y gobiernos</td>
-    <td>Inversores institucionales, fondos mutuos, intermediarios</td>
-  </tr>
-  <tr>
-    <td>Función Principal</td>
-    <td>Recaudación de capital</td>
-    <td>Liquidez y negociación</td>
-  </tr>
-  <tr>
-    <td>Determinación de Precios</td>
-    <td>Fijada por el emisor</td>
-    <td>Oferta y demanda</td>
-  </tr>
+    <thead>
+        <tr>
+            <th>Tipo de Bono</th>
+            <th>Yield</th>
+            <th>Duración</th>
+            <th>Riesgo de Crédito</th>
+            <th>Tipo de Cupón</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bono Corporativo A</td>
+            <td>5%</td>
+            <td>5 años</td>
+            <td>Bajo</td>
+            <td>Fijo</td>
+        </tr>
+        <tr>
+            <td>Bono Corporativo B</td>
+            <td>6%</td>
+            <td>10 años</td>
+            <td>Medio</td>
+            <td>Variable</td>
+        </tr>
+    </tbody>
 </table>
 
-<p>En resumen, el mercado primario y el mercado secundario de bonos desempeñan roles complementarios en la economía. El mercado primario es crucial para la emisión de nuevos bonos y la recaudación de capital, mientras que el mercado secundario proporciona liquidez y facilita la negociación de bonos existentes. Entender estas diferencias es esencial para cualquier persona involucrada en finanzas e inversión.</p>
+<p>Este ejemplo muestra cómo diferentes bonos pueden tener características distintas en términos de yield, duración, riesgo de crédito y tipo de cupón. Entender estos aspectos es crucial para cualquier persona que desee invertir en bonos corporativos.</p>
+
+<p>En conclusión, los bonos corporativos son una herramienta financiera versátil y accesible tanto para empresas como para inversores. Comprender los conceptos clave como yield, duración, riesgo de crédito y tipo de cupón es esencial para tomar decisiones informadas y maximizar el rendimiento de las inversiones.</p>
