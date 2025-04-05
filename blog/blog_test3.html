@@ -156,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📊 ¿Qué es la duración de Macaulay?", options: ["El tiempo en que se amortiza un bono", "La tasa de interés del bono", "El tiempo promedio ponderado de los flujos de caja", "El valor nominal del bono"], answer: 2 },
-{ question: "📈 ¿Cómo se calcula la duración de Macaulay?", options: ["Sumando los flujos de caja", "Restando los flujos de caja", "Dividiendo los flujos de caja por el precio del bono", "Multiplicando los flujos de caja por el precio del bono"], answer: 2 },
-{ question: "📉 ¿Qué mide la duración de Macaulay?", options: ["El riesgo del bono", "La sensibilidad del precio del bono a cambios en la tasa de interés", "El rendimiento del bono", "El valor de mercado del bono"], answer: 1 },
-{ question: "📊 ¿Qué es la duración modificada?", options: ["La duración de Macaulay ajustada por la tasa de interés", "La duración de Macaulay ajustada por el precio del bono", "La duración de Macaulay ajustada por el tiempo", "La duración de Macaulay ajustada por el flujo de caja"], answer: 0 },
-{ question: "📈 ¿Cómo se relaciona la duración modificada con la duración de Macaulay?", options: ["Es igual a la duración de Macaulay", "Es mayor que la duración de Macaulay", "Es menor que la duración de Macaulay", "Es inversamente proporcional a la duración de Macaulay"], answer: 3 },
-{ question: "📉 ¿Qué es la duración de un bono?", options: ["El tiempo en que se amortiza un bono", "La tasa de interés del bono", "La sensibilidad del precio del bono a cambios en la tasa de interés", "El valor nominal del bono"], answer: 2 },
-{ question: "📊 ¿Por qué es importante la duración de Macaulay en la gestión de carteras?", options: ["Para calcular el rendimiento del bono", "Para medir el riesgo de la cartera", "Para ajustar el precio del bono", "Para calcular el flujo de caja del bono"], answer: 1 }
+{ question: "📉 ¿Cómo afecta la volatilidad de las tasas de interés a los precios de los bonos?", options: ["Aumenta los precios de los bonos", "Disminuye los precios de los bonos", "No tiene efecto en los precios de los bonos", "Aumenta la demanda de bonos"], answer: 1 },
+{ question: "📉 ¿Qué sucede con el precio de un bono cuando las tasas de interés suben?", options: ["El precio del bono aumenta", "El precio del bono disminuye", "El precio del bono se mantiene igual", "El precio del bono se duplica"], answer: 1 },
+{ question: "📉 ¿Qué tipo de bonos son más sensibles a la volatilidad de las tasas de interés?", options: ["Bonos a corto plazo", "Bonos a largo plazo", "Bonos corporativos", "Bonos gubernamentales"], answer: 1 },
+{ question: "📉 ¿Cómo se mide la duración de un bono?", options: ["Por el tiempo hasta la madurez", "Por la tasa de interés", "Por el rendimiento", "Por la calificación crediticia"], answer: 0 },
+{ question: "📉 ¿Qué es la convexidad en el contexto de los bonos?", options: ["La medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "La medida de la duración de un bono", "La medida de la calificación crediticia de un bono", "La medida de la liquidez de un bono"], answer: 0 },
+{ question: "📉 ¿Qué es el riesgo de reinversión en bonos?", options: ["El riesgo de que los ingresos futuros del bono no puedan reinvertirse a la misma tasa de interés", "El riesgo de que el emisor del bono no pueda pagar los intereses", "El riesgo de que el precio del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
+{ question: "📉 ¿Cómo afecta la inflación a los bonos?", options: ["Aumenta el valor real de los pagos de intereses", "Disminuye el valor real de los pagos de intereses", "No tiene efecto en los pagos de intereses", "Aumenta la demanda de bonos"], answer: 1 }
 ];
 
 let current = 0;
@@ -247,12 +247,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if(score === 7) message = "¡Perfecto! Dominas 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
-else if(score >= 5) message = "Buen resultado en 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
-else if(score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
-else message = "Es un buen momento para aprender más sobre 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
+else if (score >= 5) message = "Buen resultado en 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
+else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
+else message = "Es un buen momento para aprender más sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📉 ¿Cómo afecta la volatilidad de las tasas de interés a los bonos corporativos? en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -279,42 +279,62 @@ renderQuestion();
 })();
 </script>
 <br><br>
-### ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?
+```html
+<h2>Impacto de la Volatilidad de las Tasas de Interés en los Bonos Corporativos</h2>
 
-La duración de Macaulay es un concepto fundamental en la gestión de bonos y carteras de inversión. Este artículo explora en profundidad qué es la duración de Macaulay, cómo se calcula y su importancia en el ámbito de los bonos corporativos. A través de un **test** y un **quiz**, podrás evaluar tu comprensión de estos conceptos clave.
+<p>La volatilidad de las tasas de interés es un factor crucial que afecta significativamente a los bonos corporativos. Este artículo explora cómo las fluctuaciones en las tasas de interés influyen en los precios de los bonos, la duración, la convexidad y el riesgo de reinversión. Además, se analiza cómo la inflación y otros factores económicos impactan en estos instrumentos financieros.</p>
 
-#### ¿Qué es la duración de Macaulay?
+<h3>¿Cómo Afecta la Volatilidad de las Tasas de Interés a los Precios de los Bonos?</h3>
 
-La duración de Macaulay es una medida del tiempo promedio ponderado de los flujos de caja futuros de un bono. En otras palabras, es el tiempo promedio que tarda en recuperarse el dinero invertido en un bono, teniendo en cuenta el valor presente de cada flujo de caja. Este concepto es crucial para entender la sensibilidad del precio de un bono a los cambios en las tasas de interés.
+<p>La volatilidad de las tasas de interés tiene un impacto directo en los precios de los bonos. Cuando las tasas de interés suben, los precios de los bonos existentes tienden a disminuir, ya que los nuevos bonos emitidos ofrecen tasas más altas, haciendo que los bonos antiguos sean menos atractivos. Este fenómeno se debe a la relación inversa entre los precios de los bonos y las tasas de interés.</p>
 
-#### Cómo se calcula la duración de Macaulay
+<p>En un <strong>test</strong> o <strong>quiz</strong> sobre finanzas, es común encontrar preguntas que evalúan la comprensión de esta relación. Por ejemplo, una pregunta típica podría ser: "¿Qué sucede con el precio de un bono cuando las tasas de interés suben?" La respuesta correcta sería que el precio del bono disminuye.</p>
 
-Para calcular la duración de Macaulay, se deben seguir varios pasos. A continuación, se presenta una lista ordenada de los pasos necesarios:
+<h3>Duración y Convexidad de los Bonos</h3>
 
-1. **Identificar los flujos de caja futuros**: Determina los pagos periódicos que se recibirán del bono, incluyendo el principal y los cupones.
-2. **Calcular el valor presente de cada flujo de caja**: Usa la tasa de descuento adecuada para encontrar el valor presente de cada flujo de caja.
-3. **Multiplicar cada flujo de caja por su tiempo correspondiente**: Cada flujo de caja se multiplica por el número de períodos que faltan para recibirlo.
-4. **Sumar los productos obtenidos**: Suma todos los productos obtenidos en el paso anterior.
-5. **Dividir por el precio del bono**: Finalmente, divide la suma obtenida por el precio del bono para obtener la duración de Macaulay.
+<p>La duración de un bono es una medida de su sensibilidad a los cambios en las tasas de interés. Los bonos a largo plazo son más sensibles a la volatilidad de las tasas de interés que los bonos a corto plazo. La convexidad, por otro lado, mide la curvatura de la relación entre el precio del bono y las tasas de interés, proporcionando una medida más precisa de cómo cambia el precio del bono en respuesta a cambios en las tasas de interés.</p>
 
-#### Importancia de la duración de Macaulay en la gestión de carteras
+<p>En un test o quiz, es importante entender estos conceptos para responder preguntas como: "¿Qué tipo de bonos son más sensibles a la volatilidad de las tasas de interés?" y "¿Qué es la convexidad en el contexto de los bonos?"</p>
 
-La duración de Macaulay es una herramienta esencial para la gestión de carteras de bonos. Permite a los gestores de carteras medir el riesgo de tasa de interés de sus inversiones. A continuación, se presentan algunas razones por las que la duración de Macaulay es importante:
+<h4>Riesgo de Reinversión y Inflación</h4>
 
-- **Medición del riesgo de tasa de interés**: La duración de Macaulay indica cómo cambiará el precio de un bono en respuesta a cambios en las tasas de interés.
-- **Comparación de bonos**: Permite comparar la sensibilidad de diferentes bonos a cambios en las tasas de interés.
-- **Construcción de carteras**: Ayuda a construir carteras que se ajusten a las necesidades de riesgo y rendimiento de los inversores.
+<p>El riesgo de reinversión se refiere a la posibilidad de que los ingresos futuros del bono no puedan reinvertirse a la misma tasa de interés. Este riesgo es más significativo en un entorno de tasas de interés en alza. Además, la inflación puede erosionar el valor real de los pagos de intereses de los bonos, afectando negativamente su rendimiento.</p>
 
-#### Duración modificada y su relación con la duración de Macaulay
+<p>Para evaluar estos conceptos en un test o quiz, se pueden incluir preguntas como: "¿Qué es el riesgo de reinversión en bonos?" y "¿Cómo afecta la inflación a los bonos?"</p>
 
-La duración modificada es una versión ajustada de la duración de Macaulay que tiene en cuenta la sensibilidad del precio del bono a cambios en la tasa de interés. Se calcula como la duración de Macaulay dividida por uno más la tasa de interés. La duración modificada es inversamente proporcional a la duración de Macaulay, lo que significa que a medida que la tasa de interés aumenta, la duración modificada disminuye.
+<h3>Tabla Comparativa de Sensibilidad de Bonos</h3>
 
-| Concepto                | Descripción                                                                 |
-|-------------------------|-----------------------------------------------------------------------------|
-| Duración de Macaulay   | Tiempo promedio ponderado de los flujos de caja futuros.                 |
-| Duración modificada    | Duración de Macaulay ajustada por la tasa de interés.                     |
-| Sensibilidad del precio| Medida de cómo cambia el precio del bono con cambios en la tasa de interés.|
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Bono</th>
+      <th>Duración</th>
+      <th>Sensibilidad a Tasas de Interés</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bonos a corto plazo</td>
+      <td>1-3 años</td>
+      <td>Baja</td>
+    </tr>
+    <tr>
+      <td>Bonos a largo plazo</td>
+      <td>10+ años</td>
+      <td>Alta</td>
+    </tr>
+    <tr>
+      <td>Bonos corporativos</td>
+      <td>5-10 años</td>
+      <td>Moderada</td>
+    </tr>
+    <tr>
+      <td>Bonos gubernamentales</td>
+      <td>5-30 años</td>
+      <td>Moderada a Alta</td>
+    </tr>
+  </tbody>
+</table>
 
-#### Conclusión
-
-La duración de Macaulay es una métrica esencial para cualquier inversor en bonos corporativos. Entender cómo se calcula y su relación con la duración modificada puede ayudar a los inversores a tomar decisiones más informadas y gestionar mejor el riesgo de sus carteras. Conocer estos conceptos no solo mejora la comprensión de los bonos, sino que también puede aumentar la rentabilidad y reducir el riesgo en las inversiones.
+<p>En resumen, la volatilidad de las tasas de interés tiene un impacto significativo en los bonos corporativos, afectando su precio, duración, convexidad, riesgo de reinversión y sensibilidad a la inflación. Comprender estos conceptos es esencial para tomar decisiones informadas en el mercado de bonos y para tener éxito en cualquier test o quiz relacionado con finanzas.</p>
+```
