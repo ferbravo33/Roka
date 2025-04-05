@@ -157,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📉 ¿Qué es la liquidez en el mercado secundario de bonos?", options: ["La capacidad de convertir bonos en efectivo rápidamente", "El precio de los bonos", "La tasa de interés de los bonos", "La duración de los bonos"], answer: 0 },
-{ question: "📊 ¿Cómo afecta la alta liquidez al precio de los bonos?", options: ["Aumenta el precio", "Disminuye el precio", "No afecta el precio", "Estabiliza el precio"], answer: 3 },
-{ question: "📈 ¿Qué significa un mercado secundario con baja liquidez?", options: ["Los bonos se pueden vender rápidamente", "Los bonos no se pueden vender rápidamente", "Los bonos tienen un precio más alto", "Los bonos tienen una tasa de interés más alta"], answer: 1 },
-{ question: "📉 ¿Qué factor puede aumentar la liquidez en el mercado secundario de bonos?", options: ["Una economía en recesión", "Una economía en expansión", "Una política monetaria restrictiva", "Una alta inflación"], answer: 1 },
-{ question: "📈 ¿Qué es el spread de oferta y demanda en el mercado secundario de bonos?", options: ["La diferencia entre el precio de compra y venta de bonos", "La tasa de interés de los bonos", "El plazo de los bonos", "La calificación de crédito de los bonos"], answer: 0 },
-{ question: "📉 ¿Cómo pueden los inversores mejorar la liquidez en el mercado secundario?", options: ["Comprar bonos a largo plazo", "Vender bonos a corto plazo", "Comprar bonos de empresas con baja calificación", "Comprar bonos gubernamentales"], answer: 3 },
-{ question: "📈 ¿Qué es un mercado secundario eficiente?", options: ["Un mercado donde los precios reflejan toda la información disponible", "Un mercado donde los precios no reflejan toda la información disponible", "Un mercado donde los precios son siempre altos", "Un mercado donde los precios son siempre bajos"], answer: 0 }
+{ question: "¿Qué es el mercado primario de bonos?", options: ["El mercado donde se compran y venden bonos existentes", "El mercado donde se compran bonos nuevos", "El mercado donde se negocian acciones", "El mercado donde se venden bienes raíces"], answer: 1 },
+{ question: "¿Quiénes emiten bonos en el mercado primario?", options: ["Inversionistas", "Empresas y gobiernos", "Bancos", "Intermediarios financieros"], answer: 1 },
+{ question: "¿Qué caracteriza al mercado secundario de bonos?", options: ["La emisión de nuevos bonos", "La compra y venta de bonos existentes", "La fijación de precios de acciones", "La regulación de tasas de interés"], answer: 1 },
+{ question: "¿Quiénes participan en el mercado secundario de bonos?", options: ["Inversionistas minoristas", "Empresas y gobiernos", "Inversionistas institucionales", "Intermediarios financieros"], answer: 3 },
+{ question: "¿Qué función tiene el mercado secundario en la liquidez de bonos?", options: ["Aumentar la demanda de nuevos bonos", "Facilitar la compra y venta de bonos existentes", "Determinar el precio de las acciones", "Regular las tasas de interés"], answer: 1 },
+{ question: "¿Cómo se determina el precio de los bonos en el mercado secundario?", options: ["Por la oferta y demanda", "Por la tasa de interés", "Por la regulación gubernamental", "Por la política monetaria"], answer: 0 },
+{ question: "¿Qué es un mercado secundario eficiente?", options: ["Uno donde los precios de los bonos son siempre altos", "Uno donde se emiten nuevos bonos frecuentemente", "Uno donde los precios de los bonos reflejan toda la información disponible", "Uno donde la regulación es mínima"], answer: 2 }
 ];
 
 let current = 0;
@@ -248,17 +248,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) {
-message = "¡Perfecto! Dominas la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
-} else if (score >= 5) {
-message = "Buen resultado en la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
-} else if (score >= 4) {
-message = "Has demostrado un conocimiento básico. Puedes mejorar tu comprensión sobre la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
-} else {
-message = "Es un buen momento para aprender más sobre la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
-}
+if (score === 7) message = "¡Perfecto! Dominas Categoría: Mercados Secundarios de Bonos\nTema específico: Diferencias entre Mercado Primario y Secundario\n\n🏦 ¿Sabes cuál es la diferencia clave entre el mercado primario y el secundario en bonos?";
+else if (score >= 5) message = "Buen resultado en Categoría: Mercados Secundarios de Bonos\nTema específico: Diferencias entre Mercado Primario y Secundario\n\n🏦 ¿Sabes cuál es la diferencia clave entre el mercado primario y el secundario en bonos?";
+else if (score >= 4) message = "Nada mal, pero puedes mejorar. Hay mucho más para aprender sobre los mercados de bonos.";
+else message = "Es un buen momento para aprender más. ¡Sigue estudiando los mercados de bonos!";
 
-const shareText = `He acertado ${score} de ${quizData.length} preguntas sobre Mercado de bonos secundarios y Liquidez en el mercado secundario en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre los mercados secundarios de bonos en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -286,57 +281,60 @@ renderQuestion();
 </script>
 ```
 <br><br>
-<p>La liquidez es un concepto fundamental en el mercado secundario de bonos, ya que afecta directamente la capacidad de los inversores para comprar y vender estos instrumentos financieros. En este artículo, exploraremos cómo la liquidez influye en el precio de los bonos y qué factores la afectan, así como cómo los inversores pueden mejorar la liquidez en este mercado.</p>
+<p>Los tests y quizzes son herramientas fundamentales para evaluar conocimientos y habilidades en diversos campos, incluyendo el ámbito financiero. En este artículo, exploraremos las diferencias entre el mercado primario y el mercado secundario de bonos, un tema crucial para cualquier persona interesada en las finanzas y la inversión.</p>
 
-<h2>¿Qué es la liquidez en el mercado secundario de bonos?</h2>
+<h2>Introducción a los Mercados de Bonos</h2>
+<p>Los mercados de bonos son esenciales para la economía global, ya que permiten a las empresas y gobiernos obtener financiamiento a través de la emisión de deuda. Estos mercados se dividen en dos categorías principales: el mercado primario y el mercado secundario. Entender la diferencia entre ambos es crucial para cualquier inversor o profesional financiero.</p>
 
-<p>La liquidez en el mercado secundario de bonos se refiere a la facilidad con la que estos activos pueden ser convertidos en efectivo sin afectar significativamente su precio. En otras palabras, un mercado líquido permite a los inversores comprar y vender bonos rápidamente y con mínima variación en el precio.</p>
+<h3>El Mercado Primario de Bonos</h3>
+<p>El mercado primario de bonos es donde se emiten nuevos bonos por primera vez. En este mercado, las empresas y gobiernos venden bonos a los inversores. Este proceso de emisión de nuevos bonos es fundamental para la recaudación de capital. Los inversores que compran bonos en el mercado primario son aquellos que proporcionan el capital inicial necesario para financiar proyectos y operaciones.</p>
+<p>Un <strong>quiz</strong> sobre el mercado primario podría preguntar quiénes emiten bonos en este mercado. La respuesta correcta sería las empresas y gobiernos, ya que son los principales emisores de bonos nuevos.</p>
 
-<h2>Impacto de la liquidez en el precio de los bonos</h2>
+<h3>El Mercado Secundario de Bonos</h3>
+<p>El mercado secundario de bonos, por otro lado, es donde se compran y venden bonos que ya han sido emitidos. Este mercado ofrece liquidez a los inversores, permitiéndoles comprar y vender bonos existentes. La participación en el mercado secundario incluye a inversores institucionales, fondos mutuos y otros intermediarios financieros.</p>
+<p>Un <strong>test</strong> sobre el mercado secundario podría evaluar la comprensión de su función en la liquidez de bonos. La respuesta correcta sería que facilita la compra y venta de bonos existentes, lo que es esencial para mantener la liquidez en el mercado.</p>
 
-<p>La alta liquidez en el mercado secundario de bonos generalmente estabiliza los precios, ya que hay suficientes compradores y vendedores para mantener un equilibrio. Por otro lado, una baja liquidez puede llevar a fluctuaciones significativas en los precios debido a la falta de participantes en el mercado.</p>
-
-<h3>Test: Evaluando tu conocimiento sobre liquidez</h3>
-
-<p>Para evaluar tu comprensión sobre cómo la liquidez afecta el precio de los bonos en el mercado secundario, puedes realizar un <strong>quiz</strong> que te ayudará a identificar áreas donde puedes mejorar tu conocimiento. Este tipo de evaluaciones son herramientas valiosas para cualquier inversor que desee entender mejor el comportamiento del mercado.</p>
-
-<h3>Factores que afectan la liquidez en el mercado secundario</h3>
-
-<p>Varios factores pueden influir en la liquidez del mercado secundario de bonos. Entre ellos se incluyen:</p>
-
+<h4>Participantes en el Mercado Secundario</h4>
+<p>En el mercado secundario de bonos, los participantes incluyen a los inversores institucionales, fondos mutuos y otros intermediarios financieros. Estos actores compran y venden bonos para gestionar sus carteras y responder a las fluctuaciones del mercado.</p>
 <ul>
-  <li>Condiciones económicas: Una economía en expansión tiende a aumentar la liquidez, mientras que una recesión puede reducirla.</li>
-  <li>Política monetaria: Una política monetaria restrictiva puede disminuir la liquidez, ya que los inversores pueden optar por activos más seguros.</li>
-  <li>Calificación de crédito: Los bonos de emitentes con alta calificación de crédito suelen tener mayor liquidez.</li>
+  <li>Inversores institucionales: Fondos de pensiones, compañías de seguros, etc.</li>
+  <li>Fondos mutuos: Gestores de activos que invierten en bonos.</li>
+  <li>Intermediarios financieros: Bancos y corredores que facilitan las transacciones.</li>
 </ul>
 
-<h3>Cómo mejorar la liquidez en el mercado secundario</h3>
+<h3>Determinación del Precio en el Mercado Secundario</h3>
+<p>El precio de los bonos en el mercado secundario se determina principalmente por la oferta y la demanda. Otros factores que influyen en los precios incluyen las tasas de interés y la percepción del riesgo del emisor.</p>
+<p>Un <strong>quiz</strong> sobre este tema podría preguntar cómo se determina el precio de los bonos en el mercado secundario. La respuesta correcta sería por la oferta y demanda, ya que estos factores son los principales determinantes del precio.</p>
 
-<p>Los inversores pueden mejorar la liquidez en el mercado secundario de varias maneras. Una de las estrategias más efectivas es la compra de bonos gubernamentales, que suelen tener una alta demanda y, por lo tanto, mayor liquidez.</p>
-
-<h4>Ejemplo de comparación de liquidez en diferentes tipos de bonos</h4>
+<h2>Comparación entre Mercado Primario y Secundario</h2>
+<p>Para entender mejor las diferencias entre el mercado primario y el secundario de bonos, consideremos la siguiente tabla:</p>
 
 <table>
   <tr>
-    <th>Tipo de Bonos</th>
-    <th>Liquidez</th>
-    <th>Precio</th>
+    <th>Aspecto</th>
+    <th>Mercado Primario</th>
+    <th>Mercado Secundario</th>
   </tr>
   <tr>
-    <td>Gubernamentales</td>
-    <td>Alta</td>
-    <td>Estable</td>
+    <td>Emisión de Bonos</td>
+    <td>Nuevos bonos</td>
+    <td>Bonos existentes</td>
   </tr>
   <tr>
-    <td>Corporativos</td>
-    <td>Media</td>
-    <td>Variable</td>
+    <td>Participantes</td>
+    <td>Empresas y gobiernos</td>
+    <td>Inversores institucionales, fondos mutuos, intermediarios</td>
   </tr>
   <tr>
-    <td>Empresas emergentes</td>
-    <td>Baja</td>
-    <td>Volátil</td>
+    <td>Función Principal</td>
+    <td>Recaudación de capital</td>
+    <td>Liquidez y negociación</td>
+  </tr>
+  <tr>
+    <td>Determinación de Precios</td>
+    <td>Fijada por el emisor</td>
+    <td>Oferta y demanda</td>
   </tr>
 </table>
 
-<p>Comprender estos factores y estrategias puede ayudarte a tomar decisiones más informadas y a aprovechar mejor las oportunidades en el mercado secundario de bonos. La liquidez no solo afecta la facilidad de compra y venta, sino que también puede influir en el rendimiento de tu inversión. Por lo tanto, es crucial estar bien informado sobre cómo estos elementos interactúan en el mercado.</p>
+<p>En resumen, el mercado primario y el mercado secundario de bonos desempeñan roles complementarios en la economía. El mercado primario es crucial para la emisión de nuevos bonos y la recaudación de capital, mientras que el mercado secundario proporciona liquidez y facilita la negociación de bonos existentes. Entender estas diferencias es esencial para cualquier persona involucrada en finanzas e inversión.</p>
