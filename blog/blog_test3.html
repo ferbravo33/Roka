@@ -279,37 +279,66 @@ renderQuestion();
 })();
 </script>
 <br><br>
-<p>Los tests de inversión permiten evaluar conocimientos técnicos sobre mercados financieros. Este análisis profundiza en los conceptos clave del quiz sobre bonos corporativos.</p>
+### ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?
 
-<h2>¿Qué revela este test sobre bonos?</h2>
-<p>Al resolver las 7 preguntas del cuestionario, destacan tres elementos fundamentales:</p>
+La duración de Macaulay es una métrica crucial en el análisis de bonos, especialmente en el contexto de bonos corporativos. Esta métrica proporciona una medida del tiempo promedio ponderado de los flujos de caja futuros del bono, ajustados por el valor presente. Es una herramienta esencial para evaluar la sensibilidad del precio del bono a los cambios en las tasas de interés.
 
-<ol>
-  <li>La duración de Macaulay</li>
-  <li>El cálculo de la duración de Macaulay</li>
-  <li>La duración modificada</li>
-</ol>
+### ¿Qué es la duración de Macaulay?
 
-<h3>Datos técnicos que todo inversionista debe conocer</h3>
-<ul>
-  <li>Duración de Macaulay: Promedio ponderado de los flujos de caja</li>
-  <li>Duración modificada: Ajuste de la duración de Macaulay por la tasa de interés</li>
-  <li>Sensibilidad del precio del bono: Mayor duración implica mayor sensibilidad</li>
-</ul>
+La duración de Macaulay se define como el promedio ponderado de los flujos de caja futuros del bono, ponderados por el valor presente de cada flujo de caja. Esta métrica es fundamental para entender cómo el precio de un bono responde a los cambios en las tasas de interés. En términos simples, la duración de Macaulay indica el tiempo promedio hasta que se recibe el flujo de caja del bono, ajustado por el valor presente.
 
-<h4>Comparativo de características</h4>
-<table>
-  <tr>
-    <th>Duración de Macaulay</th>
-    <th>Duración Modificada</th>
-  </tr>
-  <tr>
-    <td>Promedio ponderado de los flujos de caja</td>
-    <td>Duración de Macaulay ajustada por la tasa de interés</td>
-  </tr>
-</table>
+#### Características clave de la duración de Macaulay
 
-<h2>¿Cómo mejorar tu score en este quiz?</h2>
-<p>Los participantes que superan el 80% en este test demuestran dominio de:</p>
+- **Promedio ponderado de flujos de caja**: La duración de Macaulay considera el tiempo en que se reciben los flujos de caja futuros del bono, ponderados por su valor presente.
+- **Sensibilidad a las tasas de interés**: Una mayor duración de Macaulay indica una mayor sensibilidad del precio del bono a los cambios en las tasas de interés.
+- **Aplicación en bonos corporativos**: Esta métrica es especialmente útil en el análisis de bonos corporativos, donde los flujos de caja pueden variar significativamente.
 
-<p>Revisar conceptos como la duración de Macaulay y la duración modificada puede aumentar tu puntaje. ¿Has probado otros quizzes de renta fija?</p>
+### ¿Cómo se calcula la duración de Macaulay?
+
+El cálculo de la duración de Macaulay implica varios pasos, que se pueden resumir en una lista ordenada:
+
+1. **Identificar los flujos de caja futuros**: Determinar los flujos de caja que se recibirán en cada período.
+2. **Calcular el valor presente de cada flujo de caja**: Descontar cada flujo de caja al valor presente utilizando la tasa de interés adecuada.
+3. **Ponderar los flujos de caja por su valor presente**: Multiplicar cada flujo de caja por su valor presente.
+4. **Sumar los productos obtenidos**: Sumar los valores obtenidos en el paso anterior.
+5. **Dividir por el precio del bono**: Dividir la suma obtenida por el precio del bono para obtener la duración de Macaulay.
+
+#### Ejemplo de cálculo
+
+Supongamos un bono con los siguientes flujos de caja y una tasa de descuento del 5%:
+
+| Período | Flujo de Caja | Valor Presente | Ponderación |
+|---------|---------------|----------------|--------------|
+| 1       | $100         | $95.24         | $95.24       |
+| 2       | $100         | $90.70         | $181.40      |
+| 3       | $100         | $86.38         | $259.14      |
+| 4       | $100         | $82.27         | $329.08      |
+| 5       | $100         | $78.35         | $391.75      |
+
+La duración de Macaulay se calcula como:
+
+\[ \text{Duración de Macaulay} = \frac{95.24 + 181.40 + 259.14 + 329.08 + 391.75}{100 + 100 + 100 + 100 + 100} = 3.57 \]
+
+### ¿Qué mide la duración de Macaulay?
+
+La duración de Macaulay mide la sensibilidad del precio del bono a los cambios en las tasas de interés. En otras palabras, indica cuánto cambiará el precio del bono en respuesta a un cambio en la tasa de interés. Una mayor duración de Macaulay implica una mayor sensibilidad del precio del bono a los cambios en las tasas de interés, lo que puede ser crucial para los inversores que buscan minimizar el riesgo de tasa de interés.
+
+### ¿Qué es la duración modificada?
+
+La duración modificada es una variante de la duración de Macaulay que se ajusta por la tasa de interés. Se calcula dividiendo la duración de Macaulay entre (1 + tasa de interés). Esta métrica es útil para estimar la sensibilidad del precio del bono a los cambios en las tasas de interés de manera más precisa.
+
+### ¿Qué relación tiene la duración de Macaulay con la duración modificada?
+
+La duración modificada es mayor que la duración de Macaulay. Esta relación se debe a que la duración modificada ajusta la duración de Macaulay por la tasa de interés, lo que proporciona una medida más precisa de la sensibilidad del precio del bono a los cambios en las tasas de interés.
+
+### ¿Qué tipo de bonos se utilizan para calcular la duración de Macaulay?
+
+La duración de Macaulay se utiliza principalmente para bonos con cupones fijos, donde los flujos de caja futuros son conocidos y predecibles. Estos bonos son comunes en el mercado de bonos corporativos y gubernamentales, y la duración de Macaulay es una herramienta esencial para evaluar su sensibilidad a los cambios en las tasas de interés.
+
+### ¿Qué impacto tiene una mayor duración de Macaulay en el precio del bono?
+
+Una mayor duración de Macaulay implica una mayor sensibilidad del precio del bono a los cambios en las tasas de interés. Esto significa que el precio del bono con una mayor duración de Macaulay será más volátil en respuesta a los cambios en las tasas de interés, lo que puede ser un riesgo para los inversores.
+
+### Conclusión
+
+La duración de Macaulay es una métrica esencial en el análisis de bonos, especialmente en el contexto de bonos corporativos. Al proporcionar una medida del tiempo promedio ponderado de los flujos de caja futuros, esta métrica ayuda a los inversores a entender la sensibilidad del precio del bono a los cambios en las tasas de interés. Comprender y calcular la duración de Macaulay es crucial para tomar decisiones informadas en la gestión de carteras de bonos.
