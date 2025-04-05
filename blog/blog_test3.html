@@ -156,13 +156,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el yield de un bono?", options: ["El rendimiento anual de una inversión en bonos", "La tasa de interés que paga un bono", "El precio de compra de un bono", "La duración total del bono"], answer: 1 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n📈 ¿Qué es la duración de un bono?", options: ["El tiempo que lleva cobrar un bono", "Una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "El período en el que se pagan intereses", "La fecha de vencimiento del bono"], answer: 1 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n📊 ¿Qué es el riesgo de crédito en los bonos?", options: ["El riesgo de que el emisor no pueda pagar los intereses o el principal", "El riesgo de que las tasas de interés suban", "El riesgo de que el valor del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n🔒 ¿Qué es un bono con garantía?", options: ["Un bono respaldado por activos específicos", "Un bono emitido por el gobierno", "Un bono con una calificación de riesgo alta", "Un bono con una tasa de interés variable"], answer: 0 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n📚 ¿Qué es una emisión de bonos?", options: ["La venta de bonos por parte de una empresa o gobierno", "La compra de bonos por parte de un inversor", "El pago de intereses de un bono", "La cancelación de un bono"], answer: 0 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el cupón de un bono?", options: ["El interés periódico que paga un bono", "El precio de compra de un bono", "La duración total del bono", "La fecha de vencimiento del bono"], answer: 0 },
-{ question: "Categoría: Bonos Corporativos Básicos\n\n🏦 ¿Qué es un bono corporativo?", options: ["Un bono emitido por una empresa", "Un bono emitido por el gobierno", "Un bono con una tasa de interés fija", "Un bono con una tasa de interés variable"], answer: 0 }
+{ question: "📊 ¿Qué es la duración modificada de un bono?", options: ["El tiempo total de un bono", "El tiempo restante hasta su vencimiento", "El tiempo desde su emisión", "El tiempo de negociación"], answer: 1 },
+{ question: "📅 ¿Cómo se mide la duración modificada de un bono?", options: ["Por el tiempo total de su vida", "Por el tiempo restante hasta su vencimiento", "Por el tiempo desde su emisión", "Por el tiempo de negociación"], answer: 1 },
+{ question: "📉 ¿Qué afecta la duración modificada de un bono?", options: ["Solo el tipo de interés", "El tipo de interés y el tiempo restante", "Solo el tiempo restante", "El tipo de interés y el precio del bono"], answer: 1 },
+{ question: "💰 ¿Qué bono tiene una duración modificada más alta?", options: ["Un bono a corto plazo con alta tasa de interés", "Un bono a largo plazo con baja tasa de interés", "Un bono a corto plazo con baja tasa de interés", "Un bono a largo plazo con alta tasa de interés"], answer: 3 },
+{ question: "📈 ¿Qué pasa con la duración modificada cuando el tipo de interés aumenta?", options: ["Aumenta", "Disminuye", "Permanece igual", "Se vuelve negativa"], answer: 1 },
+{ question: "📉 ¿Qué pasa con la duración modificada cuando el tiempo restante disminuye?", options: ["Aumenta", "Disminuye", "Permanece igual", "Se vuelve negativa"], answer: 1 },
+{ question: "📊 ¿Para qué se utiliza la duración modificada?", options: ["Para calcular el precio del bono", "Para medir la sensibilidad del precio del bono a cambios en la tasa de interés", "Para calcular el rendimiento del bono", "Para medir la liquidez del bono"], answer: 1 }
 ];
 
 let current = 0;
@@ -247,17 +247,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) {
-message = "¡Perfecto! Dominas los bonos corporativos. 🏆";
-} else if (score >= 5) {
-message = "Buen resultado en bonos corporativos. 💡";
-} else if (score >= 4) {
-message = "Nada mal, pero puedes mejorar. 📘";
-} else {
-message = "Es un buen momento para aprender más sobre bonos corporativos. 🌱";
-}
+if (score === 7) message = "¡Perfecto! Dominas 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
+else if (score >= 5) message = "Buen resultado en 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
+else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre la duración modificada de un bono.";
+else message = "Es un buen momento para aprender más sobre la duración modificada de un bono.";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre Bonos Corporativos Básicos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la duración modificada de un bono en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -284,351 +279,59 @@ renderQuestion();
 })();
 </script>
 <br><br>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonos Corporativos Básicos</title>
-    <style>
-        .quiz-container {
-            font-family: Arial, sans-serif !important;
-            max-width: 700px !important;
-            margin: auto !important;
-            background: #fdfdfd !important;
-            padding: 25px !important;
-            border-radius: 12px !important;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
-        }
+<p>La duración modificada de un bono es un concepto fundamental en el ámbito de las finanzas y la inversión. Este artículo te ayudará a entender qué es la duración modificada de un bono y cómo se mide, utilizando un enfoque claro y accesible.</p>
 
-        .quiz-header {
-            display: flex !important;
-            justify-content: space-between !important;
-            margin-bottom: 10px !important;
-            font-size: 18px !important;
-        }
+<h2>¿Qué es la duración modificada de un bono?</h2>
+<p>La duración modificada de un bono es una medida que indica la sensibilidad del precio del bono a los cambios en las tasas de interés. Es una herramienta esencial para los inversores que desean entender cómo las fluctuaciones en las tasas de interés pueden afectar el valor de sus inversiones en bonos.</p>
 
-        .quiz-timer {
-            color: #e74c3c !important;
-            font-weight: bold !important;
-        }
+<p>En términos simples, la duración modificada es una métrica que ajusta la duración de un bono para reflejar los cambios en el precio del bono debido a las variaciones en las tasas de interés. Este ajuste es crucial para una evaluación precisa de la sensibilidad del bono a los cambios en el entorno de tasas de interés.</p>
 
-        .quiz-progress-bar {
-            height: 10px !important;
-            background: #ddd !important;
-            border-radius: 5px !important;
-            overflow: hidden !important;
-            margin-bottom: 20px !important;
-        }
+<h3>Importancia de la duración modificada</h3>
+<p>La duración modificada es importante porque proporciona una estimación más precisa de cómo el precio de un bono puede cambiar en respuesta a una variación en las tasas de interés. Esto es especialmente relevante en un entorno de tasas de interés fluctuantes, donde los inversores necesitan tomar decisiones informadas para gestionar sus carteras de manera efectiva.</p>
 
-        .quiz-progress {
-            height: 100% !important;
-            background: #4caf50 !important;
-            transition: width 0.3s !important;
-        }
+<p>Además, la duración modificada es una herramienta útil para comparar la sensibilidad de diferentes bonos. Los inversores pueden utilizar esta métrica para seleccionar bonos que se ajusten mejor a sus objetivos de inversión y tolerancia al riesgo.</p>
 
-        .quiz-question {
-            font-size: 22px !important;
-            font-weight: 600 !important;
-            margin-bottom: 20px !important;
-        }
+<h3>Cómo se mide la duración modificada</h3>
+<p>La duración modificada se mide utilizando una fórmula que ajusta la duración del bono para reflejar los cambios en el precio del bono debido a las variaciones en las tasas de interés. La fórmula general para calcular la duración modificada es:</p>
 
-        .quiz-options {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 15px !important;
-        }
+<p>Duración Modificada = Duración / (1 + (Tasa de Interés / 100))</p>
 
-        .quiz-option-button {
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            padding: 12px 14px !important;
-            font-size: 16px !important;
-            background: #f0f0f0 !important;
-            border: 2px solid transparent !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease-in-out !important;
-            text-align: left !important;
-        }
+<p>Donde la duración es una medida del tiempo promedio que tarda en recuperarse el principal del bono, y la tasa de interés es la tasa de interés actual del bono.</p>
 
-        .quiz-option-button.correct {
-            background: #c8f7c5 !important;
-            border-color: #27ae60 !important;
-            color: #2d7d33 !important;
-            font-weight: bold !important;
-        }
-
-        .quiz-option-button.incorrect {
-            background: #f8d7da !important;
-            border-color: #c0392b !important;
-            color: #c0392b !important;
-            font-weight: bold !important;
-        }
-
-        .quiz-option-label {
-            width: 28px !important;
-            height: 28px !important;
-            border-radius: 50% !important;
-            background: #3498db !important;
-            color: white !important;
-            font-weight: bold !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            flex-shrink: 0 !important;
-        }
-
-        .quiz-controls {
-            margin-top: 20px !important;
-            text-align: center !important;
-        }
-
-        .quiz-controls button {
-            width: 100% !important;
-            padding: 14px !important;
-            font-size: 16px !important;
-            background: #3498db !important;
-            color: white !important;
-            border: none !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-        }
-
-        .quiz-result-title {
-            font-size: 26px !important;
-            font-weight: bold !important;
-            margin-bottom: 15px !important;
-            text-align: center !important;
-        }
-
-        .quiz-result-description {
-            font-size: 17px !important;
-            line-height: 1.6 !important;
-            white-space: pre-line !important;
-            text-align: center !important;
-        }
-
-        .quiz-result-buttons {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 10px !important;
-            margin-top: 25px !important;
-            text-align: center !important;
-        }
-
-        .quiz-result-buttons button {
-            padding: 12px !important;
-            font-size: 16px !important;
-            border: none !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-        }
-
-        .quiz-restart-btn {
-            background-color: #2ecc71 !important;
-            color: white !important;
-        }
-
-        .quiz-share-btn {
-            background-color: #25D366 !important;
-            color: white !important;
-        }
-
-        @media (max-width: 600px) {
-            .quiz-options {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="quiz-container"></div>
-
-    <script>
-        const quizData = [
-            { question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el yield de un bono?", options: ["El rendimiento anual de una inversión en bonos", "La tasa de interés que paga un bono", "El precio de compra de un bono", "La duración total del bono"], answer: 1 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n📈 ¿Qué es la duración de un bono?", options: ["El tiempo que lleva cobrar un bono", "Una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés", "El período en el que se pagan intereses", "La fecha de vencimiento del bono"], answer: 1 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n📊 ¿Qué es el riesgo de crédito en los bonos?", options: ["El riesgo de que el emisor no pueda pagar los intereses o el principal", "El riesgo de que las tasas de interés suban", "El riesgo de que el valor del bono disminuya", "El riesgo de que el bono sea llamado antes de su vencimiento"], answer: 0 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n🔒 ¿Qué es un bono con garantía?", options: ["Un bono respaldado por activos específicos", "Un bono emitido por el gobierno", "Un bono con una calificación de riesgo alta", "Un bono con una tasa de interés variable"], answer: 0 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n📚 ¿Qué es una emisión de bonos?", options: ["La venta de bonos por parte de una empresa o gobierno", "La compra de bonos por parte de un inversor", "El pago de intereses de un bono", "La cancelación de un bono"], answer: 0 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n📉 ¿Qué es el cupón de un bono?", options: ["El interés periódico que paga un bono", "El precio de compra de un bono", "La duración total del bono", "La fecha de vencimiento del bono"], answer: 0 },
-            { question: "Categoría: Bonos Corporativos Básicos\n\n🏦 ¿Qué es un bono corporativo?", options: ["Un bono emitido por una empresa", "Un bono emitido por el gobierno", "Un bono con una tasa de interés fija", "Un bono con una tasa de interés variable"], answer: 0 }
-        ];
-
-        let current = 0;
-        let score = 0;
-        let timer;
-        let timeLeft = 15;
-
-        function startTimer() {
-            timeLeft = 15;
-            document.getElementById("quiz-timer").innerText = timeLeft;
-            clearInterval(timer);
-            timer = setInterval(() => {
-                timeLeft--;
-                document.getElementById("quiz-timer").innerText = timeLeft;
-                if (timeLeft === 0) {
-                    clearInterval(timer);
-                    disableOptions();
-                    revealCorrect();
-                }
-            }, 1000);
-        }
-
-        function renderQuestion() {
-            const q = quizData[current];
-            const letters = ["A", "B", "C", "D"];
-            document.getElementById("quiz-container").className = "quiz-container";
-            document.getElementById("quiz-container").innerHTML = `
-            <div class="quiz-header">
-                <span>Pregunta ${current + 1} de ${quizData.length}</span>
-                <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-            </div>
-            <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-            <div class="quiz-question">${q.question}</div>
-            <div class="quiz-options">
-                ${q.options.map((opt, i) => `
-                <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-                    <div class="quiz-option-label">${letters[i]}</div>
-                    <span>${opt}</span>
-                </button>
-                `).join("")}
-            </div>
-            <div class="quiz-controls">
-                <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-            </div>
-            `;
-            startTimer();
-        }
-
-        window.selectAnswer = function(index) {
-            clearInterval(timer);
-            const correct = quizData[current].answer;
-            const buttons = document.querySelectorAll(".quiz-option-button");
-            buttons.forEach((btn, i) => {
-                btn.disabled = true;
-                if (i === correct) btn.classList.add("correct");
-                if (i === index && index !== correct) btn.classList.add("incorrect");
-            });
-            if (index === correct) score++;
-            document.getElementById("next-btn").disabled = false;
-        };
-
-        function disableOptions() {
-            const buttons = document.querySelectorAll(".quiz-option-button");
-            buttons.forEach(btn => btn.disabled = true);
-            document.getElementById("next-btn").disabled = false;
-        }
-
-        function revealCorrect() {
-            const correct = quizData[current].answer;
-            const buttons = document.querySelectorAll(".quiz-option-button");
-            buttons[correct].classList.add("correct");
-        }
-
-        window.nextQuestion = function() {
-            current++;
-            if (current < quizData.length) {
-                renderQuestion();
-            } else {
-                showResults();
-            }
-        };
-
-        function showResults() {
-            let message = "";
-            if (score === 7) {
-                message = "¡Perfecto! Dominas los bonos corporativos. 🏆";
-            } else if (score >= 5) {
-                message = "Buen resultado en bonos corporativos. 💡";
-            } else if (score >= 4) {
-                message = "Nada mal, pero puedes mejorar. 📘";
-            } else {
-                message = "Es un buen momento para aprender más sobre bonos corporativos. 🌱";
-            }
-
-            const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre Bonos Corporativos Básicos en un test! ¿Te atreves a superarme? responderapido.com`;
-
-            document.getElementById("quiz-container").innerHTML = `
-            <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-            <div class="quiz-result-description">${message}</div>
-            <div class="quiz-result-buttons">
-                <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-                <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-            </div>
-            `;
-        }
-
-        window.restartQuiz = function() {
-            current = 0;
-            score = 0;
-            renderQuestion();
-        };
-
-        window.shareWhatsApp = function(text) {
-            const url = `https://api.whatsapp.com/send?text=${text}`;
-            window.open(url, '_blank');
-        };
-
-        renderQuestion();
-    </script>
-</body>
-</html>
-
-<h2>Componentes clave de un Quiz de Bonos Corporativos</h2>
-
-<p>Los bonos corporativos son una herramienta financiera esencial para empresas y gobiernos. Un Quiz de Bonos Corporativos permite evaluar conocimientos sobre estos instrumentos financieros. Abarca conceptos fundamentales como el yield, la duración, el riesgo de crédito, y más.</p>
-
-<p>El <strong>yield</strong> de un bono es un indicador crucial para los inversores. Representa el rendimiento anual de una inversión en bonos, considerando tanto el interés periódico como cualquier ganancia o pérdida de capital. Comprender el yield ayuda a los inversores a tomar decisiones informadas sobre dónde colocar su dinero.</p>
-
-<p>Otro concepto importante es la <strong>duración</strong> de un bono. La duración es una medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés. Una duración mayor indica una mayor sensibilidad, lo que significa que el precio del bono se verá más afectado por las fluctuaciones en las tasas de interés.</p>
-
-<h3>Riesgo de Crédito y Garantías</h3>
-
-<p>El <strong>riesgo de crédito</strong> en los bonos es el riesgo de que el emisor no pueda pagar los intereses o el principal. Este riesgo es evaluado por agencias de crédito y se refleja en la calificación de riesgo del bono. Un bono con una calificación alta tiene un riesgo de crédito menor.</p>
-
-<p>Los bonos con <strong>garantía</strong> son aquellos respaldados por activos específicos del emisor. En caso de incumplimiento, los inversores pueden reclamar estos activos para cubrir sus pérdidas. Este tipo de bono ofrece una capa adicional de seguridad para los inversores, reduciendo el riesgo de crédito.</p>
-
-<h3>Emisiones de Bonos y Cupones</h3>
-
-<p>Una <strong>emisión de bonos</strong> es el proceso de venta de bonos por parte de una empresa o gobierno para recaudar fondos. Este proceso puede involucrar la emisión de bonos con diferentes características, como tasas de interés fijas o variables y plazos de vencimiento variados.</p>
-
-<p>El <strong>cupón</strong> de un bono es el interés periódico que paga el bono. Este pago se realiza generalmente en intervalos regulares, como anualmente o semestralmente. El cupón es una parte esencial del rendimiento total que un inversor puede esperar de un bono.</p>
-
-<h4>Ejemplo de Bonos Corporativos</h4>
-
-<p>Para ilustrar mejor estos conceptos, consideremos algunos ejemplos de bonos corporativos:</p>
+<h4>Ejemplo práctico</h4>
+<p>Supongamos que un bono tiene una duración de 5 años y una tasa de interés del 5%. La duración modificada se calcularía de la siguiente manera:</p>
 
 <table>
-    <thead>
-        <tr>
-            <th>Tipo de Bono</th>
-            <th>Yield</th>
-            <th>Duración</th>
-            <th>Riesgo de Crédito</th>
-            <th>Tipo de Cupón</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Bono Corporativo A</td>
-            <td>5%</td>
-            <td>5 años</td>
-            <td>Bajo</td>
-            <td>Fijo</td>
-        </tr>
-        <tr>
-            <td>Bono Corporativo B</td>
-            <td>6%</td>
-            <td>10 años</td>
-            <td>Medio</td>
-            <td>Variable</td>
-        </tr>
-    </tbody>
+  <tr>
+    <th>Duración</th>
+    <th>Tasa de Interés</th>
+    <th>Duración Modificada</th>
+  </tr>
+  <tr>
+    <td>5 años</td>
+    <td>5%</td>
+    <td>4.76 años</td>
+  </tr>
 </table>
 
-<p>Este ejemplo muestra cómo diferentes bonos pueden tener características distintas en términos de yield, duración, riesgo de crédito y tipo de cupón. Entender estos aspectos es crucial para cualquier persona que desee invertir en bonos corporativos.</p>
+<p>En este ejemplo, la duración modificada del bono es de 4.76 años, lo que indica que el precio del bono es menos sensible a los cambios en las tasas de interés en comparación con su duración original.</p>
 
-<p>En conclusión, los bonos corporativos son una herramienta financiera versátil y accesible tanto para empresas como para inversores. Comprender los conceptos clave como yield, duración, riesgo de crédito y tipo de cupón es esencial para tomar decisiones informadas y maximizar el rendimiento de las inversiones.</p>
+<h3>Factores que afectan la duración modificada</h3>
+<p>Varios factores pueden influir en la duración modificada de un bono, incluyendo:</p>
+
+<ul>
+  <li>Tiempo restante hasta el vencimiento: A medida que se acerca la fecha de vencimiento, la duración modificada tiende a disminuir.</li>
+  <li>Tasa de interés: Un aumento en la tasa de interés generalmente reduce la duración modificada, mientras que una disminución la aumenta.</li>
+  <li>Tipo de bono: Los bonos a largo plazo tienden a tener una duración modificada más alta en comparación con los bonos a corto plazo.</li>
+</ul>
+
+<p>Es importante tener en cuenta estos factores al evaluar la duración modificada de un bono, ya que pueden afectar significativamente la sensibilidad del precio del bono a los cambios en las tasas de interés.</p>
+
+<h2>Test: Evaluando tu conocimiento sobre la duración modificada</h2>
+<p>Para asegurarte de que has comprendido bien los conceptos clave, te invitamos a realizar un <strong>quiz</strong> interactivo. Este test te ayudará a evaluar tu comprensión de la duración modificada de un bono y cómo se mide.</p>
+
+<p>El quiz consta de varias preguntas que cubren los aspectos fundamentales de la duración modificada, desde su definición hasta los factores que la afectan. Al completar el quiz, obtendrás una evaluación de tu conocimiento y podrás identificar áreas en las que necesitas mejorar.</p>
+
+<p>Participar en este quiz no solo te ayudará a reforzar tus conocimientos, sino que también te proporcionará una comprensión más profunda de cómo aplicar estos conceptos en situaciones reales de inversión.</p>
+
+<p>En resumen, la duración modificada de un bono es una métrica esencial para los inversores que desean gestionar sus carteras de bonos de manera efectiva. Comprender cómo se mide y qué factores la afectan es crucial para tomar decisiones informadas y minimizar los riesgos asociados con las fluctuaciones en las tasas de interés.</p>
