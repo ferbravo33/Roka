@@ -1,3 +1,4 @@
+```html
 <div id="quiz-container"></div>
 
 <style>
@@ -156,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📊 ¿Qué es la duración modificada de un bono?", options: ["El tiempo total de un bono", "El tiempo restante hasta su vencimiento", "El tiempo desde su emisión", "El tiempo de negociación"], answer: 1 },
-{ question: "📅 ¿Cómo se mide la duración modificada de un bono?", options: ["Por el tiempo total de su vida", "Por el tiempo restante hasta su vencimiento", "Por el tiempo desde su emisión", "Por el tiempo de negociación"], answer: 1 },
-{ question: "📉 ¿Qué afecta la duración modificada de un bono?", options: ["Solo el tipo de interés", "El tipo de interés y el tiempo restante", "Solo el tiempo restante", "El tipo de interés y el precio del bono"], answer: 1 },
-{ question: "💰 ¿Qué bono tiene una duración modificada más alta?", options: ["Un bono a corto plazo con alta tasa de interés", "Un bono a largo plazo con baja tasa de interés", "Un bono a corto plazo con baja tasa de interés", "Un bono a largo plazo con alta tasa de interés"], answer: 3 },
-{ question: "📈 ¿Qué pasa con la duración modificada cuando el tipo de interés aumenta?", options: ["Aumenta", "Disminuye", "Permanece igual", "Se vuelve negativa"], answer: 1 },
-{ question: "📉 ¿Qué pasa con la duración modificada cuando el tiempo restante disminuye?", options: ["Aumenta", "Disminuye", "Permanece igual", "Se vuelve negativa"], answer: 1 },
-{ question: "📊 ¿Para qué se utiliza la duración modificada?", options: ["Para calcular el precio del bono", "Para medir la sensibilidad del precio del bono a cambios en la tasa de interés", "Para calcular el rendimiento del bono", "Para medir la liquidez del bono"], answer: 1 }
+{ question: "📉 ¿Qué es la sensibilidad de un bono?", options: ["La capacidad de un bono para cambiar de precio", "El riesgo de impago", "La tasa de interés", "El plazo de vencimiento"], answer: 0 },
+{ question: "📊 ¿Cómo se calcula la sensibilidad de un bono?", options: ["Dividiendo la variación del precio entre la variación de la tasa de interés", "Multiplicando el precio del bono por la tasa de interés", "Sumando la tasa de interés al precio del bono", "Restando la tasa de interés del precio del bono"], answer: 0 },
+{ question: "📈 ¿Qué significa una sensibilidad alta en un bono?", options: ["El precio del bono es muy estable", "El precio del bono es muy volátil", "El bono tiene una tasa de interés alta", "El bono tiene un plazo de vencimiento corto"], answer: 1 },
+{ question: "📉 ¿Cómo afecta una subida de tipos de interés a un bono con alta sensibilidad?", options: ["Aumenta su precio", "Disminuye su precio", "No afecta su precio", "Aumenta su tasa de interés"], answer: 1 },
+{ question: "📉 ¿Qué tipo de bono tiene mayor sensibilidad?", options: ["Bonos a corto plazo", "Bonos a largo plazo", "Bonos corporativos", "Bonos del gobierno"], answer: 1 },
+{ question: "📉 ¿Qué es la duración de un bono?", options: ["El tiempo que dura el bono", "Una medida de la sensibilidad del bono", "La tasa de interés del bono", "El plazo de vencimiento del bono"], answer: 1 },
+{ question: "📉 ¿Cómo se puede reducir la sensibilidad de un bono?", options: ["Aumentando la tasa de interés", "Disminuyendo el plazo de vencimiento", "Aumentando el plazo de vencimiento", "Aumentando el riesgo de impago"], answer: 1 }
 ];
 
 let current = 0;
@@ -247,12 +248,12 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
-else if (score >= 5) message = "Buen resultado en 📊 ¿Qué es la duración modificada de un bono y cómo se mide?";
-else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre la duración modificada de un bono.";
-else message = "Es un buen momento para aprender más sobre la duración modificada de un bono.";
+if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
+else if (score >= 5) message = "Buen resultado en 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
+else if (score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
+else message = "Es un buen momento para aprender más sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio?";
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la duración modificada de un bono en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre 📉 ¿Qué es la sensibilidad de un bono y cómo afecta a su precio? en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -278,60 +279,46 @@ window.open(url, '_blank');
 renderQuestion();
 })();
 </script>
+```
 <br><br>
-<p>La duración modificada de un bono es un concepto fundamental en el ámbito de las finanzas y la inversión. Este artículo te ayudará a entender qué es la duración modificada de un bono y cómo se mide, utilizando un enfoque claro y accesible.</p>
+<p>Los tests y quizzes son herramientas esenciales para evaluar conocimientos y habilidades en diversas áreas, incluyendo finanzas y economía. En este artículo, exploraremos en profundidad la sensibilidad de los bonos y cómo afecta a su precio, un tema crucial para cualquier inversor o analista financiero.</p>
 
-<h2>¿Qué es la duración modificada de un bono?</h2>
-<p>La duración modificada de un bono es una medida que indica la sensibilidad del precio del bono a los cambios en las tasas de interés. Es una herramienta esencial para los inversores que desean entender cómo las fluctuaciones en las tasas de interés pueden afectar el valor de sus inversiones en bonos.</p>
+<h2>¿Qué es la sensibilidad de un bono?</h2>
+<p>La sensibilidad de un bono es una medida de la variación en el precio del bono en respuesta a cambios en las tasas de interés. En términos simples, es la capacidad de un bono para cambiar de precio ante fluctuaciones en las tasas de interés. Este concepto es fundamental para entender cómo los bonos reaccionan en diferentes escenarios económicos.</p>
 
-<p>En términos simples, la duración modificada es una métrica que ajusta la duración de un bono para reflejar los cambios en el precio del bono debido a las variaciones en las tasas de interés. Este ajuste es crucial para una evaluación precisa de la sensibilidad del bono a los cambios en el entorno de tasas de interés.</p>
+<h3>Importancia de la sensibilidad en la inversión</h3>
+<p>Comprender la sensibilidad de un bono es crucial para los inversores, ya que les permite predecir cómo se comportará el precio del bono en diferentes condiciones del mercado. Esto es especialmente relevante para aquellos que buscan minimizar riesgos y maximizar rendimientos.</p>
 
-<h3>Importancia de la duración modificada</h3>
-<p>La duración modificada es importante porque proporciona una estimación más precisa de cómo el precio de un bono puede cambiar en respuesta a una variación en las tasas de interés. Esto es especialmente relevante en un entorno de tasas de interés fluctuantes, donde los inversores necesitan tomar decisiones informadas para gestionar sus carteras de manera efectiva.</p>
+<h3>Cómo se calcula la sensibilidad de un bono</h3>
+<p>La sensibilidad de un bono se calcula dividiendo la variación del precio del bono entre la variación de la tasa de interés. Este cálculo proporciona una medida clara de cuánto cambiará el precio del bono por cada punto porcentual de cambio en la tasa de interés. Por ejemplo, si un bono tiene una sensibilidad de 5, su precio cambiará en un 5% por cada cambio de 1% en la tasa de interés.</p>
 
-<p>Además, la duración modificada es una herramienta útil para comparar la sensibilidad de diferentes bonos. Los inversores pueden utilizar esta métrica para seleccionar bonos que se ajusten mejor a sus objetivos de inversión y tolerancia al riesgo.</p>
+<h4>Ejemplo de cálculo de sensibilidad</h4>
+<p>Supongamos que un bono tiene un precio de $1,000 y una sensibilidad de 5. Si la tasa de interés aumenta en 1%, el precio del bono disminuirá en $50, llevándolo a $950. Este ejemplo ilustra cómo la sensibilidad afecta directamente el valor del bono.</p>
 
-<h3>Cómo se mide la duración modificada</h3>
-<p>La duración modificada se mide utilizando una fórmula que ajusta la duración del bono para reflejar los cambios en el precio del bono debido a las variaciones en las tasas de interés. La fórmula general para calcular la duración modificada es:</p>
+<h2>Factores que afectan la sensibilidad de un bono</h2>
+<p>Varios factores influyen en la sensibilidad de un bono, incluyendo el plazo de vencimiento y la tasa de cupón. Los bonos a largo plazo tienden a tener una mayor sensibilidad debido a su mayor exposición a cambios en las tasas de interés a lo largo del tiempo.</p>
 
-<p>Duración Modificada = Duración / (1 + (Tasa de Interés / 100))</p>
+<h3>Plazo de vencimiento</h3>
+<p>El plazo de vencimiento es uno de los factores más importantes que determinan la sensibilidad de un bono. Los bonos a largo plazo son más sensibles a los cambios en las tasas de interés porque tienen más tiempo para acumular intereses y, por lo tanto, su precio puede fluctuar más significativamente.</p>
 
-<p>Donde la duración es una medida del tiempo promedio que tarda en recuperarse el principal del bono, y la tasa de interés es la tasa de interés actual del bono.</p>
+<h3>Tasa de cupón</h3>
+<p>La tasa de cupón también juega un papel crucial. Los bonos con tasas de cupón más altas tienden a ser menos sensibles a los cambios en las tasas de interés, ya que los pagos de intereses más altos proporcionan un flujo de ingresos más estable.</p>
 
-<h4>Ejemplo práctico</h4>
-<p>Supongamos que un bono tiene una duración de 5 años y una tasa de interés del 5%. La duración modificada se calcularía de la siguiente manera:</p>
+<h2>Test: Evaluando tu conocimiento sobre la sensibilidad de los bonos</h2>
+<p>Para evaluar tu comprensión sobre la sensibilidad de los bonos, te invitamos a realizar nuestro quiz especializado. Este test te permitirá poner a prueba tus conocimientos y aprender más sobre cómo la sensibilidad afecta el precio de los bonos.</p>
 
-<table>
-  <tr>
-    <th>Duración</th>
-    <th>Tasa de Interés</th>
-    <th>Duración Modificada</th>
-  </tr>
-  <tr>
-    <td>5 años</td>
-    <td>5%</td>
-    <td>4.76 años</td>
-  </tr>
-</table>
-
-<p>En este ejemplo, la duración modificada del bono es de 4.76 años, lo que indica que el precio del bono es menos sensible a los cambios en las tasas de interés en comparación con su duración original.</p>
-
-<h3>Factores que afectan la duración modificada</h3>
-<p>Varios factores pueden influir en la duración modificada de un bono, incluyendo:</p>
-
+<h3>Preguntas clave del quiz</h3>
+<p>El quiz incluye preguntas sobre la definición de sensibilidad, cómo se calcula, y cómo diferentes factores afectan la sensibilidad de un bono. Algunas de las preguntas clave son:</p>
 <ul>
-  <li>Tiempo restante hasta el vencimiento: A medida que se acerca la fecha de vencimiento, la duración modificada tiende a disminuir.</li>
-  <li>Tasa de interés: Un aumento en la tasa de interés generalmente reduce la duración modificada, mientras que una disminución la aumenta.</li>
-  <li>Tipo de bono: Los bonos a largo plazo tienden a tener una duración modificada más alta en comparación con los bonos a corto plazo.</li>
+  <li>¿Qué es la sensibilidad de un bono?</li>
+  <li>¿Cómo se calcula la sensibilidad de un bono?</li>
+  <li>¿Qué significa una sensibilidad alta en un bono?</li>
+  <li>¿Cómo afecta una subida de tipos de interés a un bono con alta sensibilidad?</li>
+  <li>¿Qué tipo de bono tiene mayor sensibilidad?</li>
 </ul>
 
-<p>Es importante tener en cuenta estos factores al evaluar la duración modificada de un bono, ya que pueden afectar significativamente la sensibilidad del precio del bono a los cambios en las tasas de interés.</p>
+<h3>Resultados y análisis</h3>
+<p>Al finalizar el quiz, recibirás una puntuación y un análisis detallado de tus respuestas. Esto te ayudará a identificar áreas en las que necesitas mejorar y a profundizar en tu conocimiento sobre la sensibilidad de los bonos.</p>
 
-<h2>Test: Evaluando tu conocimiento sobre la duración modificada</h2>
-<p>Para asegurarte de que has comprendido bien los conceptos clave, te invitamos a realizar un <strong>quiz</strong> interactivo. Este test te ayudará a evaluar tu comprensión de la duración modificada de un bono y cómo se mide.</p>
-
-<p>El quiz consta de varias preguntas que cubren los aspectos fundamentales de la duración modificada, desde su definición hasta los factores que la afectan. Al completar el quiz, obtendrás una evaluación de tu conocimiento y podrás identificar áreas en las que necesitas mejorar.</p>
-
-<p>Participar en este quiz no solo te ayudará a reforzar tus conocimientos, sino que también te proporcionará una comprensión más profunda de cómo aplicar estos conceptos en situaciones reales de inversión.</p>
-
-<p>En resumen, la duración modificada de un bono es una métrica esencial para los inversores que desean gestionar sus carteras de bonos de manera efectiva. Comprender cómo se mide y qué factores la afectan es crucial para tomar decisiones informadas y minimizar los riesgos asociados con las fluctuaciones en las tasas de interés.</p>
+<h2>Conclusión</h2>
+<p>La sensibilidad de un bono es un concepto fundamental para cualquier persona interesada en inversiones y finanzas. Comprender cómo se calcula y qué factores la afectan puede ayudarte a tomar decisiones más informadas y estratégicas. Realizar tests y quizzes sobre este tema no solo evalúa tus conocimientos, sino que también te proporciona una comprensión más profunda y práctica de la sensibilidad de los bonos.
