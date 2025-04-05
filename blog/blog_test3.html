@@ -2,331 +2,319 @@
 
 <style>
 .quiz-container {
-  font-family: Arial, sans-serif !important;
-  max-width: 700px !important;
-  margin: auto !important;
-  background: #fdfdfd !important;
-  padding: 25px !important;
-  border-radius: 12px !important;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
+font-family: Arial, sans-serif !important;
+max-width: 700px !important;
+margin: auto !important;
+background: #fdfdfd !important;
+padding: 25px !important;
+border-radius: 12px !important;
+box-shadow: 0 0 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .quiz-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  margin-bottom: 10px !important;
-  font-size: 18px !important;
+display: flex !important;
+justify-content: space-between !important;
+margin-bottom: 10px !important;
+font-size: 18px !important;
 }
 
 .quiz-timer {
-  color: #e74c3c !important;
-  font-weight: bold !important;
+color: #e74c3c !important;
+font-weight: bold !important;
 }
 
 .quiz-progress-bar {
-  height: 10px !important;
-  background: #ddd !important;
-  border-radius: 5px !important;
-  overflow: hidden !important;
-  margin-bottom: 20px !important;
+height: 10px !important;
+background: #ddd !important;
+border-radius: 5px !important;
+overflow: hidden !important;
+margin-bottom: 20px !important;
 }
 
 .quiz-progress {
-  height: 100% !important;
-  background: #4caf50 !important;
-  transition: width 0.3s !important;
+height: 100% !important;
+background: #4caf50 !important;
+transition: width 0.3s !important;
 }
 
 .quiz-question {
-  font-size: 22px !important;
-  font-weight: 600 !important;
-  margin-bottom: 20px !important;
+font-size: 22px !important;
+font-weight: 600 !important;
+margin-bottom: 20px !important;
 }
 
 .quiz-options {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 15px !important;
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 15px !important;
 }
 
 .quiz-option-button {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  padding: 12px 14px !important;
-  font-size: 16px !important;
-  background: #f0f0f0 !important;
-  border: 2px solid transparent !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease-in-out !important;
-  text-align: left !important;
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+padding: 12px 14px !important;
+font-size: 16px !important;
+background: #f0f0f0 !important;
+border: 2px solid transparent !important;
+border-radius: 8px !important;
+cursor: pointer !important;
+transition: all 0.2s ease-in-out !important;
+text-align: left !important;
 }
 
 .quiz-option-button.correct {
-  background: #c8f7c5 !important;
-  border-color: #27ae60 !important;
-  color: #2d7d33 !important;
-  font-weight: bold !important;
+background: #c8f7c5 !important;
+border-color: #27ae60 !important;
+color: #2d7d33 !important;
+font-weight: bold !important;
 }
 
 .quiz-option-button.incorrect {
-  background: #f8d7da !important;
-  border-color: #c0392b !important;
-  color: #c0392b !important;
-  font-weight: bold !important;
+background: #f8d7da !important;
+border-color: #c0392b !important;
+color: #c0392b !important;
+font-weight: bold !important;
 }
 
 .quiz-option-label {
-  width: 28px !important;
-  height: 28px !important;
-  border-radius: 50% !important;
-  background: #3498db !important;
-  color: white !important;
-  font-weight: bold !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
+width: 28px !important;
+height: 28px !important;
+border-radius: 50% !important;
+background: #3498db !important;
+color: white !important;
+font-weight: bold !important;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex-shrink: 0 !important;
 }
 
 .quiz-controls {
-  margin-top: 20px !important;
-  text-align: center !important;
+margin-top: 20px !important;
+text-align: center !important;
 }
 
 .quiz-controls button {
-  width: 100% !important;
-  padding: 14px !important;
-  font-size: 16px !important;
-  background: #3498db !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+width: 100% !important;
+padding: 14px !important;
+font-size: 16px !important;
+background: #3498db !important;
+color: white !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
 }
 
 .quiz-result-title {
-  font-size: 26px !important;
-  font-weight: bold !important;
-  margin-bottom: 15px !important;
-  text-align: center !important;
+font-size: 26px !important;
+font-weight: bold !important;
+margin-bottom: 15px !important;
+text-align: center !important;
 }
 
 .quiz-result-description {
-  font-size: 17px !important;
-  line-height: 1.6 !important;
-  white-space: pre-line !important;
-  text-align: center !important;
+font-size: 17px !important;
+line-height: 1.6 !important;
+white-space: pre-line !important;
+text-align: center !important;
 }
 
 .quiz-result-buttons {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 10px !important;
-  margin-top: 25px !important;
-  text-align: center !important;
+display: flex !important;
+flex-direction: column !important;
+gap: 10px !important;
+margin-top: 25px !important;
+text-align: center !important;
 }
 
 .quiz-result-buttons button {
-  padding: 12px !important;
-  font-size: 16px !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
+padding: 12px !important;
+font-size: 16px !important;
+border: none !important;
+border-radius: 8px !important;
+cursor: pointer !important;
 }
 
 .quiz-restart-btn {
-  background-color: #2ecc71 !important;
-  color: white !important;
+background-color: #2ecc71 !important;
+color: white !important;
 }
 
 .quiz-share-btn {
-  background-color: #25D366 !important;
-  color: white !important;
+background-color: #25D366 !important;
+color: white !important;
 }
 
 @media (max-width: 600px) {
-  .quiz-options {
-    grid-template-columns: 1fr !important;
-  }
+.quiz-options {
+grid-template-columns: 1fr !important;
+}
 }
 </style>
 
 <script>
 (function() {
-  const quizData = [
-    { question: "¿Qué es la duración de Macaulay en bonos corporativos?", options: ["El tiempo hasta la primera amortización", "La media ponderada de los tiempos de pago", "El plazo promedio de los bonos", "El tiempo hasta el primer cupón"], answer: 1 },
-    { question: "¿Cómo se calcula la duración de Macaulay?", options: ["Sumando los flujos de caja futuros", "Dividiendo el precio del bono entre los flujos de caja futuros", "Mediante una media ponderada de los tiempos de pago", "Restando el tiempo hasta la primera amortización"], answer: 2 },
-    { question: "¿Qué representa la duración de Macaulay en términos de sensibilidad de precios?", options: ["La variación del precio del bono por cada punto porcentual de cambio en la tasa de interés", "El tiempo promedio hasta la recuperación del principal", "La duración modificada del bono", "El plazo total del bono"], answer: 0 },
-    { question: "¿Cuál es la fórmula básica para calcular la duración de Macaulay?", options: ["D = (C1/(1+r)^1 + C2/(1+r)^2 + … + Cn/(1+r)^n) / B", "D = B / (C1/(1+r)^1 + C2/(1+r)^2 + … + Cn/(1+r)^n)", "D = (C1/(1+r)^1 + C2/(1+r)^2 + … + Cn/(1+r)^n) * B", "D = (C1+r)^1 + (C2+r)^2 + … + (Cn+r)^n) / B"], answer: 0 },
-    { question: "¿Qué sucede con la duración de Macaulay si el bono es a largo plazo?", options: ["Aumenta", "Disminuye", "Permanece constante", "Ninguna de las anteriores"], answer: 0 },
-    { question: "¿Qué impacto tiene una tasa de interés más alta en la duración de Macaulay?", options: ["Aumenta la duración", "Disminuye la duración", "No afecta la duración", "Aumenta el cupón del bono"], answer: 1 },
-    { question: "¿Cuál es el propósito principal de la duración de Macaulay?", options: ["Determinar el tiempo exacto de vencimiento del bono", "Medir la sensibilidad del precio del bono a cambios en la tasa de interés", "Calcular el valor presente de los flujos de caja futuros", "Evaluar el riesgo de crédito del emisor"], answer: 1 }
-  ];
+const quizData = [
+{ question: "📊 ¿Qué es la duración de Macaulay?", options: ["El tiempo en que se amortiza un bono", "La tasa de interés del bono", "El tiempo promedio ponderado de los flujos de caja", "El valor nominal del bono"], answer: 2 },
+{ question: "📈 ¿Cómo se calcula la duración de Macaulay?", options: ["Sumando los flujos de caja", "Restando los flujos de caja", "Dividiendo los flujos de caja por el precio del bono", "Multiplicando los flujos de caja por el precio del bono"], answer: 2 },
+{ question: "📉 ¿Qué mide la duración de Macaulay?", options: ["El riesgo del bono", "La sensibilidad del precio del bono a cambios en la tasa de interés", "El rendimiento del bono", "El valor de mercado del bono"], answer: 1 },
+{ question: "📊 ¿Qué es la duración modificada?", options: ["La duración de Macaulay ajustada por la tasa de interés", "La duración de Macaulay ajustada por el precio del bono", "La duración de Macaulay ajustada por el tiempo", "La duración de Macaulay ajustada por el flujo de caja"], answer: 0 },
+{ question: "📈 ¿Cómo se relaciona la duración modificada con la duración de Macaulay?", options: ["Es igual a la duración de Macaulay", "Es mayor que la duración de Macaulay", "Es menor que la duración de Macaulay", "Es inversamente proporcional a la duración de Macaulay"], answer: 3 },
+{ question: "📉 ¿Qué es la duración de un bono?", options: ["El tiempo en que se amortiza un bono", "La tasa de interés del bono", "La sensibilidad del precio del bono a cambios en la tasa de interés", "El valor nominal del bono"], answer: 2 },
+{ question: "📊 ¿Por qué es importante la duración de Macaulay en la gestión de carteras?", options: ["Para calcular el rendimiento del bono", "Para medir el riesgo de la cartera", "Para ajustar el precio del bono", "Para calcular el flujo de caja del bono"], answer: 1 }
+];
 
-  let current = 0;
-  let score = 0;
-  let timer;
-  let timeLeft = 15;
+let current = 0;
+let score = 0;
+let timer;
+let timeLeft = 15;
 
-  function startTimer() {
-    timeLeft = 15;
-    document.getElementById("quiz-timer").innerText = timeLeft;
-    clearInterval(timer);
-    timer = setInterval(() => {
-      timeLeft--;
-      document.getElementById("quiz-timer").innerText = timeLeft;
-      if (timeLeft === 0) {
-        clearInterval(timer);
-        disableOptions();
-        revealCorrect();
-      }
-    }, 1000);
-  }
+function startTimer() {
+timeLeft = 15;
+document.getElementById("quiz-timer").innerText = timeLeft;
+clearInterval(timer);
+timer = setInterval(() => {
+timeLeft--;
+document.getElementById("quiz-timer").innerText = timeLeft;
+if (timeLeft === 0) {
+clearInterval(timer);
+disableOptions();
+revealCorrect();
+}
+}, 1000);
+}
 
-  function renderQuestion() {
-    const q = quizData[current];
-    const letters = ["A", "B", "C", "D"];
-    document.getElementById("quiz-container").className = "quiz-container";
-    document.getElementById("quiz-container").innerHTML = `
-      <div class="quiz-header">
-        <span>Pregunta ${current + 1} de ${quizData.length}</span>
-        <span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
-      </div>
-      <div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
-      <div class="quiz-question">${q.question}</div>
-      <div class="quiz-options">
-        ${q.options.map((opt, i) => `
-          <button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
-            <div class="quiz-option-label">${letters[i]}</div>
-            <span>${opt}</span>
-          </button>
-        `).join("")}
-      </div>
-      <div class="quiz-controls">
-        <button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
-      </div>
-    `;
-    startTimer();
-  }
+function renderQuestion() {
+const q = quizData[current];
+const letters = ["A", "B", "C", "D"];
+document.getElementById("quiz-container").className = "quiz-container";
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-header">
+<span>Pregunta ${current + 1} de ${quizData.length}</span>
+<span class="quiz-timer">⏳ Tiempo: <span id="quiz-timer">15</span>s</span>
+</div>
+<div class="quiz-progress-bar"><div class="quiz-progress" style="width: ${(current / quizData.length) * 100}%"></div></div>
+<div class="quiz-question">${q.question}</div>
+<div class="quiz-options">
+${q.options.map((opt, i) => `
+<button class="quiz-option-button" onclick="selectAnswer(${i})" id="opt-${i}">
+<div class="quiz-option-label">${letters[i]}</div>
+<span>${opt}</span>
+</button>
+`).join("")}
+</div>
+<div class="quiz-controls">
+<button onclick="nextQuestion()" id="next-btn" disabled>Siguiente</button>
+</div>
+`;
+startTimer();
+}
 
-  window.selectAnswer = function(index) {
-    clearInterval(timer);
-    const correct = quizData[current].answer;
-    const buttons = document.querySelectorAll(".quiz-option-button");
-    buttons.forEach((btn, i) => {
-      btn.disabled = true;
-      if (i === correct) btn.classList.add("correct");
-      if (i === index && index !== correct) btn.classList.add("incorrect");
-    });
-    if (index === correct) score++;
-    document.getElementById("next-btn").disabled = false;
-  };
+window.selectAnswer = function(index) {
+clearInterval(timer);
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach((btn, i) => {
+btn.disabled = true;
+if (i === correct) btn.classList.add("correct");
+if (i === index && index !== correct) btn.classList.add("incorrect");
+});
+if (index === correct) score++;
+document.getElementById("next-btn").disabled = false;
+};
 
-  function disableOptions() {
-    const buttons = document.querySelectorAll(".quiz-option-button");
-    buttons.forEach(btn => btn.disabled = true);
-    document.getElementById("next-btn").disabled = false;
-  }
+function disableOptions() {
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons.forEach(btn => btn.disabled = true);
+document.getElementById("next-btn").disabled = false;
+}
 
-  function revealCorrect() {
-    const correct = quizData[current].answer;
-    const buttons = document.querySelectorAll(".quiz-option-button");
-    buttons[correct].classList.add("correct");
-  }
+function revealCorrect() {
+const correct = quizData[current].answer;
+const buttons = document.querySelectorAll(".quiz-option-button");
+buttons[correct].classList.add("correct");
+}
 
-  window.nextQuestion = function() {
-    current++;
-    if (current < quizData.length) {
-      renderQuestion();
-    } else {
-      showResults();
-    }
-  };
+window.nextQuestion = function() {
+current++;
+if (current < quizData.length) {
+renderQuestion();
+} else {
+showResults();
+}
+};
 
-  function showResults() {
-    let message = "";
-    if (score === 7) {
-      message = "¡Perfecto! Dominas 📉 ¿Cómo se calcula la duración de Macaulay en bonos corporativos?";
-    } else if (score >= 5) {
-      message = "Buen resultado en 📉 ¿Cómo se calcula la duración de Macaulay en bonos corporativos?";
-    } else if (score >= 4) {
-      message = "Nada mal, pero puedes mejorar. 📘";
-    } else {
-      message = "Es un buen momento para aprender más. 🌱";
-    }
+function showResults() {
+let message = "";
+if(score === 7) message = "¡Perfecto! Dominas 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else if(score >= 5) message = "Buen resultado en 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else if(score >= 4) message = "Nada mal, pero puedes mejorar tu conocimiento sobre 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
+else message = "Es un buen momento para aprender más sobre 📊 ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?";
 
-    const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre cómo se calcula la duración de Macaulay en bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos? en un test! ¿Te atreves a superarme? responderapido.com`;
 
-    document.getElementById("quiz-container").innerHTML = `
-      <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
-      <div class="quiz-result-description">${message}</div>
-      <div class="quiz-result-buttons">
-        <button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
-        <button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
-      </div>
-    `;
-  }
+document.getElementById("quiz-container").innerHTML = `
+<div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
+<div class="quiz-result-description">${message}</div>
+<div class="quiz-result-buttons">
+<button class="quiz-restart-btn" onclick="restartQuiz()">Reiniciar test</button>
+<button class="quiz-share-btn" onclick="shareWhatsApp('${encodeURIComponent(shareText)}')">Compartir por WhatsApp</button>
+</div>
+`;
+}
 
-  window.restartQuiz = function() {
-    current = 0;
-    score = 0;
-    renderQuestion();
-  };
+window.restartQuiz = function() {
+current = 0;
+score = 0;
+renderQuestion();
+};
 
-  window.shareWhatsApp = function(text) {
-    const url = `https://api.whatsapp.com/send?text=${text}`;
-    window.open(url, '_blank');
-  };
+window.shareWhatsApp = function(text) {
+const url = `https://api.whatsapp.com/send?text=${text}`;
+window.open(url, '_blank');
+};
 
-  renderQuestion();
+renderQuestion();
 })();
 </script>
 <br><br>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cómo se calcula la duración de Macaulay en bonos corporativos</title>
-</head>
-<body>
-    <h1>📉 ¿Cómo se calcula la duración de Macaulay en bonos corporativos?</h1>
+### ¿Qué es la duración de Macaulay y cómo se calcula en bonos corporativos?
 
-    <h2>Introducción a la Duración de Macaulay</h2>
-    <p>La duración de Macaulay es una medida fundamental en la gestión de bonos corporativos. Este concepto se refiere a la media ponderada de los tiempos de pago de los flujos de caja futuros del bono, descontados a su valor presente. Es una herramienta esencial para entender la sensibilidad del precio del bono a los cambios en las tasas de interés.</p>
+La duración de Macaulay es un concepto fundamental en la gestión de bonos y carteras de inversión. Este artículo explora en profundidad qué es la duración de Macaulay, cómo se calcula y su importancia en el ámbito de los bonos corporativos. A través de un **test** y un **quiz**, podrás evaluar tu comprensión de estos conceptos clave.
 
-    <h2>Conceptos Clave del Quiz sobre Duración de Macaulay</h2>
-    <p>Para entender mejor la duración de Macaulay, es útil repasar algunos conceptos clave. Estos conceptos no solo son fundamentales para el test, sino también para cualquier analista o inversor en bonos corporativos.</p>
+#### ¿Qué es la duración de Macaulay?
 
-    <h3>Definición de Duración de Macaulay</h3>
-    <p>La duración de Macaulay se define como la media ponderada de los tiempos de pago de los flujos de caja futuros del bono, descontados a su valor presente. Es una medida de la sensibilidad del precio del bono a los cambios en las tasas de interés. En términos simples, indica el tiempo promedio hasta la recuperación del principal del bono.</p>
+La duración de Macaulay es una medida del tiempo promedio ponderado de los flujos de caja futuros de un bono. En otras palabras, es el tiempo promedio que tarda en recuperarse el dinero invertido en un bono, teniendo en cuenta el valor presente de cada flujo de caja. Este concepto es crucial para entender la sensibilidad del precio de un bono a los cambios en las tasas de interés.
 
-    <h3>Cálculo de la Duración de Macaulay</h3>
-    <p>El cálculo de la duración de Macaulay se realiza mediante una fórmula específica que involucra la suma de los flujos de caja futuros descontados. La fórmula básica es:</p>
-    <p>D = (C1/(1+r)^1 + C2/(1+r)^2 + … + Cn/(1+r)^n) / B</p>
-    <p>Donde C1, C2, ..., Cn son los flujos de caja futuros, r es la tasa de interés y B es el precio del bono.</p>
+#### Cómo se calcula la duración de Macaulay
 
-    <h3>Impacto de la Duración en la Sensibilidad de Precios</h3>
-    <p>La duración de Macaulay es crucial para medir la sensibilidad del precio del bono a cambios en la tasa de interés. Un bono con una duración más larga será más sensible a los cambios en las tasas de interés, lo que significa que su precio fluctuará más ante cambios en las tasas.</p>
+Para calcular la duración de Macaulay, se deben seguir varios pasos. A continuación, se presenta una lista ordenada de los pasos necesarios:
 
-    <h2>Realizando el Test sobre Duración de Macaulay</h2>
-    <p>Un test o quiz sobre la duración de Macaulay puede ayudarte a consolidar tu conocimiento sobre este tema. A continuación, te presentamos algunos puntos clave que podrías encontrar en un test típico:</p>
+1. **Identificar los flujos de caja futuros**: Determina los pagos periódicos que se recibirán del bono, incluyendo el principal y los cupones.
+2. **Calcular el valor presente de cada flujo de caja**: Usa la tasa de descuento adecuada para encontrar el valor presente de cada flujo de caja.
+3. **Multiplicar cada flujo de caja por su tiempo correspondiente**: Cada flujo de caja se multiplica por el número de períodos que faltan para recibirlo.
+4. **Sumar los productos obtenidos**: Suma todos los productos obtenidos en el paso anterior.
+5. **Dividir por el precio del bono**: Finalmente, divide la suma obtenida por el precio del bono para obtener la duración de Macaulay.
 
-    <h3>Preguntas Comunes en el Test</h3>
-    <p>1. ¿Qué es la duración de Macaulay en bonos corporativos?</p>
-    <p>2. ¿Cómo se calcula la duración de Macaulay?</p>
-    <p>3. ¿Qué representa la duración de Macaulay en términos de sensibilidad de precios?</p>
-    <p>4. ¿Cuál es la fórmula básica para calcular la duración de Macaulay?</p>
-    <p>5. ¿Qué sucede con la duración de Macaulay si el bono es a largo plazo?</p>
-    <p>6. ¿Qué impacto tiene una tasa de interés más alta en la duración de Macaulay?</p>
-    <p>7. ¿Cuál es el propósito principal de la duración de Macaulay?</p>
+#### Importancia de la duración de Macaulay en la gestión de carteras
 
-    <h3>Resultados y Aplicaciones del Test</h3>
-    <p>Al realizar un test sobre la duración de Macaulay, puedes evaluar tu comprensión de los conceptos clave y su aplicación práctica. Los resultados del test te proporcionarán una idea clara de tu nivel de conocimiento y áreas de mejora.</p>
+La duración de Macaulay es una herramienta esencial para la gestión de carteras de bonos. Permite a los gestores de carteras medir el riesgo de tasa de interés de sus inversiones. A continuación, se presentan algunas razones por las que la duración de Macaulay es importante:
 
-    <h2>Conclusión</h2>
-    <p>La duración de Macaulay es una herramienta esencial en la gestión de bonos corporativos. Comprender cómo se calcula y su impacto en la sensibilidad de precios es crucial para cualquier analista financiero. Realizar un test o quiz sobre este tema no solo refuerza tu conocimiento, sino que también te prepara para enfrentar situaciones reales en el mercado de bonos.</p>
-</body>
-</html>
+- **Medición del riesgo de tasa de interés**: La duración de Macaulay indica cómo cambiará el precio de un bono en respuesta a cambios en las tasas de interés.
+- **Comparación de bonos**: Permite comparar la sensibilidad de diferentes bonos a cambios en las tasas de interés.
+- **Construcción de carteras**: Ayuda a construir carteras que se ajusten a las necesidades de riesgo y rendimiento de los inversores.
+
+#### Duración modificada y su relación con la duración de Macaulay
+
+La duración modificada es una versión ajustada de la duración de Macaulay que tiene en cuenta la sensibilidad del precio del bono a cambios en la tasa de interés. Se calcula como la duración de Macaulay dividida por uno más la tasa de interés. La duración modificada es inversamente proporcional a la duración de Macaulay, lo que significa que a medida que la tasa de interés aumenta, la duración modificada disminuye.
+
+| Concepto                | Descripción                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| Duración de Macaulay   | Tiempo promedio ponderado de los flujos de caja futuros.                 |
+| Duración modificada    | Duración de Macaulay ajustada por la tasa de interés.                     |
+| Sensibilidad del precio| Medida de cómo cambia el precio del bono con cambios en la tasa de interés.|
+
+#### Conclusión
+
+La duración de Macaulay es una métrica esencial para cualquier inversor en bonos corporativos. Entender cómo se calcula y su relación con la duración modificada puede ayudar a los inversores a tomar decisiones más informadas y gestionar mejor el riesgo de sus carteras. Conocer estos conceptos no solo mejora la comprensión de los bonos, sino que también puede aumentar la rentabilidad y reducir el riesgo en las inversiones.
