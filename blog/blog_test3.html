@@ -1,3 +1,4 @@
+```html
 <div id="quiz-container"></div>
 
 <style>
@@ -156,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "🏦 ¿Qué es la duración de un bono?", options: ["El tiempo que dura una transacción bancaria", "El plazo hasta que el bono expira", "El período en el que se puede solicitar un préstamo", "El tiempo que tarda en procesarse un cheque"], answer: 1 },
-{ question: "📅 ¿Cómo se calcula la duración de un bono en Chile?", options: ["Se calcula en base a la fecha de emisión y la fecha de vencimiento", "Se calcula en base a la fecha de compra y la fecha de vencimiento", "Se calcula en base a la fecha de emisión y la fecha de pago", "Se calcula en base a la fecha de compra y la fecha de pago"], answer: 0 },
-{ question: "💰 ¿Qué factor influye más en la duración de un bono?", options: ["El tipo de interés", "La solvencia del emisor", "La fecha de emisión", "La tasa de inflación"], answer: 2 },
-{ question: "📆 ¿Cuál es la fórmula básica para calcular la duración de un bono?", options: ["Duración = (Precio del bono / Valor nominal) * Tiempo", "Duración = (Valor nominal / Precio del bono) * Tiempo", "Duración = (Tiempo / Precio del bono) * Valor nominal", "Duración = (Precio del bono * Valor nominal) / Tiempo"], answer: 1 },
-{ question: "📉 ¿Qué mide la duración modificada de un bono?", options: ["La variación en el precio del bono ante cambios en la tasa de interés", "La duración exacta del bono desde la emisión hasta el vencimiento", "La cantidad de años hasta que el bono vence", "El rendimiento del bono"], answer: 0 },
-{ question: "📊 ¿Qué es la duración de McCaulay?", options: ["Una medida de la sensibilidad del precio del bono a cambios en la tasa de interés", "Una fórmula para calcular el rendimiento del bono", "Una medida de la volatilidad del bono", "Una fórmula para calcular la duración modificada"], answer: 0 },
-{ question: "📝 ¿Qué es la duración de un bono en términos simples?", options: ["El tiempo que tarda en madurar", "El tiempo que tarda en ser pagado", "El tiempo que tarda en ser vendido", "El tiempo que tarda en ser comprado"], answer: 0 }
+{ question: "📉 ¿Qué es la liquidez en el mercado secundario de bonos?", options: ["La capacidad de convertir bonos en efectivo rápidamente", "El precio de los bonos", "La tasa de interés de los bonos", "La duración de los bonos"], answer: 0 },
+{ question: "📊 ¿Cómo afecta la alta liquidez al precio de los bonos?", options: ["Aumenta el precio", "Disminuye el precio", "No afecta el precio", "Estabiliza el precio"], answer: 3 },
+{ question: "📈 ¿Qué significa un mercado secundario con baja liquidez?", options: ["Los bonos se pueden vender rápidamente", "Los bonos no se pueden vender rápidamente", "Los bonos tienen un precio más alto", "Los bonos tienen una tasa de interés más alta"], answer: 1 },
+{ question: "📉 ¿Qué factor puede aumentar la liquidez en el mercado secundario de bonos?", options: ["Una economía en recesión", "Una economía en expansión", "Una política monetaria restrictiva", "Una alta inflación"], answer: 1 },
+{ question: "📈 ¿Qué es el spread de oferta y demanda en el mercado secundario de bonos?", options: ["La diferencia entre el precio de compra y venta de bonos", "La tasa de interés de los bonos", "El plazo de los bonos", "La calificación de crédito de los bonos"], answer: 0 },
+{ question: "📉 ¿Cómo pueden los inversores mejorar la liquidez en el mercado secundario?", options: ["Comprar bonos a largo plazo", "Vender bonos a corto plazo", "Comprar bonos de empresas con baja calificación", "Comprar bonos gubernamentales"], answer: 3 },
+{ question: "📈 ¿Qué es un mercado secundario eficiente?", options: ["Un mercado donde los precios reflejan toda la información disponible", "Un mercado donde los precios no reflejan toda la información disponible", "Un mercado donde los precios son siempre altos", "Un mercado donde los precios son siempre bajos"], answer: 0 }
 ];
 
 let current = 0;
@@ -247,12 +248,17 @@ showResults();
 
 function showResults() {
 let message = "";
-if(score === 7) message = "¡Perfecto! Dominas 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
-else if(score >= 5) message = "Buen resultado en 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
-else if(score >= 4) message = "Nada mal, sigue mejorando tus conocimientos.";
-else message = "Es un buen momento para aprender más sobre 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile?";
+if (score === 7) {
+message = "¡Perfecto! Dominas la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
+} else if (score >= 5) {
+message = "Buen resultado en la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
+} else if (score >= 4) {
+message = "Has demostrado un conocimiento básico. Puedes mejorar tu comprensión sobre la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
+} else {
+message = "Es un buen momento para aprender más sobre la categoría: Mercado de bonos secundarios y el tema específico: Liquidez en el mercado secundario.\n\n📉 ¿Sabes cómo la liquidez afecta el precio de los bonos en el mercado secundario?";
+}
 
-const shareText = `He acertado ${score} de ${quizData.length} preguntas sobre 🏦 ¿Qué es la duración de un bono y cómo se calcula en Chile? en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `He acertado ${score} de ${quizData.length} preguntas sobre Mercado de bonos secundarios y Liquidez en el mercado secundario en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -278,69 +284,59 @@ window.open(url, '_blank');
 renderQuestion();
 })();
 </script>
+```
 <br><br>
-<h2>Qué es la duración de un bono y cómo se calcula en Chile</h2>
+<p>La liquidez es un concepto fundamental en el mercado secundario de bonos, ya que afecta directamente la capacidad de los inversores para comprar y vender estos instrumentos financieros. En este artículo, exploraremos cómo la liquidez influye en el precio de los bonos y qué factores la afectan, así como cómo los inversores pueden mejorar la liquidez en este mercado.</p>
 
-La duración de un bono es un concepto fundamental en el ámbito financiero, especialmente para aquellos interesados en inversiones y mercados de capitales. Este artículo explora en profundidad qué es la duración de un bono, cómo se calcula en Chile y los factores que influyen en su determinación. Además, se incluye un <strong>test</strong> práctico para evaluar tus conocimientos sobre este tema.
+<h2>¿Qué es la liquidez en el mercado secundario de bonos?</h2>
 
-<h3>¿Qué es la duración de un bono?</h3>
+<p>La liquidez en el mercado secundario de bonos se refiere a la facilidad con la que estos activos pueden ser convertidos en efectivo sin afectar significativamente su precio. En otras palabras, un mercado líquido permite a los inversores comprar y vender bonos rápidamente y con mínima variación en el precio.</p>
 
-La duración de un bono se refiere al tiempo promedio que tarda en recuperarse la inversión inicial a través de los flujos de efectivo generados por el bono. En términos más simples, es una medida de la sensibilidad del precio del bono a los cambios en las tasas de interés. A mayor duración, mayor será la variación en el precio del bono ante fluctuaciones en las tasas de interés.
+<h2>Impacto de la liquidez en el precio de los bonos</h2>
 
-<h3>Cómo se calcula la duración de un bono en Chile</h3>
+<p>La alta liquidez en el mercado secundario de bonos generalmente estabiliza los precios, ya que hay suficientes compradores y vendedores para mantener un equilibrio. Por otro lado, una baja liquidez puede llevar a fluctuaciones significativas en los precios debido a la falta de participantes en el mercado.</p>
 
-En Chile, la duración de un bono se calcula principalmente en base a la fecha de emisión y la fecha de vencimiento. La fórmula básica para calcular la duración de un bono es:
+<h3>Test: Evaluando tu conocimiento sobre liquidez</h3>
 
-<ol>
-  <li>Duración = (Valor nominal / Precio del bono) * Tiempo</li>
-</ol>
+<p>Para evaluar tu comprensión sobre cómo la liquidez afecta el precio de los bonos en el mercado secundario, puedes realizar un <strong>quiz</strong> que te ayudará a identificar áreas donde puedes mejorar tu conocimiento. Este tipo de evaluaciones son herramientas valiosas para cualquier inversor que desee entender mejor el comportamiento del mercado.</p>
 
-Esta fórmula proporciona una estimación de la sensibilidad del precio del bono a los cambios en las tasas de interés. Es importante notar que esta fórmula es una simplificación y existen otras métricas más precisas como la duración modificada y la duración de McCaulay.
+<h3>Factores que afectan la liquidez en el mercado secundario</h3>
 
-<h3>Factores que influyen en la duración de un bono</h3>
-
-Varios factores pueden influir en la duración de un bono. Entre los más relevantes se encuentran:
+<p>Varios factores pueden influir en la liquidez del mercado secundario de bonos. Entre ellos se incluyen:</p>
 
 <ul>
-  <li>Tipo de interés: A mayor tipo de interés, menor será la duración del bono.</li>
-  <li>Solvencia del emisor: La percepción del riesgo del emisor puede afectar la duración.</li>
-  <li>Fecha de emisión: Los bonos emitidos en diferentes momentos pueden tener duraciones distintas.</li>
-  <li>Tasa de inflación: La inflación puede influir en la duración, especialmente en bonos indexados.</li>
+  <li>Condiciones económicas: Una economía en expansión tiende a aumentar la liquidez, mientras que una recesión puede reducirla.</li>
+  <li>Política monetaria: Una política monetaria restrictiva puede disminuir la liquidez, ya que los inversores pueden optar por activos más seguros.</li>
+  <li>Calificación de crédito: Los bonos de emitentes con alta calificación de crédito suelen tener mayor liquidez.</li>
 </ul>
 
-<h4>Duración modificada y duración de McCaulay</h4>
+<h3>Cómo mejorar la liquidez en el mercado secundario</h3>
 
-La duración modificada y la duración de McCaulay son dos medidas más avanzadas que proporcionan una estimación más precisa de la sensibilidad del precio del bono a los cambios en las tasas de interés. La duración modificada se utiliza para calcular la variación en el precio del bono ante cambios en la tasa de interés, mientras que la duración de McCaulay es una medida de la sensibilidad del precio del bono a cambios en la tasa de interés.
+<p>Los inversores pueden mejorar la liquidez en el mercado secundario de varias maneras. Una de las estrategias más efectivas es la compra de bonos gubernamentales, que suelen tener una alta demanda y, por lo tanto, mayor liquidez.</p>
 
-<h3>Tabla comparativa de duraciones</h3>
+<h4>Ejemplo de comparación de liquidez en diferentes tipos de bonos</h4>
 
-A continuación, se presenta una tabla comparativa de las diferentes duraciones de bonos bajo diferentes condiciones de mercado:
-
-<table border="1">
+<table>
   <tr>
-    <th>Tipo de Duración</th>
-    <th>Descripción</th>
-    <th>Fórmula</th>
+    <th>Tipo de Bonos</th>
+    <th>Liquidez</th>
+    <th>Precio</th>
   </tr>
   <tr>
-    <td>Duración Simple</td>
-    <td>Tiempo promedio para recuperarse la inversión inicial</td>
-    <td>(Valor nominal / Precio del bono) * Tiempo</td>
+    <td>Gubernamentales</td>
+    <td>Alta</td>
+    <td>Estable</td>
   </tr>
   <tr>
-    <td>Duración Modificada</td>
-    <td>Variación en el precio del bono ante cambios en la tasa de interés</td>
-    <td>Duración Simple / (1 + tasa de interés)</td>
+    <td>Corporativos</td>
+    <td>Media</td>
+    <td>Variable</td>
   </tr>
   <tr>
-    <td>Duración de McCaulay</td>
-    <td>Sensibilidad del precio del bono a cambios en la tasa de interés</td>
-    <td>Duración Simple * (1 + tasa de interés)</td>
+    <td>Empresas emergentes</td>
+    <td>Baja</td>
+    <td>Volátil</td>
   </tr>
 </table>
 
-<h2>Test: ¿Qué es la duración de un bono y cómo se calcula en Chile?</h2>
-
-Para consolidar tus conocimientos sobre la duración de un bono, te invitamos a realizar nuestro <strong>Quiz</strong> especializado. Este <strong>test</strong> consta de varias preguntas que abarcan desde conceptos básicos hasta aspectos más avanzados de la duración de los bonos. ¡Pon a prueba tus habilidades y aprende al mismo tiempo!
-
-<p>Entender la duración de un bono es crucial para cualquier inversor o profesional del sector financiero. Conocer cómo se calcula y qué factores la influyen puede ayudarte a tomar decisiones más informadas y estratégicas en el mercado de bonos. Este artículo ha abordado los conceptos clave y te ha proporcionado herramientas prácticas para evaluar tu comprensión del tema.</p>
+<p>Comprender estos factores y estrategias puede ayudarte a tomar decisiones más informadas y a aprovechar mejor las oportunidades en el mercado secundario de bonos. La liquidez no solo afecta la facilidad de compra y venta, sino que también puede influir en el rendimiento de tu inversión. Por lo tanto, es crucial estar bien informado sobre cómo estos elementos interactúan en el mercado.</p>
