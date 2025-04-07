@@ -1,3 +1,4 @@
+```html
 <div id="quiz-container"></div>
 
 <style>
@@ -156,13 +157,13 @@ grid-template-columns: 1fr !important;
 <script>
 (function() {
 const quizData = [
-{ question: "📉 ¿Qué es la volatilidad en los bonos corporativos?", options: ["La variabilidad de los precios de las acciones", "La variabilidad de los rendimientos de los bonos", "La variabilidad de los tipos de interés", "La variabilidad de los dividendos"], answer: 1 },
-{ question: "📊 ¿Qué mide el beta de un bono?", options: ["La sensibilidad del bono a los cambios en los tipos de interés", "La sensibilidad del bono a los cambios en el precio del oro", "La sensibilidad del bono a los cambios en el precio del petróleo", "La sensibilidad del bono a los cambios en el precio de las acciones"], answer: 0 },
-{ question: "📈 ¿Qué es la duración de un bono?", options: ["El tiempo hasta la madurez del bono", "La sensibilidad del precio del bono a los cambios en los tipos de interés", "El rendimiento anual del bono", "El riesgo de crédito del bono"], answer: 1 },
-{ question: "📉 ¿Qué es el spread de crédito?", options: ["La diferencia entre el rendimiento de un bono y el rendimiento de un bono del gobierno", "La diferencia entre el precio de compra y el precio de venta de un bono", "La diferencia entre el rendimiento de un bono y el rendimiento de una acción", "La diferencia entre el rendimiento de un bono y el rendimiento de un fondo mutuo"], answer: 0 },
-{ question: "📉 ¿Qué es la volatilidad histórica?", options: ["La volatilidad esperada en el futuro", "La volatilidad real observada en el pasado", "La volatilidad calculada mediante modelos", "La volatilidad ajustada por riesgo"], answer: 1 },
-{ question: "📉 ¿Qué es la volatilidad implícita?", options: ["La volatilidad real observada en el pasado", "La volatilidad esperada en el futuro", "La volatilidad ajustada por riesgo", "La volatilidad calculada mediante modelos"], answer: 1 },
-{ question: "📉 ¿Qué es la volatilidad ajustada por riesgo?", options: ["La volatilidad real observada en el pasado", "La volatilidad esperada en el futuro", "La volatilidad ajustada por el riesgo de crédito", "La volatilidad calculada mediante modelos"], answer: 2 }
+{ question: "📈 ¿Qué es la duración de Macaulay en bonos corporativos?", options: ["El tiempo hasta la primera amortización", "El tiempo promedio ponderado hasta el cobro de los flujos de efectivo", "El tiempo hasta la madurez del bono", "El tiempo hasta la primera cuponización"], answer: 1 },
+{ question: "📈 ¿Cuál es la fórmula para calcular la duración de Macaulay?", options: ["D = Σ[(t * CF_t) / (1 + r)^t] / P", "D = Σ[(CF_t) / (1 + r)^t]", "D = Σ[(t * CF_t) / P]", "D = Σ[(t * CF_t) / (1 + r)^(t-1)]"], answer: 0 },
+{ question: "📈 ¿Qué representa 't' en la fórmula de la duración de Macaulay?", options: ["El tiempo hasta la madurez del bono", "El número de períodos", "El flujo de efectivo en el período t", "La tasa de descuento"], answer: 1 },
+{ question: "📈 ¿Qué representa 'CF_t' en la fórmula de la duración de Macaulay?", options: ["El flujo de efectivo en el período t", "El tiempo hasta la madurez del bono", "La tasa de descuento", "El precio del bono"], answer: 0 },
+{ question: "📈 ¿Qué representa 'r' en la fórmula de la duración de Macaulay?", options: ["El flujo de efectivo en el período t", "El tiempo hasta la madurez del bono", "La tasa de descuento", "El precio del bono"], answer: 2 },
+{ question: "📈 ¿Qué representa 'P' en la fórmula de la duración de Macaulay?", options: ["El flujo de efectivo en el período t", "El tiempo hasta la madurez del bono", "La tasa de descuento", "El precio del bono"], answer: 3 },
+{ question: "📈 ¿Qué mide la duración de Macaulay?", options: ["La sensibilidad del precio del bono a cambios en la tasa de interés", "El tiempo hasta la madurez del bono", "El flujo de efectivo en el período t", "La tasa de descuento"], answer: 0 }
 ];
 
 let current = 0;
@@ -247,12 +248,17 @@ showResults();
 
 function showResults() {
 let message = "";
-if (score === 7) message = "¡Perfecto! Dominas 📉 ¿Cómo se mide la volatilidad de los bonos corporativos?";
-else if (score >= 5) message = "Buen resultado en 📉 ¿Cómo se mide la volatilidad de los bonos corporativos?";
-else if (score === 4) message = "Tienes un buen conocimiento básico, pero puedes mejorar. 📘";
-else message = "Es un buen momento para aprender más sobre la volatilidad de los bonos corporativos. 🌱";
+if (score === 7) {
+message = "¡Perfecto! Dominas 📈 ¿Cómo se calcula la duración de Macaulay en bonos corporativos?";
+} else if (score >= 5) {
+message = "Buen resultado en 📈 ¿Cómo se calcula la duración de Macaulay en bonos corporativos?";
+} else if (score >= 4) {
+message = "Nada mal, pero puedes mejorar tu conocimiento sobre la duración de Macaulay.";
+} else {
+message = "Es un buen momento para aprender más sobre la duración de Macaulay.";
+}
 
-const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la volatilidad de los bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
+const shareText = `¡He acertado ${score} de ${quizData.length} preguntas sobre la duración de Macaulay en bonos corporativos en un test! ¿Te atreves a superarme? responderapido.com`;
 
 document.getElementById("quiz-container").innerHTML = `
 <div class="quiz-result-title">Has acertado ${score} de ${quizData.length} preguntas</div>
@@ -278,55 +284,57 @@ window.open(url, '_blank');
 renderQuestion();
 })();
 </script>
+```
 <br><br>
 ```html
-<h2>Entendiendo la Volatilidad en Bonos Corporativos</h2>
-<p>La volatilidad es un concepto crucial en el ámbito de los bonos corporativos, ya que mide la variabilidad de los rendimientos de estos instrumentos financieros. Este artículo explora cómo se mide la volatilidad en bonos corporativos, utilizando un enfoque basado en un <strong>Test</strong> interactivo que te ayudará a comprender mejor estos conceptos.</p>
+<h2>¿Qué es la duración de Macaulay en bonos corporativos?</h2>
+<p>La duración de Macaulay es una métrica fundamental en el análisis de bonos corporativos. Se refiere al tiempo promedio ponderado hasta el cobro de los flujos de efectivo del bono. Esta medida es crucial para entender la sensibilidad del precio del bono a los cambios en las tasas de interés.</p>
 
-<h3>¿Qué es la Volatilidad en Bonos Corporativos?</h3>
-<p>La volatilidad en los bonos corporativos se refiere a la variabilidad de los rendimientos de estos bonos. A diferencia de la volatilidad en las acciones, que se mide por la variabilidad de los precios, en los bonos se centra en los rendimientos. Este concepto es fundamental para los inversores, ya que les permite evaluar el riesgo asociado con sus inversiones.</p>
+<h3>Conceptos clave en la duración de Macaulay</h3>
+<p>Para comprender la duración de Macaulay, es esencial conocer algunos conceptos clave:</p>
+<ul>
+  <li>**Flujos de efectivo (CF_t)**: Representan los pagos periódicos que se reciben del bono, incluyendo cupones y el valor nominal al vencimiento.</li>
+  <li>**Tasa de descuento (r)**: Es la tasa de interés utilizada para descontar los flujos de efectivo futuros a su valor presente.</li>
+  <li>**Precio del bono (P)**: Es el precio actual del bono en el mercado.</li>
+</ul>
 
-<h3>Medición de la Volatilidad</h3>
-<p>La volatilidad en los bonos corporativos se puede medir de varias maneras. A continuación, se presentan algunas de las métricas más comunes:</p>
+<h3>Fórmula de la duración de Macaulay</h3>
+<p>La fórmula para calcular la duración de Macaulay es:</p>
+<p>D = Σ[(t * CF_t) / (1 + r)^t] / P</p>
+<p>Donde:</p>
 <ol>
-    <li>Volatilidad Histórica: Mide la volatilidad real observada en el pasado.</li>
-    <li>Volatilidad Implícita: Mide la volatilidad esperada en el futuro.</li>
-    <li>Volatilidad Ajustada por Riesgo: Ajusta la volatilidad por el riesgo de crédito.</li>
+  <li>t: Número de períodos.</li>
+  <li>CF_t: Flujo de efectivo en el período t.</li>
+  <li>r: Tasa de descuento.</li>
+  <li>P: Precio del bono.</li>
 </ol>
 
-<h3>El Beta de un Bono</h3>
-<p>El beta de un bono mide la sensibilidad del bono a los cambios en los tipos de interés. Un beta alto indica que el bono es más sensible a los cambios en los tipos de interés, lo que puede resultar en una mayor volatilidad. Este es un concepto clave que se explora en el <strong>Quiz</strong> interactivo.</p>
-
-<h3>Duración de un Bono</h3>
-<p>La duración de un bono es una medida de la sensibilidad del precio del bono a los cambios en los tipos de interés. A diferencia de la madurez, que es el tiempo hasta que el bono vence, la duración considera el flujo de caja esperado y su sensibilidad a las tasas de interés. Este concepto es esencial para entender la volatilidad de los bonos.</p>
-
-<h3>Spread de Crédito</h3>
-<p>El spread de crédito es la diferencia entre el rendimiento de un bono corporativo y el rendimiento de un bono del gobierno. Este spread refleja el riesgo de crédito del emisor del bono y es una medida importante de la volatilidad. Un spread más amplio indica un mayor riesgo y, por lo tanto, una mayor volatilidad.</p>
-
-<h4>Comparación de Métodos de Medición de Volatilidad</h4>
+<h4>Ejemplo práctico</h4>
+<p>Supongamos que tenemos un bono con los siguientes flujos de efectivo y una tasa de descuento del 5%:</p>
 <table>
-    <tr>
-        <th>Método</th>
-        <th>Descripción</th>
-        <th>Uso Común</th>
-    </tr>
-    <tr>
-        <td>Volatilidad Histórica</td>
-        <td>Mide la volatilidad real observada en el pasado.</td>
-        <td>Análisis retrospectivo</td>
-    </tr>
-    <tr>
-        <td>Volatilidad Implícita</td>
-        <td>Mide la volatilidad esperada en el futuro.</td>
-        <td>Previsión de mercado</td>
-    </tr>
-    <tr>
-        <td>Volatilidad Ajustada por Riesgo</td>
-        <td>Ajusta la volatilidad por el riesgo de crédito.</td>
-        <td>Evaluación de riesgo</td>
-    </tr>
+  <tr>
+    <th>Período (t)</th>
+    <th>Flujo de efectivo (CF_t)</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>1050</td>
+  </tr>
 </table>
+<p>Para calcular la duración de Macaulay, se descontarían los flujos de efectivo y se ponderarían por el tiempo, sumando los resultados y dividiendo por el precio del bono.</p>
+
+<h3>Importancia de la duración de Macaulay</h3>
+<p>La duración de Macaulay es una herramienta esencial para los inversores y gestores de carteras. Permite evaluar la sensibilidad del precio del bono a los cambios en las tasas de interés, lo que es crucial para la gestión de riesgos y la toma de decisiones de inversión.</p>
+<p>En un contexto de <strong>Test</strong> o <strong>Quiz</strong>, la duración de Macaulay puede ser un tema recurrente. Comprender esta métrica no solo ayuda a los inversores a tomar decisiones informadas, sino que también es fundamental para superar preguntas relacionadas en evaluaciones financieras.</p>
 
 <h3>Conclusión</h3>
-<p>Entender la volatilidad en los bonos corporativos es esencial para cualquier inversor que desee gestionar eficazmente su cartera. Utilizando herramientas como el <strong>Test</strong> interactivo proporcionado, los inversores pueden mejorar su comprensión de estos conceptos y tomar decisiones más informadas. La volatilidad, ya sea histórica, implícita o ajustada por riesgo, proporciona una visión valiosa del riesgo asociado con los bonos corporativos, permitiendo a los inversores ajustar sus estrategias en consecuencia.</p>
+<p>La duración de Macaulay es una métrica vital en el análisis de bonos corporativos. Entender cómo se calcula y qué factores influyen en ella es esencial para cualquier inversor o gestor de carteras. Conocer esta métrica no solo mejora la capacidad de análisis, sino que también prepara mejor para cualquier <strong>Test</strong> o <strong>Quiz</strong> relacionado con bonos y finanzas.</p>
 ```
